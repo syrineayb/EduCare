@@ -31,4 +31,4 @@ npm start
 Access the Platform:
 Visit http://localhost:4200 in your browser.
 Contributing
-🤝 Contributions are welcome. Fork the repo and submit pull requests. CLEAN IT
+🤝 Contributions are welcome. Fork the repo and submit pull requests. 
