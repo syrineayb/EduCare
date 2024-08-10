@@ -1,0 +1,323 @@
+/* add-topic.component.css */
+.container {
+  margin-top: 20px;
+}
+
+.position-relative {
+  position: relative;
+}
+
+.main-breadcrumb .breadcrumb-item a {
+  color: var(--custom-color);
+}
+
+.never-logged-in {
+  color: red;
+}
+
+.btn,
+.add-topic-btn {
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary,
+.add-topic-btn {
+  background-color: var(--custom-color);
+  border-color: #6a0dad;
+  color: #fff;
+}
+
+.btn-primary:hover,
+.add-topic-btn:hover {
+  background-color: var(--custom-color);
+  border-color: #4e0897;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px; /* Add some margin at the bottom */
+}
+
+.table th,
+.table td {
+  padding: 10px; /* Increase padding for cells */
+  text-align: center; /* Align text to the left */
+}
+
+.table th {
+  background-color: #f8f9fa; /* Light background color for header */
+  font-weight: bold; /* Bold font for header cells */
+}
+
+/* Table Header */
+.table thead th {
+  background-color: var(--custom-color);
+  color: #fff;
+}
+
+/* Table Rows */
+.table tbody tr:nth-of-type(odd) {
+  background-color: #f8f9fa;
+}
+
+.table tbody tr:hover {
+  background-color: #f0f0f0; /* Light background color on hover */
+}
+
+.form-control {
+  font-size: 16px;
+  padding: 0.5rem;
+  height: auto;
+  border: 1px solid #ccc;
+  border-radius: 5px; /* Rounded corners */
+  transition: border-color 0.3s ease; /* Add transition effect for smooth hover and focus */
+}
+
+.form-control:focus {
+  outline: none;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 5px var(--custom-color);
+  }
+
+
+
+  .search-input{
+    border-radius: 25px; /* Rounded corners */
+    padding-right: 2.5rem; /* Add space for the icon */
+    width: 100%; /* Set width to 100% */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition effect */
+  }
+.form-control-sm{
+  border-radius: 25px; /* Rounded corners */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition effect */
+}
+.search-input:focus,.form-control-sm:focus {
+  outline: none; /* Remove default focus outline */
+  border-color: var(--custom-color); /* Change border color on focus */
+  box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.2); /* Add box shadow on focus */
+}
+
+
+/* CSS for action buttons in table */
+.action-buttons {
+  display: flex;
+  justify-content: center; /* Center the buttons horizontally */
+  align-items: center; /* Center the buttons vertically */
+}
+
+/* Adjust button margin if needed */
+.action-buttons button {
+  margin: 5px; /* Adjust margin as desired */
+}
+/* CSS for active status button */
+.status-icon.active {
+  color: rgba(128, 0, 128, 1); /* Clear purple color (RGB: 128, 0, 128) */
+  font-size: 20px; /* Increase font size */
+  transition: all 0.3s ease; /* Add transition effect */
+  cursor: pointer; /* Change cursor to pointer */
+}
+
+/* CSS for hover effect */
+.status-icon.active:hover {
+  transform: scale(1.1); /* Scale up on hover */
+}
+
+/* CSS for inactive status button */
+.status-icon.inactive {
+  color: red; /* Change color to red when inactive */
+  font-size: 20px; /* Maintain font size */
+  transition: all 0.3s ease; /* Add transition effect */
+  cursor: pointer; /* Change cursor to pointer */
+}
+
+/* CSS for hover effect */
+.status-icon.inactive:hover {
+  transform: scale(1.1); /* Scale up on hover */
+}
+
+/* CSS for toggle button */
+.toggle-button {
+  background-color: transparent; /* Transparent background */
+  color: #6a0dad; /* Text color */
+  border: 1px solid #6a0dad; /* Border color */
+  padding: 5px 10px; /* Padding */
+  border-radius: 4px; /* Border radius */
+  cursor: pointer; /* Cursor style */
+}
+
+/* CSS for showing button on focus */
+td:hover .toggle-button {
+  display: block; /* Display the button when the status column is hovered over */
+}
+
+/* Pagination Styles */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.page-link {
+  color: #6a0dad; /* Clear purple color */
+  background-color: transparent;
+  border: none;
+  padding: 0.5rem 0.75rem;
+  margin: 0 5px;
+  font-size: 1rem;
+  line-height: 1.25;
+  text-decoration: none;
+}
+
+.page-link:hover {
+  background-color: #f0f0f0;
+  border-color: #c88ce6; /* Lighter shade of purple */
+}
+
+.page-item.active .page-link {
+  z-index: 1;
+  color: #fff;
+  background-color: #6a0dad; /* Clear purple color */
+  border-color: #6a0dad; /* Clear purple color */
+}
+
+.page-item.disabled .page-link {
+  color: #6c757d;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+/* Style for file input container */
+.position-relative {
+  position: relative;
+}
+/* Styles for the file input label */
+.file-input-label {
+  position: absolute;
+  top: 50%; /* Position label in the middle vertically */
+  left: 50%; /* Position label in the middle horizontally */
+  transform: translate(-50%, -50%); /* Center the label */
+  background-color: transparent; /* Make the background transparent */
+  color: var(--custom-color); /* Set text color */
+  padding: 10px 20px; /* Increase padding for the label */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow */
+}
+
+/* Styles for the file input icon */
+.file-input-label i {
+  margin-right: 10px; /* Add margin between icon and text */
+  font-size: 20px; /* Increase font size of the icon */
+  transition: transform 0.3s; /* Add transition for smoother hover effect */
+}
+
+/* Hover effect for the icon */
+.file-input-label:hover i {
+  transform: scale(1.2); /* Scale up the icon on hover */
+}
+
+
+
+.file-input-label input[type="file"] {
+  display: none; /* Hide the actual file input */
+}
+
+
+/* Additional styles for the modal */
+.modal-content {
+  background-color: #fff; /* White background color */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a shadow */
+}
+
+.modal-header {
+  background-color: var(--custom-color);; /* Purple background color */
+  color: #fff; /* White text color */
+  border-radius: 10px 10px 0 0; /* Rounded corners on top */
+}
+
+.modal-body {
+  padding: 20px; /* Add padding */
+}
+
+.modal-footer {
+  border-top: none; /* Remove border on top */
+  background-color: #f8f9fa; /* Light background color */
+  border-radius: 0 0 10px 10px; /* Rounded corners on bottom */
+}
+.modal-body .form-group {
+  margin-bottom: 20px; /* Add space between form groups */
+  /* Remove border */
+  border: none;
+  border-radius: 5px; /* Add border radius */
+  padding: 10px; /* Add padding */
+  width: 100%; /* Set width to 100% */
+  transition: border-color 0.3s, box-shadow 0.3s; /* Smooth transition effect */
+}
+
+
+.modal-body .form-group label {
+  font-weight: bold; /* Make labels bold */
+  color: #000000; /* Set label color */
+}
+
+.modal-body .form-control {}
+
+.modal-body .form-control:focus {
+  outline: none; /* Remove default focus outline */
+  border-color: #6a0dad; /* Change border color on focus */
+  box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.2); /* Add box shadow on focus */
+}
+
+.modal-footer .btn-primary {
+  background-color: #6a0dad; /* Set button background color */
+  border-color: #6a0dad; /* Set button border color */
+}
+
+.modal-footer .btn-primary:hover {
+  background-color: #4e0897; /* Darker shade of purple on hover */
+  border-color: #4e0897; /* Darker shade of purple on hover */
+}
+
+.form-group {
+  margin-bottom: 20px; /* Add margin at the bottom */
+}
+
+/* Position the icons */
+.search-icon, .reset-icon {
+  position: absolute; /* Position the icon absolutely */
+  top: 50%; /* Align vertically */
+  transform: translateY(-50%); /* Center vertically */
+  pointer-events: auto;
+}
+
+.search-icon {
+  right: 35px; /* Adjust right spacing for reset icon to bring it more inside the input */
+  color: var(--custom-color); /* Icon color */
+}
+
+.search-icon:hover {
+  color: #4e0897; /* Darker shade on hover */
+}
+
+.reset-icon {
+  right: 35px; /* Adjust right spacing for reset icon */
+  color: var(--custom-color); /* Icon color */
+  background-color: transparent; /* Transparent background */
+  border: none; /* Remove border */
+  cursor: pointer; /* Add pointer cursor */
+}
+
+.reset-icon:hover {
+  color: #4e0897; /* Darker shade on hover */
+}
+
+.form-error {
+  color: #cc0033;
+  display: inline-block;
+  font-size: 12px;
+  margin-top: 5px;
+  line-height: 15px;
+}

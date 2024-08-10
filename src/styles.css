@@ -1,0 +1,125 @@
+
+/* side bar*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+@import "bootstrap-icons/font/bootstrap-icons.css";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+
+  position: relative;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+
+}
+:root {
+  --custom-color: #824bc7;
+}
+h1{
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--custom-color);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  text-align: center;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  border-radius: .5rem;
+  background-color: #fff;
+  margin: 1.25rem 0 1.25rem 0;
+  box-shadow: 0 .25rem .5rem #e6edef;
+
+  .card-head {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #edf1f7;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .card-body {
+    padding: 1rem 1.5rem;
+  }
+}
+/*
+ */
+.group-7 .alert {
+  font-size: 12px; /* Increased font size for better readability */
+  padding: 10px;
+  color: #dc3545;
+  max-width: 80%;
+  margin: 0 auto;
+  border: none; /* Remove border */
+  background-color: transparent; /* Remove background color */
+}
+
+/* ---- */
+.custom-toast-error {
+  position: fixed;
+  bottom: 80px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: fit-content;
+  z-index: 9999;
+  padding: 15px 10px 15px 50px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border: 1px solid;
+  border-radius:10px;
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  color: #D8000C;
+  background-color: #FFFFFF;
+  background-image: url('https://i.imgur.com/GnyDvKN.png');
+  animation: slideUpFadeIn 0.5s ease-in-out forwards; /* Apply slide-up and fade-in animation */
+  opacity: 0; /* Start with opacity 0 */
+  transform: translateY(100%); /* Start from below the viewport */
+  /* Vendor prefixes for animation */
+  -webkit-animation: slideUpFadeIn 0.5s ease-in-out forwards;
+  -moz-animation: slideUpFadeIn 0.5s ease-in-out forwards;
+  -ms-animation: slideUpFadeIn 0.5s ease-in-out forwards;
+  -o-animation: slideUpFadeIn 0.5s ease-in-out forwards;
+}
+.custom-toast-success {
+  position: fixed;
+  bottom: 80px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: fit-content;
+  z-index: 9999;
+  padding: 15px 10px 15px 50px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border: 1px solid;
+  border-radius: 10px;
+  color: #155724;
+  background-color: #FFFFFF;
+  background-image: url('https://static-00.iconduck.com/assets.00/success-icon-512x512-qdg1isa0.png'); /* Set the success icon image */
+  background-size: 24px 24px; /* Adjust the size of the icon */
+  background-position: 10px center; /* Position the icon */
+  background-repeat: no-repeat; /* Optional: Change the URL for a different icon */
+  animation: slideUpFadeIn 0.5s ease-in-out forwards; /* Apply slide-up and fade-in animation */
+  opacity: 0; /* Start with opacity 0 */
+  transform: translateY(100%); /* Start from below the viewport */
+  /* Vendor prefixes for animation */
+  -webkit-animation: slideUpFadeIn 0.5s ease-in-out forwards;
+  -moz-animation: slideUpFadeIn 0.5s ease-in-out forwards;
+  -ms-animation: slideUpFadeIn 0.5s ease-in-out forwards;
+  -o-animation: slideUpFadeIn 0.5s ease-in-out forwards;
+}
+
+@keyframes slideUpFadeIn {
+  from {
+    opacity: 0; /* Start with opacity 0 */
+    transform: translateY(100%); /* Start from below the viewport */
+  }
+  to {
+    opacity: 1; /* Fade in to full opacity */
+    transform: translateY(0); /* Slide up to final position */
+  }
+}

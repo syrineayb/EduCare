@@ -1,0 +1,52 @@
+<div class="container-xxl py-5">
+  <div class="container">
+    <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+      <h1 class="section-title">Connect with Our Top Educators</h1>
+    </div>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+      <ng-container *ngIf="instructors && instructors.content && instructors.content.length > 0">
+        <div class="col" *ngFor="let instructor of instructors.content">
+          <div class="instructor-item card h-80 bg-light">
+            <div class="position-relative overflow-hidden">
+              <img class="img-fluid profile-image" [src]="instructor.profileImage || 'assets/img/profile/default-profile-image.jpg'" alt="Profile Image">
+            </div>
+            <div class="text-center p-3">
+              <h5 class="mb-3">{{ instructor.firstName }} {{ instructor.lastName }}</h5>
+              <p class="description">{{ instructor.description }}</p>
+              <p class="experience">{{ instructor.experience }} Years of Experience</p>
+            </div>
+            <div class="d-flex border-top p-3">
+              <small class="flex-fill text-center border-end py-2">
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to={{ instructor.email }}" target="_blank">
+                  <img src="assets/img/svg/envelope-solid.svg" width="25" height="15"/>
+                  {{ instructor.email   }}
+                </a>
+              </small>
+              <small class="flex-fill text-center border-end py-2" *ngIf="instructor.linkedInUrl" style="font-size: 12px; color: #6c757d;">
+                <a [href]="'https://linkedin.com/in/' + instructor.linkedInUrl" target="_blank">
+                  <img src="assets/img/svg/linkedin.svg" width="20" height="12" style="margin-right: 5px;"/>
+                  {{ instructor.linkedInUrl }}
+                </a>
+              </small>
+              <small class="flex-fill text-center border-end  py-2" *ngIf="!instructor.linkedInUrl" style="font-size: 12px; color: #999;margin-right: 5px">
+                <span>No LinkedIn link available</span>
+              </small>
+              <small class="flex-fill text-center py-2" *ngIf="instructor.githubUrl">
+                <a [href]="'https://github.com/' + instructor.githubUrl" target="_blank">
+                  <img src="assets/img/svg/github.svg" width="25" height="15"/>
+                  {{ instructor.githubUrl }}
+                </a>
+              </small>
+              <small class="flex-fill text-center py-2" *ngIf="!instructor.githubUrl" style="font-size: 12px; color: #999;">
+                <span>No GitHub link available</span>
+              </small>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+    <div class="text-center mt-3 no-instructors-message" *ngIf="!instructors || !instructors.content || instructors.content.length === 0">
+      <p>No instructors available.</p>
+    </div>
+  </div>
+</div>

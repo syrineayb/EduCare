@@ -1,0 +1,128 @@
+.footer {
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.85)); /* Clear background gradient */
+  padding: 80px 0; /* Increase padding to make footer taller */
+  animation: fadeInUp 0.5s ease; /* Apply fadeInUp animation */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Add box shadow */
+
+}
+
+/* Define fadeInUp animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.footer h4 {
+  font-size: 22px;
+  font-weight: bold;
+  color: var(--custom-color);
+  margin-bottom: 30px; /* Increase margin below headings */
+}
+
+.footer .footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer .footer-links li a {
+  color: #555;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer .footer-links li a:hover {
+  color: var(--custom-color);
+}
+
+.footer .footer-links li:first-child {
+  font-weight: bold;
+}
+
+.footer .footer-links li:first-child a {
+  font-weight: normal;
+}
+
+.footer .footer-links li:last-child {
+  margin-bottom: 0;
+}
+
+
+.footer p {
+  color: #666;
+  margin-bottom: 20px; /* Increase margin below paragraphs */
+}
+/* Define fadeIn animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.footer a {
+  color: var(--custom-color); /* Custom color for links */
+  text-decoration: none;
+  transition: color 0.3s; /* Smooth transition on hover */
+}
+
+.footer a:hover {
+  color: #7734E7; /* Color on hover */
+}
+
+.footer h4,
+.footer p,
+.footer a {
+  opacity: 0; /* Initially hide elements */
+  animation: fadeIn 0.5s ease forwards; /* Apply fadeIn animation */
+}
+.footer ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin-bottom: 20px; /* Spacing below list */
+}
+
+.footer li {
+  margin-bottom: 10px; /* Spacing between list items */
+}
+
+.footer hr {
+  border-color: #ddd;
+}
+
+.footer .fa {
+  margin-right: 10px; /* Spacing between icon and text */
+}
+
+.footer .text-center {
+  margin-top: 30px; /* Spacing above center-aligned text */
+}
+
+.footer .footer-links li:first-child {
+  font-weight: bold;
+}
+
+.footer .footer-links li:first-child a {
+  font-weight: normal;
+}
+
+.footer .footer-links li:last-child {
+  margin-bottom: 0; /* Remove bottom margin for last list item */
+}
+
+.navbar-brand.educare {
+  margin-bottom: 20px; /* Spacing below logo */
+  display: block;
+  text-align: center;
+}
+
+.navbar-brand.educare img {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 5px;
+}

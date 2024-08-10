@@ -1,0 +1,499 @@
+<div class="container">
+
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a routerLink="/candidate/" style="color: #7734E7;">Home</a></li>
+      <li class="breadcrumb-item"><a routerLink="/candidate/my-course" style="color: #7734E7;">My Courses</a></li>
+      <li class="breadcrumb-item"><a [routerLink]="['/candidate/my-course/lessons', courseId]" style="color: #7734E7;">Lessons</a>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page" style="color: #7734E7;">Resources</li>
+    </ol>
+  </nav>
+  <hr>
+  <!-- add method to get the course id -->
+  <app-progress-bar [progress]="progressValues.get(lessonId) || 0"></app-progress-bar>
+
+  <div *ngIf="allResourcesComplete && resources.length > 1" class="alert alert-success mt-3" role="alert"
+       style="text-align: center; font-size: 1.5em;">
+    <strong>Well done!</strong> You have completed all resources for this lesson.
+  </div>
+
+
+  <div>
+    <p *ngIf="resources && resources.length > 0" class="resource-container">
+    <div *ngFor="let resource of resources" class="resource card mb-3">
+      <div class="card-body text-center">
+        <!-- Image Section -->
+        <div class="discussion-content mb-3" *ngIf="resource.imageFile">
+          <img *ngIf="resource.imageFile" [src]="resource.imageFile" alt="Image" class="img-fluid mb-3">
+          <a [href]="resource.imageFile" target="_blank" download class="btn btn-primary mt-3"
+             style="width: 100%; height: 100%;"> <i class="fas fa-download"></i>    Download Image</a>
+        </div>
+
+        <div class="discussion-content mb-3" *ngIf="resource.pdfFile">
+          <div class="content-icon" (click)="toggleContent('pdf')">
+            <i class="fas fa-file-pdf content-icon pdf-icon"></i>
+          </div>
+          <div *ngIf="showPdf" class="pdf-content">
+            <pdf-viewer [src]="resource.pdfFile" [render-text]="true" [original-size]="false"
+                        class="pdf-viewer"></pdf-viewer>
+            <a [href]="resource.pdfFile" target="_blank" download class="btn btn-primary mt-3 download-btn"><i class="fas fa-download" style=" margin-right: 10px;"></i> Download PDF</a>
+          </div>
+        </div>
+
+        <!-- Video Section -->
+        <div *ngIf="resource.videoFile" class="video-container mb-3">
+          <vg-player (onPlayerReady)="onPlayerReady($event)">
+            <vg-overlay-play></vg-overlay-play>
+            <vg-buffering vgFor="singleVideo"></vg-buffering>
+            <vg-scrub-bar>
+              <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+              <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
+            </vg-scrub-bar>
+            <vg-controls>
+              <vg-play-pause></vg-play-pause>
+              <vg-playback-button></vg-playback-button>
+              <vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
+              <vg-scrub-bar style="pointer-events: none;"></vg-scrub-bar>
+              <vg-time-display vgProperty="left" vgFormat="mm:ss"></vg-time-display>
+              <vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>
+              <vg-track-selector></vg-track-selector>
+              <vg-mute></vg-mute>
+              <vg-volume></vg-volume>
+              <vg-fullscreen></vg-fullscreen>
+            </vg-controls>
+            <video [vgMedia]="$any(media)" #media id="singleVideo" preload="none" [src]="resource.videoFile"
+                   crossorigin>
+            </video>
+          </vg-player>
+          <a [href]="resource.videoFile" download class="btn btn-primary mt-3" style="width: 100%; height: 100%;">
+            <i class="fas fa-download"></i> <span>Download Video</span>
+          </a>
+        </div>
+
+      </div>
+
+      <div class="card-footer text-end">
+
+        <!-- Mark as Completed Button -->
+        <button *ngIf="!isResourceComplete" class="btn btn-primary" (click)="markResourceComplete(resource.id)">Mark as Completed</button>
+
+        <!-- Next Resource Button -->
+        <button *ngIf="isResourceComplete" class="btn btn-primary" (click)="loadNextResource()">Next Resource</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!--
+    &lt;!&ndash; Button for Next Lesson Resources &ndash;&gt;
+    <div class="card-footer text-end">
+      <button class="btn btn-primary" (click)="navigateToNextLessonResources()" [disabled]="!hasLessons()">
+        Next Lesson Resources
+      </button>
+    </div>
+  -->
+
+
+  <!-- Pagination -->
+  <nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+      <li class="page-item" [class.disabled]="currentPage === 0">
+        <a class="page-link" href="#" (click)="prevPage($event)" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      <li *ngFor="let page of [].constructor(totalPages); let i = index" class="page-item"
+          [class.active]="currentPage === i">
+        <a class="page-link" href="#" (click)="changePage(i, $event)">{{ i + 1 }}</a>
+      </li>
+      <li class="page-item" [class.disabled]="currentPage === totalPages - 1">
+        <a class="page-link" href="#" (click)="nextPage($event)" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <!--
+    <p *ngIf="!resources || resources.length === 0">No more resources found for this lesson.</p>
+    <button class="btn btn-primary" [disabled]="disableNextButton" (click)="navigateToNextLessonResources()">
+      Next Lesson Resources
+    </button>
+    -->
+  <!-- ***Forum section*** -->
+
+
+  <!-- Forum title -->
+  <div *ngIf="forum?.title" class="forum-title mt-4 text-center">
+    <h3>{{ forum?.title ?? 'Forum' }}</h3>
+  </div>
+
+  <!-- Search input -->
+  <div class="row mt-4">
+    <div class="col-md-6 offset-md-3">
+      <input type="text" class="form-control search-input" placeholder="Search by subject" [(ngModel)]="searchKeyword">
+    </div>
+    <div class="col-md-3">
+      <button class="btn btn-primary" (click)="searchDiscussionsBySubject(0)">Search</button>
+      <button class="btn btn-secondary" (click)="resetSearch()">Reset</button>
+    </div>
+  </div>
+
+
+  <!-- Discussion container -->
+  <div *ngIf="messages && messages.length > 0" class="discussion-container">
+    <!-- Discussion cards -->
+    <div *ngFor="let message of messages" class="discussion card mb-3">
+      <div *ngIf="currentUser && currentUser.id === message.authorId" class="discussion-icons">
+        <i class="fas fa-trash delete-icon icon" (click)="deleteDiscussion(message.id)"></i>
+        <i class="fas fa-edit edit-icon icon" (click)="toggleEditMode(message)"></i>
+      </div>
+      <div *ngIf="message.editMode; else displaySubject" class="card-header">
+        <input type="text" class="form-control" [(ngModel)]="message.subject">
+        <textarea class="form-control mt-2" rows="5" [(ngModel)]="message.messageText"></textarea>
+
+        <!-- Input fields for file uploads -->
+        <label>Record File:</label>
+        <div class="mb-3">
+          <div class="recorder-controls">
+            <div class="audio-record" *ngIf="!recording">
+              <p class="audio-placeholder" style="color: green;">Click To Start Recording</p>
+              <img src="assets/img/record-icon.png" (click)="startRecording()" class="mic-icon"/>
+            </div>
+            <div class="audio-record" *ngIf="recording">
+              <p class="audio-placeholder" style="color: red;">Recording...</p>
+              <img src="assets/img/record-icon.png" (click)="stopRecording()" class="mic-icon"/>
+            </div>
+          </div>
+          <div *ngIf="url" class="audio-preview-container">
+            <label class="form-label">Recorded Audio Preview:</label>
+            <div class="audio-preview">
+              <audio [src]="sanitize(url)" controls class="audio-player"></audio>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div>
+          <label>Image File:</label>
+          <input type="file" name="imageFile" (change)="onFileSelected($event, 'imageFile')" accept="image/*">
+        </div>
+        <div>
+          <label>Video File:</label>
+          <input type="file" name="videoFile" (change)="onFileSelected($event, 'videoFile')" accept="video/*">
+        </div>
+        <div>
+          <label>PDF File:</label>
+          <input type="file" name="pdfFile" (change)="onFileSelected($event, 'pdfFile')" accept=".pdf">
+        </div>
+
+        <!-- Button to trigger update -->
+        <button class="btn btn-primary mt-3" (click)="updateDiscussion(message)">Update</button>
+      </div>
+
+      <ng-template #displaySubject>
+        <div class="card-header">
+          <h5 class="card-title">{{ message.subject }}</h5>
+
+          <!--
+          <button class="btn btn-sm btn-outline-primary mt-2" (click)="toggleEditMode(message)">Edit</button>
+          -->
+        </div>
+      </ng-template>
+
+
+      <div class="card-body">
+
+        <!-- Message content -->
+        <div *ngIf="message" class="discussion-message">
+          <div class="discussion-content mb-3">
+            <p *ngIf="message.messageText">{{ message.messageText }}</p>
+          </div>
+
+          <div class="discussion-content mb-3" *ngIf="message.pdfUrl">
+            <div class="content-icon" (click)="toggleContent('pdf')">
+              <i class="fas fa-file-pdf content-icon pdf-icon"></i>
+            </div>
+            <div *ngIf="showPdf" class="pdf-content">
+              <a [href]="message.pdfUrl" target="_blank" class="download-link">Download PDF</a>
+              <pdf-viewer [src]="message.pdfUrl" [render-text]="true" [original-size]="false"
+                          style="width: 500px; height: 300px; display: block; margin: 0 auto;"></pdf-viewer>
+            </div>
+          </div>
+
+          <!-- Image content -->
+          <div class="discussion-content mb-3" *ngIf="message.imageUrl">
+            <div class="content-icon" (click)="toggleContent('image')">
+              <i class="fas fa-file-image content-icon image-icon"></i>
+            </div>
+            <div *ngIf="showImage" class="image-content-container">
+              <label class="form-label">Image:</label>
+              <div class="image-content">
+                <img [src]="message.imageUrl" alt="Image" class="img-fluid">
+              </div>
+            </div>
+          </div>
+
+          <!-- Video content -->
+          <div class="discussion-content mb-3" *ngIf="message.videoUrl">
+            <div class="content-icon" (click)="toggleContent('video')">
+              <i class="fas fa-file-video content-icon video-icon "></i>
+            </div>
+            <div *ngIf="showVideo" class="video-content-container">
+              <label class="form-label">Video:</label>
+              <div class="video-content">
+                <vg-player (onPlayerReady)="onPlayerReady($event)">
+                  <vg-overlay-play></vg-overlay-play>
+                  <vg-buffering vgFor="single-video"></vg-buffering>
+                  <vg-scrub-bar>
+                    <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                    <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
+                  </vg-scrub-bar>
+                  <vg-controls>
+                    <vg-play-pause></vg-play-pause>
+                    <vg-playback-button></vg-playback-button>
+                    <vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
+                    <vg-scrub-bar style="pointer-events: none;"></vg-scrub-bar>
+                    <vg-time-display vgProperty="left" vgFormat="mm:ss"></vg-time-display>
+                    <vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>
+                    <vg-track-selector></vg-track-selector>
+                    <vg-mute></vg-mute>
+                    <vg-volume></vg-volume>
+                    <vg-fullscreen></vg-fullscreen>
+                  </vg-controls>
+                  <video [vgMedia]="$any(media)" #media id="single-video" preload="none"
+                         [src]="message.videoUrl" crossorigin>
+                  </video>
+                </vg-player>
+              </div>
+
+            </div>
+          </div>
+
+
+          <!-- Audio content -->
+          <div *ngIf="message.recordUrl" class="discussion-content mb-3">
+            <div class="content-icon" (click)="toggleContent('audio')">
+              <i class="fas fa-file-audio content-icon audio-icon"></i>
+            </div>
+            <div *ngIf="showAudio" class="audio-content-container">
+              <label class="form-label">Recorded Audio:</label>
+
+              <div class="audio-content">
+                <!-- Audio Player -->
+                <!--
+                <audio #audioElement controls>
+                  <source [src]="message.recordUrl" type="audio/mpeg">
+                  Your browser does not support the audio element.
+                </audio>
+                -->
+                <!-- Play Audio Button -->
+                <!-- Download Audio Link -->
+                <a [href]="message.recordUrl" download="recorded_audio.wav" class="download-link">Download Audio</a>
+              </div>
+            </div>
+          </div>
+          <!-- 2 -->
+          <!-- Icon for toggling answers -->
+          <div class="author-and-date">
+            <small class="author-name">By {{ message.authorFullName }}</small>
+            <br>
+            <small class="message-date">Posted on {{ message.createdAt | date:'medium' }}</small>
+          </div>
+          <button (click)="toggleAnswers(message)" class="btn btn-sm btn-outline-primary">
+            <i class="fas fa-comments"></i> <!-- Font Awesome icon for comments -->
+            <span class="comment-count" *ngIf="message?.answers?.length"> {{ message?.answers?.length }}</span>
+          </button>
+
+          <!-- Answers section -->
+          <div *ngIf="message && message.showAnswers">
+            <div *ngIf="message.answers && message.answers.length > 0" class="answers-container">
+              <ul class="list-group">
+                <li *ngFor="let answer of message.answers" class="list-group-item">
+                  <p>{{ answer.messageContent }}</p>
+                  <div class="author-and-date">
+                    <small class="author-name">By {{ answer.authorFullName }}</small>
+                    <br>
+                    <small class="message-date">Posted on {{ answer.createdAt | date:'medium' }}</small>
+                  </div>
+                  <!-- Icons for the author of the answer -->
+                  <div *ngIf="currentUser && currentUser.id === answer.authorId" class="answer-icons">
+                    <i class="fas fa-trash delete-icon icon" (click)="deleteAnswer(message.id, answer.id)"></i>
+                    <i class="fas fa-edit edit-icon icon" (click)="toggleEditAnswer(message.id, answer.id)"></i>
+                  </div>
+
+                  <!-- Update Answer Form -->
+                  <div *ngIf="showUpdateAnswerInput && selectedDiscussionId === message.id && selectedAnswerId === answer.id" class="update-answer-form">
+                    <textarea [(ngModel)]="updatedAnswer.messageContent" class="form-control mb-2" placeholder="Update your answer here..."></textarea>
+                    <button (click)="submitUpdatedAnswer(answer.id)" class="btn btn-primary">Update</button>
+                  </div>
+
+                  <!-- Icons for the author of the answer -->
+                  <!-- Bouton pour ajouter une réponse -->
+                  <!--  <button (click)="toggleAddAnswerInput(message.id)" class="btn btn-sm btn-outline-primary">
+                    <i class="fas fa-comments"></i>
+                      <span class="comment-count" *ngIf="message?.answers?.length">{{ message?.answers?.length }}</span>
+
+                    </button>  -->
+                  <!-- Toggle reply input button -->
+             <!--
+                  <button (click)="toggleReplyInput(answer)">Toggle Reply Input</button>
+-->
+                  <!-- Reply input form -->
+                  <div *ngIf="answer.showReplyInput">
+                    <textarea [(ngModel)]="newAnswer.messageContent" class="form-control" placeholder="Type your reply here..." style="padding-right: 40px;"></textarea>
+                    <button (click)="submitReply(answer)" class="btn btn-custom" style="position: absolute; top: 0; right: 0; height: 100%;">
+                      <i class="fas fa-paper-plane"></i> <!-- Font Awesome icon for sending a reply -->
+                    </button>
+                  </div>
+
+                  <!-- Nested answers -->
+                  <ul *ngIf="answer.replies && answer.replies.length > 0" class="nested-answers">
+                    <li *ngFor="let reply of answer.replies" class="list-group-item">
+                      <!-- Nested answer content -->
+                    </li>
+                  </ul>
+
+                </li>
+              </ul>
+            </div>
+
+            <!-- Add Answer Form -->
+            <div *ngIf="showAddAnswerInput && selectedDiscussionId === message.id" class="add-answer-form">
+              <div style="position: relative;">
+    <textarea [(ngModel)]="newAnswer.messageContent" class="form-control" placeholder="Type your answer here..."
+              style="padding-right: 40px;"></textarea>
+                <button (click)="submitAnswer()" class="btn btn-custom" style="position: absolute; top: 0; right: 0; height: 100%;">
+                  <i class="fas fa-paper-plane"></i> <!-- Font Awesome icon for sending a message -->
+                </button>
+              </div>
+            </div>
+
+
+
+
+
+            <button (click)="toggleAddAnswerInput(message.id)" class="btn btn-primary mt-3">Add Answer</button>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Pagination controls for discussions -->
+    <nav *ngIf="discussionTotalPages > 1" aria-label="Discussion pagination" class="text-center">
+      <ul class="pagination justify-content-center">
+        <li class="page-item" [class.disabled]="discussionCurrentPage === 0">
+          <a class="page-link" href="#" (click)="prevDiscussionPage($event)" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+
+          </a>
+        </li>
+        <li class="page-item" *ngFor="let page of generatePageArray(discussionTotalPages)"
+            [class.active]="page === discussionCurrentPage">
+          <a class="page-link" href="#" (click)="changeDiscussionPage(page, $event)">{{ page + 1 }}</a>
+        </li>
+        <li class="page-item" [class.disabled]="discussionCurrentPage >= discussionTotalPages - 1">
+          <a class="page-link" href="#" (click)="nextDiscussionPage($event)" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+
+
+
+
+
+
+  <!-- Message when no discussions found -->
+  <div *ngIf="messages.length === 0" class="no-discussions mt-3 text-center">
+    <p>No discussions found.</p>
+  </div>
+
+  <!-- Add Discussion Button -->
+  <div class="row mb-3">
+    <div class="col text-center">
+      <button class="btn btn-primary" (click)="toggleAddDiscussionForm()">Add Message</button>
+    </div>
+  </div>
+
+  <!-- Add Discussion Form -->
+  <div class="row mt-4" [ngClass]="{ 'd-none': !showAddDiscussionForm }">
+    <div class="col">
+      <form (submit)="submitDiscussion()">
+        <div class="mb-3">
+          <label for="subject" class="form-label">Subject</label>
+          <input type="text" class="form-control" id="subject" name="subject" [(ngModel)]="newDiscussion.subject"
+                 required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Message Type</label>
+          <div class="message-type-icons">
+          <span class="file-type-icon text" (click)="toggleMessageType('text')">
+            <i class="fas fa-file-alt"></i> <!-- Text icon -->
+          </span>
+            <span class="file-type-icon pdf" (click)="toggleMessageType('pdf')">
+            <i class="fas fa-file-pdf"></i> <!-- PDF icon -->
+          </span>
+            <span class="file-type-icon image" (click)="toggleMessageType('image')">
+            <i class="fas fa-file-image"></i> <!-- Image icon -->
+          </span>
+            <span class="file-type-icon video" (click)="toggleMessageType('video')">
+            <i class="fas fa-file-video"></i> <!-- Video icon -->
+          </span>
+            <span class="file-type-icon record" (click)="toggleMessageType('audio')">
+            <i class="fas fa-file-audio"></i> <!-- Record icon -->
+          </span>
+          </div>
+        </div>
+        <div class="mb-3" *ngIf="showPdfInput">
+          <label class="form-label">Attach PDF File</label>
+          <input type="file" name="pdfFile" (change)="onFileSelected($event, 'pdfFile')" accept=".pdf" >
+        </div>
+        <div class="mb-3" *ngIf="showImageInput">
+          <label class="form-label">Attach Image File</label>
+          <input type="file" name="imageFile" (change)="onFileSelected($event, 'imageFile')" accept="image/*">
+        </div>
+        <div class="mb-3" *ngIf="showVideoInput">
+          <label class="form-label">Attach Video File</label>
+          <input type="file" name="videoFile" (change)="onFileSelected($event, 'videoFile')" accept="video/*">
+        </div>
+        <div class="mb-3" *ngIf="showTextInput">
+          <label for="text" class="form-label">Message</label>
+          <textarea class="form-control" id="text" name="text" rows="4" [(ngModel)]="newDiscussion.messageText"
+                    (change)="onFileSelected($event, 'recordFile')" required></textarea>
+        </div>
+        <div class="mb-3" *ngIf="showRecordInput">
+          <label class="form-label">Attach Record File</label>
+          <div class="recorder-controls">
+            <div class="audio-record" *ngIf="!recording">
+              <p class="audio-placeholder" style="color: green;">Click To Start Recording</p>
+              <img src="assets/img/record-icon.png" (click)="startRecording()" class="mic-icon"/>
+            </div>
+            <div class="audio-record" *ngIf="recording">
+              <p class="audio-placeholder" style="color: red;">Recording...</p>
+              <img src="assets/img/record-icon.png" (click)="stopRecording()" class="mic-icon"/>
+            </div>
+          </div>
+          <div *ngIf="url" class="audio-preview-container">
+            <label class="form-label">Recorded Audio Preview:</label>
+            <div class="audio-preview">
+              <audio [src]="sanitize(url)" controls class="audio-player"></audio>
+            </div>
+
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="button" class="btn cancel-btn" (click)="cancelDiscussion()">Cancel</button>
+
+
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="border p-4 correct-answers-section" style="width: 50%; margin: 0 auto;">
+    <h3>Correct Answers</h3>
+    <div *ngIf="questionResults.length === 0">
+      <p>No correct answers to display.</p>
+    </div>
+    <div *ngIf="questionResults.length > 0">
+      <div *ngFor="let result of questionResults">
+        <h5>Question ID: {{ result.questionId }}</h5>
+        <p><strong>Correct Options:</strong> {{ result.correctOptionIds.join(', ') }}</p>
+        <p><strong>Your Selections:</strong> {{ result.submittedOptionIds.join(', ') }}</p>
+        <hr>
+      </div>
+    </div>
+    <div class="text-center mt-4">
+      <button type="button" class="btn btn-secondary" (click)="goBack()">Back</button>
+    </div>
+  </div>
+</div>

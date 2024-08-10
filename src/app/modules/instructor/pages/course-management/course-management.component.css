@@ -1,0 +1,350 @@
+
+/* Add custom CSS to make the input fields more sizable */
+/* Form control styles */
+.form-control {
+  padding: 0.5rem;
+  height: auto;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s ease; /* Add transition effect for smooth hover and focus */
+}
+
+
+/* Hover State */
+.form-control:hover {
+  border-color: var(--custom-color); /* Change border color on hover */
+}
+
+/* Focus State */
+.form-control:focus {
+  border-color: var(--custom-color); /* Change border color on focus */
+  box-shadow: 0 0 0 0.1rem rgba(94, 46, 196, 0.25); /* Add box shadow on focus */
+}
+
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+/*
+h1 {
+  font-weight: 400;
+  color: var(--custom-color);
+  font-size: 36px;
+  margin-bottom: 20px;
+  text-align: center;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  position: relative;
+}
+
+ */
+
+
+.search-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.search-input{  width: 200px; /* Adjust width as needed */
+  margin-right: 10px; /* Add spacing between inputs */
+  font-size: 16px; /* Adjust font size */
+  padding: 8px; /* Adjust padding */
+  border: 1px solid #ccc; /* Add border */
+  border-radius: 25px; /* Add border radius */}
+
+.search-bar .form-control {
+  width: 250px; /* Adjust width as needed */
+  margin-right: 10px;
+}
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+
+/* Table Styles */
+.table th {
+  background-color: var(--custom-color);; /* Purple color for table headers */
+  color: #fff;
+  font-weight: bold;
+}
+
+.table td {
+  text-align: left;
+}
+
+.course-title,
+.time-commitment
+{
+  width: 120px; /* Adjust width as needed */
+}
+.course-description{
+  width: 200px;
+  font-size:12px;
+}
+.course-price{
+  width: 100px; /* Adjust width as needed */
+}
+
+
+.price-container:hover .course-price-input,
+.free-status:hover + .course-price-input {
+  display: block;
+}
+
+
+
+/* Adjust button layout */
+.btn {
+  display: inline-block; /* Make buttons appear inline */
+  margin-right: 10px; /* Add spacing between buttons */
+}
+
+.btn-primary {
+  background-color: var(--custom-color);
+  color: #fff;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #4e0897;
+  border-color: #4e0897;
+}
+.btn-secondary {
+  /* background-color: #8a62d3;
+   color: #fff;
+
+   */
+  border: none;
+}
+/* Hide the file input */
+.file-input-label input[type="file"] {
+  display: none;
+}
+
+/* Style the file input label */
+.file-input-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px; /* Adjust width as needed */
+  height: 20px; /* Adjust height as needed */
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.7); /* Transparent background color */
+  color: var(--custom-color); /* Icon color with opacity */
+  text-align: center;
+  line-height: 20px; /* Center the icon vertically */
+  cursor: pointer;
+}
+
+.file-input-label i {
+  font-size: 12px; /* Adjust icon size as needed */
+}
+.course-image {
+  width: 100%; /* Set the width to fill its container */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: cover; /* Ensure the image covers the specified dimensions */
+  border-radius: 50%; /* Add border radius */
+  border: 2px solid #ccc; /* Add border */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  max-width: 100%; /* Ensure the image doesn't exceed its container's width */
+  max-height: 500px; /* Set a maximum height for the image */
+}
+
+
+.free-status {
+  color: green; /* Set the color to green for the free status */
+  font-weight: bold; /* Make the text bold */
+}
+.add-lesson-button {
+  background-color: var(--custom-color);
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.add-lesson-button:hover {
+  background-color: #4e0897; /* Darker green on hover */
+}
+
+.btn-create-course{
+  display: block;
+  width: 25%; /* Set width to 100% */
+  padding: 10px 10px; /* Adjusted padding for smaller size */
+  margin: 20px auto; /* Set left and right margins to auto */
+  background: linear-gradient(135deg, #824bc7, #800080);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 12px; /* Adjusted font size */
+  cursor: pointer;
+}
+.btn-create-course:hover {
+  background: linear-gradient(135deg, #6a006a,#6a2e99);
+}
+/* Pagination Styles */
+.pagination {
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  list-style: none; /* Remove default list style */
+  display: flex; /* Use flexbox to align items horizontally */
+  justify-content: center; /* Center align pagination */
+}
+
+/* Pagination Item Styles */
+.page-item {
+  margin-right: 5px; /* Add some spacing between pagination items */
+}
+
+/* Pagination Link Styles */
+.page-link {
+  color: var(--custom-color);  /* Text color */
+  text-decoration: none; /* Remove default underline */
+  padding: 5px 10px; /* Adjust padding */
+  border: 1px solid  var(--custom-color);  /* Border color */
+  border-radius: 3px; /* Rounded corners */
+}
+
+/* Active Page Style */
+.page-item.active .page-link {
+  background-color: var(--custom-color); /* Background color for active page */
+  color: #fff; /* Text color for active page */
+}
+
+/* Disabled Page Style */
+.page-item.disabled .page-link {
+  color: #ddd; /* Text color for disabled page */
+  cursor: not-allowed; /* Show not-allowed cursor for disabled page */
+}
+
+/* Hover effect for the icons */
+.btn-info:hover i,
+.btn-danger:hover i {
+  color: #4e0897; /* Darker color on hover */
+}
+
+/* Remove default button colors */
+.btn-info,
+.btn-danger {
+  color: var(--custom-color); /* Icon color for the Update button */
+
+  background-color: transparent; /* Make the background color transparent */
+  border-color: transparent; /* Remove button border */
+}
+
+/* Remove default button hover colors */
+.btn-info:hover,
+.btn-danger:hover {
+  background-color: transparent; /* Make the background color transparent on hover */
+  border-color: transparent; /* Remove button border on hover */
+}
+
+
+/* create course modal */
+.create-course-form input[type="text"],
+.create-course-form input[type="number"],
+.create-course-form textarea,
+.create-course-form select,
+.create-course-form input[type="date"] {
+  width: 100%;
+  margin-bottom: 15px; /* Add some space between inputs */
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s ease; /* Add transition effect for smooth hover and focus */
+}
+
+.create-course-form input[type="text"]:hover,
+.create-course-form input[type="number"]:hover,
+.create-course-form textarea:hover,
+.create-course-form select:hover,
+.create-course-form input[type="date"]:hover {
+  border-color: var(--custom-color);
+}
+
+.create-course-form input[type="text"]:focus,
+.create-course-form input[type="number"]:focus,
+.create-course-form textarea:focus,
+.create-course-form select:focus,
+.create-course-form input[type="date"]:focus {
+  outline: none;
+  border-color: var(--custom-color);
+  box-shadow: 0 0 5px rgba(106, 13, 173, 0.5);
+}
+.error-message {
+  color: #cc0033;
+  display: inline-block;
+  font-size: 12px;
+  line-height: 15px;
+  margin-top: 5px;
+}
+/* Animation for the button */
+@keyframes slideIn {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+.file-upload-container .file-upload {
+  color: #333;
+  padding: 10px 20px; /* Padding */
+  border-radius: 4px; /* Border radius */
+  cursor: pointer; /* Cursor */
+  display: inline-block; /* Display as inline-block */
+}
+
+.file-upload-container .file-upload:hover {
+  background-color: var(--custom-color); /* Background color on hover */
+  color: #fff; /* Text color on hover */
+}
+
+.file-upload-container .file-upload i {
+  margin-right: 5px; /* Space between icon and text */
+}
+
+/* Hide default file input text */
+.file-upload-container input[type="file"] {
+  display: none;
+}
+
+.file-upload-container .selected-image {
+  margin-top: 10px; /* Add margin to separate from the input */
+  font-size: 12px; /* Adjust font size */
+  color: #333; /* Set text color */
+  font-weight: bold; /* Make text bold */
+}
+
+
+.modal-header {
+  background-color: var(--custom-color);; /* Purple background color */
+  color: #fff; /* White text color */
+  border-radius: 10px 10px 0 0; /* Rounded corners on top */
+}
+
+/* Additional styles for the modal */
+.modal-content {
+  background-color: #fff; /* White background color */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a shadow */
+}.modal-footer {
+   border-top: none; /* Remove border on top */
+   background-color: #f8f9fa; /* Light background color */
+   border-radius: 0 0 10px 10px; /* Rounded corners on bottom */
+ }

@@ -1,0 +1,107 @@
+<!-- HTML -->
+<div class="container">
+
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a routerLink="/candidate/" style="color: #7734E7;">Home</a></li>
+      <li class="breadcrumb-item"><a routerLink="/candidate/my-course" style="color: #7734E7;">My Courses</a></li>
+      <li class="breadcrumb-item"><a routerLink="/candidate/my-course" style="color: #7734E7;">Quizzes</a></li>
+      <li class="breadcrumb-item active" aria-current="page" style="color: #7734E7;">Quiz</li>
+
+    </ol>
+  </nav>
+  <hr>
+
+
+  <div class="container mt-5" *ngIf="userScore">
+    <div class="border p-4 quiz-result-section rounded shadow-sm"
+         style="max-width: 700px; margin: 0 auto; background-color: #f8f9fa;">
+      <h3 class="text-center quiz-result-title mb-4">Quiz Result</h3>
+      <p class="lead">Your Score: <strong>{{ userScore.percentage }}%</strong></p>
+      <div class="text-center mt-4">
+        <button type="button" class="btn btn-primary mr-2" (click)="replayQuiz()">Replay</button>
+        <button type="button" class="btn btn-primary mr-2" (click)="toggleCorrectAnswers()">See Correct Answers</button>
+        <button type="button" class="btn btn-primary ml-2" [routerLink]="['/candidate/listQuizzes', 1]">Take Another
+          Quiz
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container mt-5" *ngIf="showCorrectAnswers && (userScore?.questionResults?.length ?? 0) > 0">
+    <div class="border p-4 quiz-result-section rounded shadow-sm"
+         style="max-width: 700px; margin: 0 auto; background-color: #f8f9fa;">
+      <h3 class="text-center text-primary mb-4">Correct Answers</h3>
+      <div *ngFor="let result of userScore?.questionResults ?? []">
+        <div class="question-header mb-3">
+          <h5 class="coQfSf ">{{ getQuestionText(result?.questionId) }}</h5>
+        </div>
+        <div class="quiz-options mb-4">
+          <ng-container *ngFor="let optionId of getOptionIds(result?.questionId) ?? []">
+            <div class="form-check mb-2">
+              <input type="checkbox" [id]="'option-' + optionId" class="form-check-input" disabled
+                     [checked]="result?.submittedOptionIds?.includes(optionId)"/>
+              <label class="form-check-label" [for]="'option-' + optionId">
+              <span
+                [ngClass]="{'text-success': result?.submittedOptionIds?.includes(optionId) ?? false, 'text-danger': !(result?.submittedOptionIds?.includes(optionId) ?? false)}">
+                {{ getOptionText(optionId) }}
+              </span>
+                <span
+                  *ngIf="!(result?.submittedOptionIds?.includes(optionId) ?? false) && (result?.correctOptionIds?.includes(optionId) ?? false)"
+                  class="text-success">
+                (Correct Answer)
+              </span>
+              </label>
+            </div>
+          </ng-container>
+        </div>
+        <hr>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mt-5"
+       *ngIf="showCorrectAnswers && (!userScore || !userScore.questionResults || userScore.questionResults.length === 0)">
+    <div class="alert alert-info text-center">No correct answers to display.</div>
+  </div>
+
+  <div class="container mt-5" *ngIf="!userScore">
+    <div class="border p-4 quiz-section rounded shadow-sm"
+         style="max-width: 700px; margin: 0 auto; background-color: #f8f9fa;">
+      <h3 class="text-center mb-4">Test your knowledge with these questions</h3>
+      <div *ngIf="remainingTime !== null" class="alert alert-warning text-center">
+        Time Remaining: {{ remainingTimeString }}
+      </div>
+      <p class="lead">Mark: <strong>{{ quiz?.mark }}</strong></p>
+
+      <hr>
+      <div *ngIf="questions && questions.length > 0">
+        <div class="list-group mb-4" *ngFor="let question of questions">
+          <div class="question-header mb-3">
+            <h5 class="coQfSf ">{{ question.text }}</h5>
+            <!-- Display message based on question type -->
+            <p class="text-muted p" *ngIf="question.type === 'YES_NO'">Choose one option</p>
+            <p class="text-muted p" *ngIf="question.type === 'MULTIPLE_CHOICE'">Choose at least 2 options</p>
+            <p class="text-muted p" *ngIf="question.type === 'SINGLE_CHOICE'">Choose one option</p> <!-- Add this line -->
+          </div>
+          <form (ngSubmit)="submitQuiz()">
+            <div class="quiz-options mb-4">
+              <ng-container *ngFor="let option of question.options; let i = index">
+                <div class="form-check mb-2">
+                  <input type="checkbox" [id]="'option-' + i" [value]="option.id" [name]="'question_' + question.id"
+                         class="form-check-input" (change)="handleSelection(question.id, option.id) ">
+                  <label class="form-check-label" [for]="'option-' + i">{{ option.text }}</label>
+                </div>
+              </ng-container>
+            </div>
+          </form>
+          <hr>
+        </div>
+      </div>
+      <div class="text-center mt-4">
+        <button type="button" class="btn btn-primary" (click)="submitQuiz()">Submit Answer</button>
+      </div>
+    </div>
+  </div>
+</div>

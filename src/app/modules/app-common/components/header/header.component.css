@@ -1,0 +1,131 @@
+/* Header styles */
+.header {
+  background-color: #ffffff; /* Adjust background color as needed */
+  padding: 10px 0; /* Adjust padding as needed */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Add box shadow */
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 24px; /* Adjust image width as needed */
+  height: 24px; /* Adjust image height as needed */
+  margin-right: 10px; /* Adjust margin between image and text */
+}
+
+.logo a.navbar-brand.educare {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--custom-color);
+  text-decoration: none; /* Remove underline from anchor */
+  /* Add more styles as needed */
+}
+
+
+
+/* Style for notification icon */
+.notification-icon {
+  display: inline-block;
+  color: var(--custom-color);
+  text-decoration: none;
+  padding: 8px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
+.notification-icon:hover {
+  background-color: #f1f1f1; /* Change background color on hover */
+  color: #452c63;
+}
+
+/* Add space between elements */
+.space {
+  margin-right: 20px; /* Adjust margin between elements */
+}
+  /* Logout button styles */
+  .logout-button {
+    text-decoration: none;
+    border: 2px solid #824bc7; /* Purple border */
+    border-radius: 20px; /* Rounded corners */
+    background: none;
+    color: var(--custom-color);
+    padding: 8px 16px; /* Add padding for better spacing */
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  }
+
+.logout-button:hover {
+  background-color: var(--custom-color);
+  color: #fff; /* White text on hover */
+}
+
+
+/* Role button styles */
+.role-button {
+  border: none;
+  border-radius: 20px;
+  padding: 8px 16px;
+  margin-right: 10px;
+  cursor: default; /* Set cursor to default */
+  pointer-events: none; /* Disable pointer events */
+}
+
+.candidate, .admin, .instructor {
+  /* Define styles for each role button */
+  color: #fff; /* Text color for all role buttons */
+}
+
+.candidate {
+  background-color: #ffd700; /* Yellow background for candidate role */
+}
+
+.admin {
+  background-color: #ff6347; /* Orange background for admin role */
+}
+
+.instructor {
+  background-color: #7fffd4; /* Aquamarine background for instructor role */
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Media queries for sidebar */
+@media (max-width: 991.98px) {
+  #sidenav {
+    width: 60px; /* Adjust sidebar width for smaller screens */
+  }
+
+  .user-info p {
+    display: none; /* Hide username on smaller screens */
+  }
+
+  .user-image {
+    width: 40px; /* Adjust user image width for smaller screens */
+    height: 40px; /* Adjust user image height for smaller screens */
+  }
+
+  .logo-container ul {
+    display: none; /* Hide navigation items on smaller screens */
+  }
+}
+
+@media (max-width: 767.98px) {
+  #sidenav {
+    width: 50px; /* Adjust sidebar width for even smaller screens */
+  }
+}

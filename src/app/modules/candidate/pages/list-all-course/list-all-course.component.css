@@ -1,0 +1,123 @@
+.container {
+  margin-top: 20px;
+}
+
+.breadcrumb-item a {
+  color: #7734E7;
+}
+
+
+.search-input {
+  width: 450px;
+  padding: 10px 14px; /* Adjust the padding */
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #4e0897; /* Darker shade of purple on focus */
+  box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.2);
+}
+.search-input:hover {
+  border-color: var(--custom-color);
+}
+.text-purple{
+  color: var(--custom-color);
+}
+
+.card {
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  background-color: #f3f2ff;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-img-top {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 15px;
+}
+
+.card-title {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #452c63;
+  margin-bottom: 5px;
+}
+
+.card-text {
+  color: #6c5b7b;
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+}
+
+.btn-primary {
+  background: linear-gradient(to right, #7734E7, #a94cf8);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 12px 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: block;
+  margin: 0 auto;
+  font-size: 0.9rem;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.page-link {
+  color: #6a0dad;
+  background-color: transparent;
+  border: none;
+  padding: 0.5rem 0.75rem;
+  margin: 0 5px;
+  font-size: 1rem;
+  line-height: 1.25;
+  text-decoration: none;
+}
+
+.page-link:hover {
+  background-color: #f0f0f0;
+  border-color: #c88ce6;
+}
+
+.page-item.active .page-link {
+  z-index: 1;
+  color: #fff;
+  background-color: #6a0dad;
+  border-color: #6a0dad;
+}
+
+.page-item.disabled .page-link {
+  color: #6c757d;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+/* Increase icon size */
+.page-link i {
+  font-size: 1.2rem;
+}
+

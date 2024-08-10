@@ -1,0 +1,206 @@
+.container {
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 1200px;
+}
+.section-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--custom-color);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.course-card {
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  animation: scrollAnimation 0.5s ease;
+  height: 100%; /* Set a fixed height for all cards */
+
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+}
+.course-card img {
+  width: 100%;
+  max-height: 200px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  object-fit: cover;
+}
+.course-card h5 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+.course-card p {
+  flex-grow: 1;
+  font-size: 14px;
+  color: #555555;
+  line-height: 1.5;
+}
+
+.card-footer {
+  padding: 10px 20px;
+}
+.card-footer .border-top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-footer small {
+  flex-basis: 25%;
+  text-align: center;
+  border-right: 1px solid #ddd;
+  padding: 5px 0;
+}
+
+.card-footer small:last-child {
+  border-right: none;
+}
+
+.no-courses-message {
+  color: #666;
+  font-size: 15px;
+  margin-top: 30px;
+  text-align: center;
+}
+
+.no-courses-message p {
+  margin: 10px 0;
+}
+
+.view-all-courses {
+    background: linear-gradient(to right, #7734E7, #a94cf8);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 12px 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.view-all-courses:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.fa-clock:before,
+.fa-user-tie:before,
+.fa-user:before {
+  color: #7734E7;
+}
+/* Enroll button style with purplish-blue color */
+.enroll-btn {
+  background: linear-gradient(to right, #7734E7, #a94cf8);
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Button shadow on hover */
+.enroll-btn:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Button animation */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.enroll-btn:hover {
+  animation: pulse 0.5s ease infinite alternate;
+}
+/* Button animation */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+@keyframes scrollAnimation {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.scroll-btn-container {
+  display: flex;
+  justify-content: space-between; /* Align buttons to the start and end */
+  margin-top: 20px;
+}
+
+.scroll-btn.scroll-right {
+  margin-left: auto; /* Push the right button to the end */
+}
+
+.scroll-btn {
+  border:none;
+  padding: 10px;
+  cursor: pointer;
+  color: #ffd700;
+  background-color: #ffffff;
+}
+
+.scroll-btn:hover {
+  transform: scale(1.1); /* Scale the button slightly on hover */
+}
+
+
+@keyframes scrollAnimation {
+  0% {
+    opacity: 0;
+    transform: scale(0.9); /* Start slightly smaller */
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1); /* Return to normal size */
+  }
+}
+
+
+
+

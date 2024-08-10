@@ -1,0 +1,32 @@
+<div class="container">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a routerLink="/candidate/" style="color: #7734E7;">Home</a></li>
+      <li class="breadcrumb-item"><a routerLink="/candidate/my-course" style="color: #7734E7;">My Courses</a></li>
+      <li class="breadcrumb-item active" aria-current="page" style="color: #7734E7;">Quizzes</li>
+
+    </ol>
+  </nav>
+  <hr>
+  <div class="container">
+    <h1>List of Quizzes for Course</h1>
+    <hr>
+    <div *ngIf="quizzes.length > 0; else noQuizzes">
+      <div *ngFor="let quiz of quizzes">
+        <div class="card mb-3">
+          <div class="card-body">
+            <h5 class="card-title">{{ quiz.title }}</h5>
+            <p class="card-text">{{ quiz.mark }}</p>
+            <p class="card-text">{{ quiz.duration }}</p>
+            <app-progress-bar [progress]="progressValues.get(quiz.id) || 0"></app-progress-bar>
+            <br>
+            <button class="btn btn-start-quiz me-2" (click)="startQuiz(quiz.id)">See Quiz</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ng-template #noQuizzes>
+      <p>No quizzes found for this course.</p>
+    </ng-template>
+  </div>
+</div>

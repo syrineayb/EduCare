@@ -1,0 +1,12 @@
+.btn-view-lessons,.btn-start-quiz,.btn-unenroll {
+  color: #fff;
+  background: linear-gradient(to right, #7734E7, #a94cf8);
+  border: none;
+  margin: 0 5px;
+
+}
+
+.btn-view-lessons:hover, .btn-start-quiz:hover,.btn-unenroll:hover{
+  background: linear-gradient(to right, #5f26c2, #7e62ff);
+   border: none;
+}

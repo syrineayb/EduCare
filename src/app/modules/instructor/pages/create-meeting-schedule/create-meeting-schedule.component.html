@@ -1,0 +1,98 @@
+<div class="meeting-schedule-container">
+  <h1>Create Meeting Schedule</h1>
+
+
+  <!--<hr>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a routerLink="/instructor" style="color: #7734E7;">Home</a></li>
+      <li class="breadcrumb-item"><a routerLink="/instructor/meeting-schedule-management" style="color: #7734E7;">Meeting Schedule</a></li>
+      <li class="breadcrumb-item active" aria-current="page" style="color: #824bc7;">Create Meeting Schedule</li>
+    </ol>
+  </nav>
+  -->
+
+  <form [formGroup]="meetingForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="meetingTitle">Meeting Title:</label>
+      <input type="text" id="meetingTitle" formControlName="meetingTitle">
+      <div *ngIf="meetingForm.get('meetingTitle')?.touched && (meetingForm.get('meetingTitle')?.errors?.['required'] || meetingForm.get('meetingTitle')?.errors?.['min'])"
+           class="error-message">
+        *Title is required and must be at least 1 minute
+      </div>
+   <!--   <div *ngIf="meetingForm.get('meetingTitle')?.touched && meetingForm.get('meetingTitle')?.errors?.['required']" class="error-message">
+        Meeting Title is required
+      </div>
+      -->
+    </div>
+    <div class="form-group">
+      <label for="duration">Duration (in minutes):</label>
+      <input type="number" id="duration" formControlName="durationMinutes">
+      <div *ngIf="meetingForm.get('durationMinutes')?.touched && (meetingForm.get('durationMinutes')?.errors?.['required'] || meetingForm.get('durationMinutes')?.errors?.['min'])"
+           class="error-message">
+        * Duration is required and must be at least 1 minute
+      </div>
+    </div>
+   <!-- <div class="form-group">
+      <label for="dateTime">Date and Time:</label>
+      <input type="datetime-local" id="dateTime" formControlName="dateTime">
+      <div *ngIf="meetingForm.get('dateTime')?.touched && meetingForm.get('dateTime')?.errors?.['required']" class="error-message">
+        * Date and Time are required
+      </div>
+      <div *ngIf="meetingForm.get('dateTime')?.touched && meetingForm.get('dateTime')?.errors?.['pastDate']" class="error-message">
+        Date and Time must be in the future
+      </div>
+    </div>
+    -->
+  <!--  <div class="form-group">
+      <label for="meetingUrl">Meeting URL:</label>
+      <input type="text" id="meetingUrl" formControlName="meetingUrl">
+
+    </div>
+    -->
+    <div class="form-group">
+      <label for="meetingUrl">Meeting URL:</label>
+      <div class="input-group">
+        <input type="text" id="meetingUrl" formControlName="meetingUrl">
+        <button type="button" class="btn-launch-meeting" (click)="launchMeeting()">Launch Meeting</button>
+      </div>
+      <div *ngIf="meetingForm.get('meetingUrl')?.touched && (meetingForm.get('meetingUrl')?.errors?.['required'] )"
+           class="error-message">
+        * Meeting Url is required
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="meetingDescription">Meeting Description:</label>
+      <textarea id="meetingDescription" formControlName="meetingDescription"></textarea>
+      <div *ngIf="meetingForm.get('meetingDescription')?.touched && (meetingForm.get('meetingDescription')?.errors?.['required'] )"
+           class="error-message">
+        * Meeting Description is required
+      </div>
+
+    </div>
+    <div class="form-group">
+      <label for="course">Select Course:</label>
+      <select id="course" formControlName="selectedCourseId" (change)="onCourseSelected(meetingForm.get('selectedCourseId')?.value)">
+        <option value="" disabled [selected]="!meetingForm.get('selectedCourseId')?.value">Select a course</option>
+        <option *ngFor="let course of courses" [value]="course.id">{{ course.title }}</option>
+      </select>
+      <div *ngIf="meetingForm.get('selectedCourseId')?.touched && meetingForm.get('selectedCourseId')?.errors?.['required']" class="error-message">
+        Course selection is required
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="lesson">Select Lesson (optional):</label>
+      <select id="lesson" formControlName="selectedLessonId">
+        <option value="">No Lesson</option> <!-- Option for no lesson selected -->
+        <option *ngFor="let lesson of lessons" [value]="lesson.id">{{ lesson.title }}</option>
+      </select>
+    </div>
+    <button type="submit" class="btn-create-meeting">Create Meeting Schedule</button>
+  </form>
+  <div class="container">
+    <button class="btn-redirect" (click)="redirectToMeetingScheduleList()">
+      <i class="fas fa-chevron-left"></i> Back to Meeting Schedule List
+    </button>
+  </div>
+
+</div>

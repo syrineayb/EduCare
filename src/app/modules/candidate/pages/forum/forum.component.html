@@ -1,0 +1,134 @@
+<!--
+<div class="container">
+  &lt;!&ndash; Introduction for the Candidate &ndash;&gt;
+  <div class="row mb-4" *ngIf="lessonId">
+    <div class="col">
+      <h1 class="text-center">Welcome to the Lesson {{ lessonId }} Forum!</h1>
+      <p class="welcome-message text-center">Connect with peers, ask questions, and share insights. Explore discussions and contribute to our learning community.</p>
+    </div>
+  </div>
+
+  &lt;!&ndash; Search Input and Buttons &ndash;&gt;
+  <div class="row justify-content-center mt-3">
+    <div class="col-lg-4 mb-2 text-center">
+      <div class="input-group">
+        <input type="text" class="form-control search-input" placeholder="Search Discussions..." [(ngModel)]="searchKeyword">
+        <button class="btn btn-outline-secondary reset-button" type="button" (click)="resetSearch()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="search-buttons mt-2">
+        &lt;!&ndash;
+        <button class="btn-custom btn-primary-custom" (click)="searchDiscussionsBySubject()">Search by Subject</button>
+       &ndash;&gt;
+        <button class="btn-custom btn-secondary-custom ms-2" (click)="searchDiscussionsByLesson()">Search by Lesson</button>
+      </div>
+    </div>
+  </div>
+
+  &lt;!&ndash; Add Discussion Button &ndash;&gt;
+  <div class="row mb-3">
+    <div class="col text-center">
+      <button class="btn-custom btn-primary-custom" (click)="toggleAddDiscussionForm()">Add Discussion</button>
+    </div>
+  </div>
+
+  &lt;!&ndash; Discussion Form &ndash;&gt;
+  <div class="row mt-4" [ngClass]="{ 'd-none': !showAddDiscussionForm }">
+    <div class="col">
+      <form (submit)="submitDiscussion()">
+        <div class="mb-3">
+          <label for="subject" class="form-label">Subject</label>
+          <input type="text" class="form-control" id="subject" name="subject" [(ngModel)]="newDiscussion.subject" [disabled]="isSubjectDisabled" required>
+        </div>
+        <div class="mb-3">
+          <label for="message" class="form-label">Message</label>
+          <textarea class="form-control" id="message" name="message" rows="4" [(ngModel)]="newDiscussion.message.text" [disabled]="isSubjectDisabled" required></textarea>
+        </div>
+        &lt;!&ndash; File Uploads &ndash;&gt;
+        <div class="mb-3">
+          <label class="form-label">Attach Files</label>
+          <input type="file" name="imageFile" class="form-control mb-2" (change)="onFileSelected($event, 'imageFile')" accept="image/*">
+          <input type="file" name="videoFile" class="form-control mb-2" (change)="onFileSelected($event, 'videoFile')" accept="video/*">
+          <input type="file" name="recordFile" class="form-control mb-2" (change)="onFileSelected($event, 'recordFile')" accept="audio/*">
+          <input type="file" name="pdfFile" class="form-control mb-2" (change)="onFileSelected($event, 'pdfFile')" accept=".pdf">
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn-custom btn-primary-custom">Submit</button>
+          <button type="button" class="btn-custom btn-secondary-custom ms-2" (click)="cancelDiscussion()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  &lt;!&ndash; Discussion Cards &ndash;&gt;
+  <div class="row mt-4">
+    <div class="col">
+      <div class="card mb-3" *ngFor="let discussion of discussions">
+        <div class="card-body">
+          <h5 class="card-title">{{ discussion.subject }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Added by: {{ discussion.authorFullName }}</h6>
+          <p class="card-text">{{ discussion.message.text }}</p>
+          &lt;!&ndash; Display uploaded image &ndash;&gt;
+          <div class="mb-3" *ngIf="discussion.message.imageUrl">
+            <label class="form-label">Image:</label>
+            <img [src]="discussion.message.imageUrl" alt="Image" class="img-fluid message-image">
+          </div>
+          &lt;!&ndash; Display uploaded video &ndash;&gt;
+          <div class="mb-3" *ngIf="discussion.message.videoUrl">
+            <label class="form-label">Video:</label>
+            <div class="video-content">
+              <video controls class="img-fluid">
+                <source [src]="discussion.message.videoUrl" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+          &lt;!&ndash; Display uploaded record &ndash;&gt;
+          <div class="mb-3" *ngIf="discussion.message.recordUrl">
+            <label class="form-label">Record:</label>
+            <div class="audio-content">
+              <audio controls class="img-fluid">
+                <source [src]="discussion.message.recordUrl" type="audio/mpeg">
+                Your browser does not support the audio element.
+              </audio>
+            </div>
+            <a [href]="discussion.message.recordUrl" download="recorded_audio.wav" class="btn-custom btn-primary-custom mt-2">Download Audio</a>
+          </div>
+          &lt;!&ndash; Last Message Date &ndash;&gt;
+          <p class="card-text"><small class="text-muted">Last message date: {{ discussion.lastMessageDate }}</small></p>
+          &lt;!&ndash; Answers Count &ndash;&gt;
+          <p class="card-text"><small class="text-muted">Answers: {{ answersCounts[discussion.id] }}</small></p>
+          &lt;!&ndash; Subscribed Checkbox &ndash;&gt;
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" [checked]="true" disabled>
+            <label class="form-check-label">
+              Subscribed
+            </label>
+          </div>
+          &lt;!&ndash; Toggle Answers Button &ndash;&gt;
+          <button class="btn btn-link mt-3 text-decoration-none"
+                  [ngClass]="{'text-success': discussion.showAnswers, 'text-primary': !discussion.showAnswers}"
+                  (click)="toggleShowAnswers(discussion)">
+            {{ discussion.showAnswers ? 'Hide Answers' : 'Show Answers' }}
+          </button>
+          &lt;!&ndash; Display answers or message if no answers &ndash;&gt;
+          <div *ngIf="discussion.showAnswers && discussion.answers">
+            <div *ngIf="discussion.answers.length > 0; else noAnswersMessage">
+              <div *ngFor="let answer of discussion.answers" class="card mt-3">
+                <div class="card-body">
+                  <p class="card-text">{{ answer.messageContent }}</p>
+                  <p class="card-text"><small class="text-muted">Answered by: {{ answer.authorFullName }}</small></p>
+                </div>
+              </div>
+            </div>
+            <ng-template #noAnswersMessage>
+              <p class="text-muted mt-3">No answers yet.</p>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+-->

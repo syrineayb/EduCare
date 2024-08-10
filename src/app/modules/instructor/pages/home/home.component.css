@@ -1,0 +1,298 @@
+/* Custom styles */
+#username {
+  color: #Ffffff; /* Purple color */
+}
+#usernamee {
+  color: #Ffffff; /* Purple color */
+}
+.chart-title {
+  color: #8A2BE2; /* Purple color */
+}
+
+.card img {
+  max-width: 61%; /* Adjust the maximum width /; / Adjust the maximum height */
+  margin-top: auto;
+}
+
+.img-small {
+  width: 100%;
+}
+
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  border: none; /* Remove border */
+  border-radius: 15px; /* Add border radius */
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+}
+
+.user-color {
+  background-color: #a891dc; /* Deep Purple */
+}
+.user-wellcom{
+  background-color: #6EC6CA;
+}
+.active-color {
+  background-color: #f4b782; /* Green color */
+}
+
+.candidate-color {
+  background-color: #dc847c; /* Amber color */
+}
+
+
+
+.table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table th,
+.table td {
+  padding: 8px;
+}
+
+.table th {
+  background-color: var(--custom-color);
+  color: #fff;
+}
+
+.table td {
+  background-color: #f8f9fa;
+}
+
+.table-hover tbody tr:hover {
+  background-color: #e9ecef;
+}
+
+.table-bordered {
+  border: 1px solid #dee2e6;
+}
+
+.table-bordered th,
+.table-bordered td {
+  border: 1px solid #dee2e6;
+}
+
+.table-bordered thead th,
+.table-bordered thead td {
+  border-bottom-width: 2px;
+}
+
+.table-dark th,
+.table-dark td,
+.table-dark thead th,
+.table-dark tbody+tbody {
+  border-color: #343a40;
+}
+
+.table-dark.table-bordered {
+  border: 2px solid #d2dbe7;
+}
+
+.table-dark.table-bordered th,
+.table-dark.table-bordered td {
+  border: 2px solid #343a40;
+}
+
+/* Custom styles for the profile images */
+.profile-image {
+  width: 50px; /* Adjust width as needed */
+  height: 50px; /* Adjust height as needed */
+  border-radius: 50%; /* Add border radius */
+  border: 2px solid #ccc; /* Add border */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow */
+}
+
+.profile-image:hover {
+  transform: scale(1.05); /* Scale the image on hover */
+}
+
+
+
+@media (max-width: 768px) {
+  .card {
+    margin-bottom: 20px;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-body {
+  flex-grow: 1;
+}
+
+.chart-container {
+  margin-bottom: 20px;
+}
+
+#curves-chart {
+  min-height: 400px;
+}
+
+#pie-chart {
+  min-height: 400px;
+}
+.thhh th{
+  color: #FFFFFF; background-color:var(--custom-color)
+}
+
+
+/* Pagination Styles */
+.pagination {
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  list-style: none; /* Remove default list style */
+  display: flex; /* Use flexbox to align items horizontally */
+  justify-content: center; /* Center align pagination */
+}
+
+/* Pagination Item Styles */
+.page-item {
+  margin-right: 5px; /* Add some spacing between pagination items */
+}
+
+/* Search input and button styling */
+.input-group.mb-3 {
+  display: flex;
+  justify-content: center;
+}
+
+
+.form-control {
+  font-size: 16px;
+  padding: 0.5rem;
+  height: auto;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s ease; /* Add transition effect for smooth hover and focus */
+}
+
+
+/* Hover State */
+.form-control:hover {
+  border-color: var(--custom-color); /* Change border color on hover */
+}
+
+/* Focus State */
+.form-control:focus {
+  border-color: var(--custom-color); /* Change border color on focus */
+  box-shadow: 0 0 0 0.1rem rgba(94, 46, 196, 0.25); /* Add box shadow on focus */
+}
+.search-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.search-input{  width: 200px; /* Adjust width as needed */
+  margin-right: 10px; /* Add spacing between inputs */
+  font-size: 16px; /* Adjust font size */
+  padding: 8px; /* Adjust padding */
+  border: 1px solid #ccc; /* Add border */
+  border-radius: 25px; /* Add border radius */}
+
+.search-bar .form-control {
+  width: 250px; /* Adjust width as needed */
+  margin-right: 10px;
+}
+
+/* Adjust button layout */
+.btn {
+  display: inline-block; /* Make buttons appear inline */
+  margin-right: 10px; /* Add spacing between buttons */
+}
+
+.btn-primary {
+  background-color: var(--custom-color);
+  color: #fff;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #4e0897;
+  border-color: #4e0897;
+}
+.btn-secondary {
+  /* background-color: #8a62d3;
+   color: #fff;
+
+   */
+  border: none;
+}
+.pagination {
+  margin: 20px 0; /* Add margin for spacing */
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+.page-item {
+  margin-right: 5px;
+}
+
+.page-link {
+  color: #5e2ec4;
+  text-decoration: none;
+  padding: 5px 10px;
+  border: 1px solid #5e2ec4;
+  border-radius: 3px;
+}
+
+.page-item.active .page-link {
+  background-color: #5e2ec4;
+  color: #fff;
+}
+
+.page-item.disabled .page-link {
+  color: #ddd;
+  cursor: not-allowed;
+
+  /* Pagination Link Styles */
+
+  .page-link {
+    color: #5e2ec4; /* Text color */
+    text-decoration: none; /* Remove default underline */
+    padding: 5px 10px; /* Adjust padding */
+    border: 1px solid #5e2ec4; /* Border color */
+    border-radius: 3px; /* Rounded corners */
+  }
+
+  /* Active Page Style */
+
+  .page-item.active .page-link {
+    background-color: var(--custom-color); /* Background color for active page */
+    color: #fff; /* Text color for active page */
+  }
+
+  /* Disabled Page Style */
+
+  .page-item.disabled .page-link {
+    color: #ddd; /* Text color for disabled page */
+    cursor: not-allowed; /* Show not-allowed cursor for disabled page */
+  }
+}
+.search-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.search-input{  width: 200px; /* Adjust width as needed */
+  margin-right: 10px; /* Add spacing between inputs */
+  font-size: 16px; /* Adjust font size */
+  padding: 8px; /* Adjust padding */
+  border: 1px solid #ccc; /* Add border */
+  border-radius: 25px; /* Add border radius */}
+.search-bar .form-control {
+  width: 250px; /* Adjust width as needed */
+  margin-right: 10px;
+}

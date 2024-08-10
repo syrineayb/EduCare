@@ -1,0 +1,433 @@
+
+/* Main section */
+.lesson-section {
+  max-width: 600px;
+  margin: 20px auto 40px; /* Added margin-bottom to create space */
+  padding: 20px; /* Added padding for better separation */
+  border: 1px solid #ccc; /* Added border */
+  border-radius: 8px; /* Rounded corners */
+}
+/* Heading */
+
+/* Form groups */
+.form-group {
+  margin-bottom: 20px;
+}
+
+
+/* Text inputs and textareas */
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+input[type="text"]:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--custom-color);
+  box-shadow: 0 0 5px rgba(106, 13, 173, 0.5);
+}
+input[type="text"]:hover,
+textarea:hover {
+  border-color: var(--custom-color);
+}
+
+/* Error messages */
+.error-message {
+  color: #cc0033;
+  display: inline-block;
+  font-size: 12px;
+  line-height: 15px;
+  margin-top: 5px;
+}
+
+input[type="file"] {
+  display: none; /* Hide the default file input */
+}
+
+.file-upload {
+  position: relative;
+  display: inline-block;
+  padding: 6px 12px; /* Adjust padding as needed */
+  background-color: transparent; /* Set background color to transparent */
+  color: #824bc7; /* Set text color */
+  border: 1px solid #824bc7; /* Add border */
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.file-upload i {
+  margin-right: 5px; /* Adjust icon margin as needed */
+}
+
+.file-upload:hover {
+  background-color: rgba(130, 75, 199, 0.2); /* Add hover background color */
+  border-color: #6a2e99; /* Change border color on hover */
+}
+
+.file-upload input[type="file"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.file-selected-text {
+  display: block;
+  margin-top: 5px;
+  font-size: 14px;
+  color: #333;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+
+/* Submit button */
+.btn-create-lesson {
+  display: block;
+  width: 100%; /* Set width to 100% */
+  padding: 6px 10px; /* Adjusted padding for smaller size */
+  margin: 20px auto; /* Set left and right margins to auto */
+  background: linear-gradient(135deg, #824bc7, #800080);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 12px; /* Adjusted font size */
+  text-align: center;
+  cursor: pointer;
+}
+
+.btn-create-lesson:hover {
+  background: linear-gradient(135deg, #6a2e99, #6a006a);
+}
+
+.btn-group button {
+  margin-right: 10px; /* Adjust the margin as needed */
+}
+
+/* Error message */
+.alert {
+  color: #cc0033;
+  display: inline-block;
+  font-size: 9px;
+  line-height: 15px;
+  margin-top: 5px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th {
+  background-color: var(--custom-color);
+  color: #fff;
+  font-weight: bold;
+}
+
+.table th,
+.table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+.upload-icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px; /* Adjust margin as needed */
+}
+
+.upload-icon-container .file-upload {
+  background: linear-gradient(135deg, #824bc7, #800080);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.upload-icon-container .file-upload:hover {
+  background: linear-gradient(135deg, #6a2e99, #6a006a);
+}
+
+.upload-icon-container input[type="file"] {
+  display: none; /* Hide the actual file input */
+}
+
+.pdf-icon {
+  color: #ff5733;
+}
+
+
+
+.pdf-link {
+  color: #452c63;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.pdf-link:hover {
+  color: #824bc7;
+  text-decoration: none;
+}
+
+
+
+.pdf-text {
+  cursor: pointer;
+  color: #824bc7;
+  text-decoration: underline;
+  vertical-align: middle;
+}
+
+.pdf-text:hover {
+  color: #452c63;
+  text-decoration: none;
+}
+
+
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  z-index: 999;
+}
+
+.pdf-viewer-container {
+  position: relative;
+  max-width: 400px; /* Set the maximum width */
+  margin: 0 auto; /* Center the PDF viewer horizontally */
+}
+
+.pdf-viewer {
+  max-width: 100%; /* Set the maximum width of the PDF viewer */
+  height: 500px; /* Set the height of the PDF viewer */
+  margin: 0 auto; /* Center the PDF viewer horizontally */
+}
+
+
+.close-pdf-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  border: none;
+  color: #333;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.close-pdf-btn:hover {
+  color: #ff0000;
+}
+
+
+/* Pagination styles */
+.pagination {
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  list-style: none; /* Remove default list style */
+  display: flex; /* Use flexbox to align items horizontally */
+  justify-content: center; /* Center align pagination */
+}
+
+/* Pagination Item Styles */
+.page-item {
+  margin-right: 5px; /* Add some spacing between pagination items */
+}
+
+/* Pagination Link Styles */
+.page-link {
+  color: #5e2ec4; /* Text color */
+  text-decoration: none; /* Remove default underline */
+  padding: 5px 10px; /* Adjust padding */
+  border: 1px solid #5e2ec4; /* Border color */
+  border-radius: 3px; /* Rounded corners */
+}
+
+/* Active Page Style */
+.page-item.active .page-link {
+  background-color: #5e2ec4; /* Background color for active page */
+  color: #fff; /* Text color for active page */
+}
+
+/* Disabled Page Style */
+.page-item.disabled .page-link {
+  color: #ddd; /* Text color for disabled page */
+  cursor: not-allowed; /* Show not-allowed cursor for disabled page */
+}
+.btn-info:hover i,
+.btn-danger:hover i {
+  color: #4e0897; /* Darker color on hover */
+}
+
+/* Remove default button colors */
+.btn-info,
+.btn-danger {
+  color: #5e2ec4; /* Icon color for the Update button */
+
+  background-color: transparent; /* Make the background color transparent */
+  border-color: transparent; /* Remove button border */
+}
+
+/* Remove default button hover colors */
+.btn-info:hover,
+.btn-danger:hover {
+  background-color: transparent; /* Make the background color transparent on hover */
+  border-color: transparent; /* Remove button border on hover */
+}
+/* PDF Viewer Modal Styles */
+
+#seeResourceModal .modal-dialog {
+  max-width: 90%; /* Set maximum width for modal */
+  width: 90%; /* Set width to occupy 90% of the viewport */
+}
+
+#seeResourceModal .modal-content {
+  padding: 20px; /* Add padding for better spacing */
+}
+
+#seeResourceModal .modal-body {
+  display: flex; /* Use flexbox for layout */
+  justify-content: center; /* Center-align items horizontally */
+}
+
+#seeResourceModal .table {
+  width: 100%; /* Set table width to 100% */
+}
+
+#seeResourceModal .table th,
+#seeResourceModal .table td {
+  padding: 10px; /* Add padding to table cells for spacing */
+  text-align: center; /* Center-align text within cells */
+}
+
+#seeResourceModal .table th {
+  background-color: var(--custom-color); /* Set background color for table header */
+  color: #fff; /* Set text color for table header */
+  font-weight: bold; /* Add bold font weight to table header */
+}
+
+#seeResourceModal .table td {
+  border: 1px solid #ccc; /* Add border to table cells */
+}
+
+#seeResourceModal .table td img{
+  width: 50%; /* Set maximum width for images and videos */
+  height: 50px; /* Set maximum height for images and videos */
+  border-radius: 8px; /* Add border radius for rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+}
+#seeResourceModal .table td video {
+  width: 100%; /* Set maximum width for images and videos */
+  height: 100px; /* Set maximum height for images and videos */
+  border-radius: 8px; /* Add border radius for rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+}
+#seeResourceModal .table td a.pdf-link {
+  display: flex; /* Use flexbox for alignment */
+  align-items: center; /* Center-align items vertically */
+  justify-content: center; /* Center-align items horizontally */
+  color: #452c63; /* Text color */
+  text-decoration: none; /* Remove default underline */
+}
+
+#seeResourceModal .table td a.pdf-link:hover {
+  color: var(--custom-color); /* Text color on hover */
+}
+
+#seeResourceModal .table td .pdf-icon {
+  margin-right: 5px; /* Add margin to the right of the PDF icon */
+}
+
+#seeResourceModal .table td .upload-icon-container {
+  display: flex; /* Use flexbox for alignment */
+  align-items: center; /* Center-align items vertically */
+  justify-content: center; /* Center-align items horizontally */
+}
+
+#seeResourceModal .table td .upload-icon-container .file-upload {
+  margin-right: 10px; /* Add margin to the right of the file upload button */
+}
+
+#seeResourceModal .table td .upload-icon-container .file-selected-text {
+  font-size: 12px; /* Adjust font size */
+  color: #333; /* Text color */
+}
+
+#seeResourceModal .pdf-viewer-container {
+  grid-column: span 2; /* Span two columns for PDF viewer */
+}
+
+#seeResourceModal .pdf-viewer {
+  width: 100%; /* Set the width of the PDF viewer */
+  height: 600px; /* Set height for better display */
+  border-radius: 8px; /* Add border radius for rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+}
+
+#seeResourceModal .close-pdf-btn {
+  position: absolute; /* Position the close button */
+  top: 10px; /* Adjust top position */
+  right: 10px; /* Adjust right position */
+  background-color: #fff; /* Set background color */
+  border: none; /* Remove border */
+  color: #333; /* Text color */
+  cursor: pointer; /* Set cursor to pointer */
+  font-size: 20px; /* Adjust font size */
+  z-index: 999; /* Ensure the button is on top of other elements */
+}
+
+#seeResourceModal .close-pdf-btn:hover {
+  color: #ff0000; /* Change text color on hover */
+}
+.modal-footer {
+  border-top: none; /* Remove border on top */
+  background-color: #f8f9fa; /* Light background color */
+  border-radius: 0 0 10px 10px; /* Rounded corners on bottom */
+}
+
+ .modal-title{
+  text-align: center;
+}
+
+
+/* Adjust button layout */
+.btn {
+  display: inline-block; /* Make buttons appear inline */
+  margin-right: 10px; /* Add spacing between buttons */
+}
+
+.btn-primary {
+  background-color: var(--custom-color);
+  color: #fff;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #4e0897;
+  border-color: #4e0897;
+}
+.btn-secondary {
+  /* background-color: #8a62d3;
+   color: #fff;
+
+   */
+  border: none;
+}

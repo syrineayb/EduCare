@@ -1,0 +1,86 @@
+<!-- create-course.component.html -->
+<div class="create-course-container">
+  <h1>Create Course</h1>
+  <form [formGroup]="createCourseForm" (ngSubmit)="onSubmit()" >
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" id="title" formControlName="title" placeholder="Enter the title of your course">
+      <div *ngIf="createCourseForm.get('title')?.invalid && createCourseForm.get('title')?.touched" class="error-message">
+        Title is required and must be between 2 and 100 characters.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea id="description" formControlName="description" placeholder="Enter a brief description of your course"></textarea>
+      <div *ngIf="createCourseForm.get('description')?.invalid && createCourseForm.get('description')?.touched" class="error-message">
+        Description is required and must be at least 2 characters long.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="topicId">Topic</label>
+      <select id="topicId" formControlName="topicId">
+        <option value="" disabled selected>Select a topic</option>
+        <option *ngFor="let topic of topics" [value]="topic.id">{{ topic.title }}</option>
+      </select>
+      <div *ngIf="createCourseForm.get('topicId')?.invalid && createCourseForm.get('topicId')?.touched" class="error-message">
+        Please select a topic.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="startDate">Start Date</label>
+      <input type="date" id="startDate" formControlName="startDate">
+      <div *ngIf="createCourseForm.get('startDate')?.invalid && createCourseForm.get('startDate')?.touched" class="error-message">
+        Start Date is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="endDate">End Date</label>
+      <input type="date" id="endDate" formControlName="endDate">
+      <div *ngIf="createCourseForm.get('endDate')?.invalid && createCourseForm.get('endDate')?.touched" class="error-message">
+        End Date is required.
+      </div>
+    </div>
+<!--
+    <div class="form-group">
+      <label class="checkbox-container" for="free">Free
+        <input type="checkbox" id="free" formControlName="free">
+        <span class="checkmark"></span>
+      </label>
+    </div>
+
+    <div class="form-group" *ngIf="!createCourseForm.get('free')?.value">
+      <label for="price">Price</label>
+      <input type="number" id="price" formControlName="price" step="0.001" placeholder="Enter the price">
+    </div>
+-->
+    <div class="form-group">
+      <label for="timeCommitment">Time Commitment</label>
+      <input type="text" id="timeCommitment" formControlName="timeCommitment" placeholder="Enter the estimated time commitment">
+      <div *ngIf="createCourseForm.get('timeCommitment')?.invalid && createCourseForm.get('timeCommitment')?.touched" class="error-message">
+        Time Commitment is required.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="imageFile" class="file-upload">
+        <i class="fas fa-image"></i> Add Image
+      </label>
+      <input type="file" id="imageFile" (change)="onFileSelected($event)" accept="image/*">
+      <span class="selected-image" *ngIf="selectedFile">{{ selectedFile.name }}</span>
+    </div>
+    <button type="submit" class="btn-create-course">Create Course</button>
+  </form>
+
+  <!-- Add a styled button to redirect to the list of courses -->
+  <!-- create-course.component.html -->
+  <!--<div class="container">
+  <button class="btn-redirect" (click)="redirectToCourseList()">
+    <i class="fas fa-chevron-left"></i> Back to Course List
+  </button>
+  </div>
+  -->
+
+</div>

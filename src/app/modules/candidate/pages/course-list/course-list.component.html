@@ -1,0 +1,51 @@
+<div class="container">
+  <h2 class="section-title">Explore New Courses</h2>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4 col-md-6 mb-4" *ngFor="let course of courses.content" style="animation: fadeInUp 0.5s ease;">
+      <div class="card course-card">
+        <img class="card-img-top" [src]="course.imageFile" alt="">
+        <div class="card-body">
+          <div class="text-center pb-2">
+            <small *ngFor="let star of stars" class="fa fa-star rating-star text-warning"></small>
+          </div>
+          <h5 class="card-title">{{ course.title }}</h5>
+          <p class="card-text">{{ course.description }}</p>
+        </div>
+        <div class="card-footer">
+          <div class="d-flex border-top">
+            <small class="flex-fill text-center border-end py-2"><i class="fa fa-user-tie text-primary me-2"></i>{{ course.publisherName }}</small>
+            <small class="flex-fill text-center border-end py-2"><i class="fa fa-clock text-primary me-2"></i>{{ course.startDate }}</small>
+            <small class="flex-fill text-center border-end py-2"><i class="fa fa-clock text-primary me-2"></i>{{ course.endDate }}</small>
+            <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>{{ enrolledCandidatesCount }} Enrolled</small>
+          </div>
+          <div class="text-center mt-2">
+            <button class="btn enroll-btn" (click)="enrollUser(course.id)">Enroll</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="text-center mt-3 no-courses-message" *ngIf="!courses.content || courses.content?.length === 0">
+    <p>No courses available.</p>
+  </div>
+
+  <div class="text-center mt-3" *ngIf="!isAuthenticated">
+    <button class="btn btn-primary" (click)="redirectToLoginPage()">Login to View All Courses</button>
+  </div>
+
+  <!-- Scroll buttons -->
+  <div class="scroll-btn-container" *ngIf="scrolledLeft || (!scrolledLeft && (courses && courses.content && courses.content.length > 0))">
+    <button class="scroll-btn scroll-left" *ngIf="scrolledLeft" (click)="scrollLeft()">
+      <i class="material-icons">chevron_left</i>
+    </button>
+    <button class="scroll-btn scroll-right" (click)="scrollRight()">
+      <i class="material-icons">chevron_right</i>
+    </button>
+  </div>
+</div>

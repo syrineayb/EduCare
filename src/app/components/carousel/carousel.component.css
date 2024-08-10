@@ -1,0 +1,145 @@
+/* Custom styles for the carousel */
+/* Purple color mixing for background */
+.position-absolute {
+  background: rgba(121, 57, 252, 0.41);}
+
+/* Text color modifications */
+/* Purple text color */
+.text-purple {
+  color: #5e2ec4;
+}
+
+/* Button color modifications */
+/* Button with platform purple background */
+.btn-purple {
+  background-color: var(--custom-color);
+  border-color: #452c63;
+  color: #fff;
+}
+
+/* Button with light background */
+.btn-light {
+  background-color: #fff;
+  border-color: #fff;
+  color: var(--custom-color);
+}
+
+/* Button hover effect modifications */
+/* Darker background color on hover */
+.btn-purple:hover {
+  background-color: #452c63;
+  border-color: #452c63;
+}
+
+/* Darker purple color on hover for text */
+.btn-purple:hover {
+  color: rgb(255, 255, 255);
+
+}
+/* Animation keyframes */
+@keyframes slideInDown {
+  from {
+    transform: translateY(-50%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Animation classes */
+.animated {
+  animation-duration: 0.1s;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Using cubic-bezier for smooth animation */
+}
+
+/* Animation keyframes */
+@keyframes slideInDown {
+  from {
+    transform: translateY(-50%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Animation classes */
+.animated {
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Using cubic-bezier for smooth animation */
+}
+
+/* Reduce animation duration for faster transition */
+.slideInDown {
+  animation-name: slideInDown;
+  animation-duration: 0.5s; /* Adjust the duration as needed */
+}
+
+.slideInLeft {
+  animation-name: slideInLeft;
+  animation-duration: 0.5s; /* Adjust the duration as needed */
+}
+
+.slideInRight {
+  animation-name: slideInRight;
+  animation-duration: 0.5s; /* Adjust the duration as needed */
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

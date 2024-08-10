@@ -1,0 +1,70 @@
+.footer {
+  background : linear-gradient(to right, #fffefe, rgb(255,255,255));
+  padding: 10px 0;
+}
+
+.footer h4 {
+  color: #333;
+  font-size: 20px;
+  font-weight: bold;
+  color: #7734E7;
+}
+
+.footer p {
+  color: #666;
+}
+
+.footer a {
+  color: #333;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: #7734E7; /* Purple color */
+}
+
+.footer ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.footer li {
+  margin-bottom: 10px;
+}
+
+.footer hr {
+  border-color: #ddd;
+}
+
+.footer .fa {
+  margin-right: 10px;
+}
+
+.footer .text-center {
+  margin-top: 20px;
+}
+
+.footer .footer-links li:first-child {
+  font-weight: bold;
+}
+
+.footer .footer-links li:first-child a {
+  font-weight: normal;
+}
+
+.footer .footer-links li:last-child {
+  margin-bottom: 0;
+}
+
+.navbar-brand.educare {
+  margin-bottom: 0.75rem;
+  display: block; /* Adjust the display property */
+  text-align: center; /* Center the text */
+}
+
+.navbar-brand.educare img {
+  display: inline-block; /* Adjust the display property */
+  vertical-align: middle; /* Align the image vertically */
+  margin-right: 5px; /* Adjust spacing between image and text */
+}
+

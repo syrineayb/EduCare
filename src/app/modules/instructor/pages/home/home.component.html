@@ -1,0 +1,128 @@
+<div class="container">
+  <div class="row g-4 mb-4">
+    <!-- First Column: Welcome Card and Stats in the same row -->
+    <div class="col-lg-6">
+      <div class="row">
+        <!-- Welcome Card -->
+        <div class="col-12 mb-4"> <!-- Full width for Welcome card -->
+          <div class="card text-white user-wellcom hover-effect">
+            <div class="card-body d-flex align-items-center"> <!-- Added d-flex and align-items-center for flexbox layout -->
+              <div> <!-- Removed flex-grow-1 and text-right for left alignment -->
+                <h1 id="usernamee">Welcome, <span id="username">{{ username }}</span></h1>
+                <p>We're delighted to have you here. Let's get started with your courses and students.</p> <!-- Added text for instructor dashboard -->
+              </div>
+              <img src="assets/img/user.png" alt="Users" class="img-fluid img-small mr-3"> <!-- Adjusted img-fluid and added mr-3 for margin-right -->
+
+            </div>
+          </div>
+        </div>
+        <!-- Total Course Card -->
+        <div class="col-md-6 mb-4">
+          <div class="card text-white user-color hover-effect">
+            <div class="card-body pb-0 text-center">
+              <h2 class="fs-2 fw-semibold" id="totalUsers">{{ countnbrCourse }}</h2>
+              <div class="fs-5">Total Course</div>
+            </div>
+          </div>
+        </div>
+        <!-- Total Students Card -->
+        <div class="col-md-6 mb-4">
+          <div class="card text-white active-color hover-effect">
+            <div class="card-body pb-0 text-center">
+              <h2 class="fs-2 fw-semibold">{{ countnbrStudents }}</h2>
+              <div class="fs-5">Total Students</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Second Column: Chart -->
+    <div class="col-lg-6">
+      <div class="card chart-container">
+        <div class="card-body">
+          <h2 class="mb-4 text-center chart-title">Enrolled Candidates per Course</h2>
+          <div [chart]="courseChart"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mt-5"> <!-- Added container and mt-5 for spacing -->
+    <div class="input-group mb-3">
+      <input type="text"class="form-control search-input" placeholder="Search by Course or Student Name" [(ngModel)]="searchTerm">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="button" (click)="search()">Search</button>
+      </div>
+    </div>
+
+    <table class="table table-hover">
+      <thead>
+      <tr class="thhh">
+
+        <th scope="col">Image</th>
+        <th scope="col">Student Name</th>
+        <th scope="col">Student LastName</th>
+        <th scope="col">Course Name</th>
+        <th scope="col">Progress</th>
+        <th scope="col">Quiz Progress</th>
+      </tr>
+      </thead>
+      <tbody>
+      <ng-container *ngIf="filteredEnrollments.length > 0; else allEnrollments">
+        <!-- Loop through filteredEnrollments -->
+        <tr *ngFor="let enrollment of filteredEnrollments">
+          <td>
+            <img [src]="enrollment.candidateImage" alt="Candidate Image" class="rounded-circle"
+                 style="width: 50px; height: 50px;">
+          </td>
+          <td>{{ enrollment.candidateName }}</td>
+          <td>{{ enrollment.candidateLastname }}</td>
+          <td>{{ enrollment.courseName }}</td>
+          <td>{{ enrollment.progress }}%</td>
+          <td>{{ enrollment.quizProgress }}%</td>
+        </tr>
+      </ng-container>
+      <ng-template #allEnrollments>
+        <tr *ngFor="let enrollment of enrollment">
+          <!-- Display enrollment details -->
+          <th scope="row">{{ enrollment.id }}</th>
+          <td>
+            <img [src]="enrollment.candidateImage" alt="Candidate Image" class="rounded-circle"
+                 style="width: 50px; height: 50px;">
+          </td>
+          <td>{{ enrollment.candidateName }}</td>
+          <td>{{ enrollment.candidateLastname }}</td>
+          <td>{{ enrollment.courseName }}</td>
+          <td>{{ enrollment.progress }}</td>
+          <td>{{ enrollment.quizProgress }}</td>
+        </tr>
+      </ng-template>
+      </tbody>
+    </table>
+
+    <!-- Pagination -->
+    <div class="row justify-content-center">
+      <nav aria-label="Page navigation">
+        <ul class="pagination">
+          <!-- Previous page -->
+          <li class="page-item" [class.disabled]="currentPage === 0">
+            <a class="page-link" href="#" (click)="prevPage($event)" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          <!-- Page numbers -->
+          <li class="page-item" *ngFor="let page of pages" [class.active]="currentPage === page - 1">
+            <a class="page-link" href="#" (click)="changePage(page - 1, $event)">{{ page }}</a>
+          </li>
+          <!-- Next page -->
+          <li class="page-item" [class.disabled]="currentPage === totalPages - 1">
+            <a class="page-link" href="#" (click)="nextPage($event)" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>

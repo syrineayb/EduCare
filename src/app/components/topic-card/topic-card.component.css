@@ -1,0 +1,124 @@
+/* Style for topic container */
+.topic-container {
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+  transition: box-shadow 0.3s ease; /* Smooth transition for shadow */
+  width: 100%; /* Full width */
+  max-width: 400px; /* Maximum width */
+  height: 300px; /* Fixed height */
+  overflow: hidden; /* Hide overflow */
+}
+
+/* Style for topic container on hover */
+.topic-container:hover {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Increased shadow on hover */
+}
+
+/* Style for the section title */
+.section-title {
+  color: var(--custom-color);
+  font-size: 32px; /* Font size */
+  font-weight: bold; /* Bold font weight */
+  margin-bottom: 20px; /* Margin bottom for spacing */
+  animation-name: slideInLeft; /* Animation name */
+  animation-duration: 1s; /* Animation duration */
+  animation-delay: 0.5s; /* Animation delay */
+  animation-fill-mode: both; /* Animation fill mode */
+}
+
+/* Slide-in animation */
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Style for topic image */
+.topic-container img {
+  width: 100%; /* Full width */
+  height: 70%; /* 70% height */
+  object-fit: cover; /* Maintain aspect ratio and cover the container */
+}
+
+/* Button container */
+.button-container {
+  display: flex;
+  justify-content: space-between; /* Align buttons to opposite sides */
+  margin-bottom: 150px; /* Adjust margin as needed */
+}
+
+/* Style for Material Icons */
+.material-icons {
+  font-family: 'Material Icons'; /* Specify font family */
+  font-size: 36px; /* Icon size */
+  color: #333; /* Icon color */
+}
+
+/* Style for scroll buttons */
+.scroll-btn {
+  background-color: transparent; /* Transparent background */
+  border: none; /* No border */
+  cursor: pointer; /* Cursor style */
+  padding: 0; /* Remove padding */
+}
+
+/* Style for scroll buttons on hover */
+.scroll-btn:hover {
+  background-color: rgba(0, 0, 0, 0.1); /* Light background color on hover */
+}
+
+/* Message when no topics available */
+.no-topics-message {
+  color: #666; /* Updated text color for better readability */
+  font-size: 15px; /* Increased font size for better visibility */
+  margin-top: 30px; /* Increased margin for better spacing */
+  text-align: center; /* Center-align the message */
+}
+
+.no-topics-message p {
+  margin: 10px 0; /* Add vertical margin for better spacing between paragraphs */
+}
+
+/* Additional styles to ensure uniform card size */
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 400px;
+  height: 300px;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  height: 30%;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  text-align: center;
+  color: #6a0dad;
+}
+
+/* Ensure consistency in card layout */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.col-lg-4, .col-md-4 {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}

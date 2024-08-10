@@ -1,0 +1,90 @@
+<div class="container-xl px-4 mt-4">
+  <div class="row">
+    <!-- Navigation Links -->
+    <nav class="nav nav-borders">
+      <!-- Profile Link -->
+      <ng-container *ngIf="role === 'admin' || role === 'instructor' || role === 'candidate'">
+        <a class="nav-link ms-0" [routerLink]="profileRouterLink" [class.active]="isProfileActive()">Profile</a>
+      </ng-container>
+
+      <!-- Security Link -->
+      <ng-container *ngIf="role === 'admin' || role === 'instructor' || role === 'candidate'">
+        <a class="nav-link" [routerLink]="securityRouterLink" [class.active]="isSecurityActive()">Security</a>
+      </ng-container>
+
+      <!-- Notifications Link
+      <a class="nav-link" href="#">Notifications</a> -->
+    </nav>
+    <!-- /Navigation Links -->
+
+    <hr class="mt-0 mb-4">
+    <!-- Security Title -->
+    <div class="custom-style profile-border">
+        <h1>Account Settings<span>Update your account information</span></h1>
+    </div>
+    <div class="row">
+      <!-- Change Password card -->
+      <div class="col-lg-8 mb-4">
+        <div class="card h-100">
+          <div class="card-header">Change Password</div>
+          <div class="card-body d-flex flex-column justify-content-center">
+            <form [formGroup]="passwordForm" (ngSubmit)="changePassword()">
+              <div class="mb-3">
+                <input class="form-control" id="currentPassword" type="password" formControlName="currentPassword" placeholder="Enter current password">
+                <div *ngIf="f['currentPassword'].errors && (f['currentPassword'].dirty || f['currentPassword'].touched)" class="form-error">
+                  <div *ngIf="f['currentPassword'].errors?.['required']">* Current Password is required.</div>
+                </div>
+              </div>
+              <div class="mb-3">
+                <input class="form-control" id="newPassword" type="password" formControlName="newPassword" placeholder="Enter new password">
+                <div *ngIf="f['newPassword'].errors && (f['newPassword'].dirty || f['newPassword'].touched)" class="form-error">
+                  <div *ngIf="f['newPassword'].errors?.['required']" class="form-error">* New Password is required.</div>
+                  <div *ngIf="f['newPassword'].errors?.['minlength']" class="form-error">New Password must be at least 6 characters</div>
+                  <div *ngIf="f['newPassword'].errors?.['maxlength']" class="form-error">New Password cannot exceed 16 characters</div>
+                </div>
+              </div>
+              <div class="mb-3">
+                <input class="form-control" id="confirmPassword" type="password" formControlName="confirmPassword" placeholder="Confirm new password">
+                <div *ngIf="f['confirmPassword'].errors && (f['confirmPassword'].dirty || f['confirmPassword'].touched)" class="form-error">
+                  <div *ngIf="f['confirmPassword'].errors?.['required']" class="form-error">* Confirm Password is required.</div>
+                </div>
+              </div>
+              <div class="text-center mt-4">
+                <button class="btn custom-color" type="submit">Update password</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Delete and Deactivate account cards -->
+      <div class="col-lg-4 mb-4">
+        <div class="row">
+          <div class="col-md-12 mb-4">
+            <div class="card h-100">
+              <div class="card-header">Delete Account</div>
+              <div class="card-body d-flex flex-column justify-content-center">
+                <p>Deleting your account is a permanent action and cannot be undone. If you are sure you want to delete your account, click the button below.</p>
+                <div class="text-center">
+                  <button class="btn custom-color" (click)="deleteAccount()">Delete My Account</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="card h-100">
+              <div class="card-header">Deactivate Account</div>
+              <div class="card-body d-flex flex-column justify-content-center">
+                <p>Deactivating your account will temporarily disable it. If you wish to deactivate your account, click the button below.</p>
+                <div class="text-center">
+                  <button class="btn custom-color" (click)="deactivateAccount()">Deactivate My Account</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

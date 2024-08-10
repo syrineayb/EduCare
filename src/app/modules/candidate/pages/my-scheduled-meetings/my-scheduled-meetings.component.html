@@ -1,0 +1,9 @@
+<div class="container">
+  <h1>My Meeting Schedules</h1>
+  <div *ngIf="meetingSchedules.length > 0; else noMeetings">
+    <full-calendar [options]="calendarOptions"></full-calendar>
+  </div>
+  <ng-template #noMeetings>
+    <p>No meetings scheduled.</p>
+  </ng-template>
+</div>

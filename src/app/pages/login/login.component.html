@@ -1,0 +1,56 @@
+<div class="login-container">
+  <div class="container my-5">
+    <div class="row">
+      <div class="col-md-6">
+        <img src="assets/register/register.png" alt="Registration Image" class="img-fluid">
+      </div>
+      <div class="form-group col-md-6 ">
+        <div class="group-7">
+          <h1 class="text-center" style="color: #4d008a;">Login to <span style="color: #7734E7;">EDUCARE</span></h1>
+          <form class="container my-5 border border-primary rounded p-4" style="max-width: 50rem;" [formGroup]="loginForm" (ngSubmit)="onSubmit()" >
+            <div class="form-group">
+              <label for="formEmail" class="form-label">Email Address</label>
+              <input class="form-control" formControlName="email" type="email" id="formEmail" name="email" placeholder="you@example.com">
+              <div *ngIf="f['email'].errors && (f['email'].dirty || f['email'].touched)" class="form-error">
+                <div *ngIf="f['email'].errors?.['required']">
+                  * Email is required.
+                </div>
+                <div *ngIf="f['email'].errors?.['email']">
+                  * Please enter a valid email address.
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="formPassword" class="form-label">Password</label>
+              <div class="user-box">
+                <input class="form-control" formControlName="password" type="{{ passwordVisible ? 'text' : 'password' }}" id="formPassword" name="password" placeholder="Enter your password">
+                <span class="password-toggle-icon" (click)="togglePasswordVisibility()">
+      <i class="fas" [ngClass]="passwordVisible ? 'fa-eye' : 'fa-eye-slash'"></i>
+    </span>
+              </div>
+              <div *ngIf="f['password'].errors && (f['password'].dirty || f['password'].touched)" class="form-error">
+                <div *ngIf="f['password'].errors?.['required']">
+                  * Password is required.
+                </div>
+                <div *ngIf="f['password'].errors?.['minlength']">
+                  * Password must be at least 6 characters.
+                </div>
+                <div *ngIf="f['password'].errors?.['maxlength']">
+                  * Password cannot exceed 16 characters.
+                </div>
+              </div>
+              <!-- Forgot Password Link -->
+              <div class="forgot-password-link">
+                <a routerLink="/forgot-password">Forgot Password?</a>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary container text-center">Login</button>
+          </form>
+          <div class="text-center">
+            <p>Don't have an account? <a class="register-link" routerLink="/register" >Sign up</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

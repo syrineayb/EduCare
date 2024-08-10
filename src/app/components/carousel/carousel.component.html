@@ -1,0 +1,24 @@
+<div class="container-fluid p-0 mb-5">
+  <carousel>
+    <ng-template ngFor let-item [ngForOf]="carouselItems">
+      <slide>
+        <img class="img-fluid" [src]="item.imageUrl" alt="">
+        <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="">
+          <div class="container">
+            <div class="row justify-content-center"> <!-- Use 'justify-content-center' to center content -->
+              <div class="col-sm-10 col-lg-8">
+                <h5 class="text-purple text-uppercase mb-3 animated slideInDown">{{ item.title }}</h5>
+                <h1 class="display-3 text-white animated slideInDown">{{ item.subtitle }}</h1>
+                <p class="fs-5 text-white mb-4 pb-2">{{ item.description }}</p>
+                <div class="text-center"> <!-- Center the buttons -->
+                  <a routerLink="/register" class="btn btn-purple py-md-3 px-md-5 me-3 animated slideInLeft">Read More</a>
+                  <a routerLink="/register" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Join Now</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </slide>
+    </ng-template>
+  </carousel>
+</div>

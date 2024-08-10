@@ -1,0 +1,36 @@
+<div class="container">
+    <h1>Lesson Management</h1>
+
+    <!-- Check if courseId is available -->
+    <div *ngIf="courseId !== null">
+        <!-- Display lessons -->
+        <div *ngIf="lessons !== null">
+            <ul class="lesson-list">
+                <li *ngFor="let lesson of lessons?.content" class="lesson-item">
+                    <div class="lesson-details">
+                        <h3>{{ lesson.title }}</h3>
+                        <p>{{ lesson.description }}</p>
+                    </div>
+                    <div class="lesson-actions">
+                        <!-- Add edit and delete actions here -->
+                    </div>
+                </li>
+            </ul>
+            <!-- Pagination -->
+            <div class="pagination">
+                <button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1" class="pagination-btn">Previous</button>
+                <span class="pagination-info">Page {{ currentPage }} of {{ lessons?.totalPages }}</span>
+                <button (click)="onPageChange(currentPage + 1)" [disabled]="currentPage === lessons?.totalPages" class="pagination-btn">Next</button>
+            </div>
+        </div>
+        <!-- Loading indicator -->
+        <div *ngIf="lessons === null" class="loading-indicator">
+            Loading lessons...
+        </div>
+    </div>
+
+    <!-- Handle case where courseId is null -->
+    <div *ngIf="courseId === null" class="error-message">
+        Error: Course ID is missing.
+    </div>
+</div>

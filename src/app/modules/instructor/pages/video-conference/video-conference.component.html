@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="title-container">
+    <i class="fas fa-video title-icon"></i>
+    <h1>Start a Video Call</h1>
+  </div>
+  <hr>
+ <!-- Breadcrumb -->
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a routerLink="/instructor" style="color: #7734E7;">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page" style="color: #824bc7;">Video Call</li>
+    </ol>
+  </nav>  <!-- Video call title with icon -->
+  <!-- Additional text below the button with style -->
+  <p class="additional-text">Enter a unique room name and click "Create Room".<br> Share this room name with the other participants to join the call.</p>
+
+
+  <!-- Input and button container -->
+  <div class="input-container">
+    <input type="text" class="form-control" [(ngModel)]="roomName" placeholder="Enter room name">
+    <button class="btn btn-primary" [disabled]="shouldDisableCreateRoomButton()" (click)="changeRoom()">Create Room</button>
+  </div>
+</div>
+
+
+
+<!--
+  <div id="video-conference-container" class="mt-4" *ngIf="showIframe">
+
+    <div id="jitsi-iframe-container" style="width: 100%; height: 500px;"></div> -->
+    <!--  <div id="icons-container" class="text-center mt-3">
+        <i (click)="executeCommand('toggleAudio')" class="fas fa-microphone fa-2x grey-color" [ngClass]="isAudioMuted ? 'fa-microphone-slash' : 'fa-microphone'" title="Mute / Unmute"></i>
+        <i (click)="executeCommand('hangup')" class="fas fa-phone-slash fa-2x red-color mx-3" title="Leave"></i>
+        <i (click)="executeCommand('toggleVideo')" class="fas fa-video fa-2x grey-color" [ngClass]="isVideoMuted ? 'fa-video-slash' : 'fa-video'" title="Start/Stop Camera"></i>
+        <i (click)="executeCommand('toggleShareScreen')" class="fas fa-desktop fa-2x grey-color mx-3" [ngClass]="isScreenSharing ? 'fa-desktop' : 'fa-desktop'" title="Share your screen"></i>
+      </div>-->
+<!--</div> -->

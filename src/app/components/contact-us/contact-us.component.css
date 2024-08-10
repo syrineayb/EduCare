@@ -1,0 +1,82 @@
+/* Contact Form Styles */
+.contact-form {
+  background-color: #f9f9f9;
+  border: 1px solid var(--custom-color);
+;
+  border-radius: 10px;
+  padding: 30px;
+}
+
+.contact-form .form-label {
+  color: #333;
+  font-weight: bold;
+}
+.contact-form .form-control {
+  border-color: #ccc;
+  margin-bottom: 10px;
+  border-color: #ccc;
+  font-size: 12px;
+}
+
+.contact-form textarea.form-control {
+  resize: vertical;
+}
+
+
+.contact-form textarea.form-control {
+  resize: vertical;
+}
+.form-control:focus {
+  border-color: var(--custom-color);
+;
+  box-shadow: 0 0 0 0.25rem rgba(119, 52, 231, 0.25);
+}
+ .btn-purple {
+  font-size: 14px; /* Adjust font size */
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+  border-radius: 20px;
+   width: 30%;
+   margin-top:20px;
+   background-color: var(--custom-color);
+   border-color:  rgba(119, 52, 231, 0.25);
+   color: #fff;
+}
+ .btn-purple:hover {
+   background-color: #452c63;
+}
+
+
+/* Contact Image Styles */
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Contact Title Styles */
+.section-title {
+  color: var(--custom-color);
+  font-size: 32px; /* Font size */
+  font-weight: bold; /* Bold font weight */
+  margin-bottom: 20px; /* Margin bottom for spacing */
+  animation-name: slideInLeft; /* Animation name */
+  animation-duration: 1s; /* Animation duration */
+  animation-delay: 0.5s; /* Animation delay */
+  animation-fill-mode: both; /* Animation fill mode */
+}
+
+/* Animation */
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+/* Error Message */
+.text-danger{
+    font-size: 12px; /* Adjust font size */
+    margin: 1px; /* Add margin at the top for spacing */
+}

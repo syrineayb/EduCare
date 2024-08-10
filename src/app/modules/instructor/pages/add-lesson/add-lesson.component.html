@@ -1,0 +1,312 @@
+<div class="container">
+  <div class="lesson-section">
+    <h1>Add Lesson</h1>
+    <form [formGroup]="lessonForm" (ngSubmit)="addLesson()" class="add-lesson-form" novalidate>
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" id="title" formControlName="title" placeholder="Enter the title of your lesson">
+        <div *ngIf="lessonForm.get('title')?.invalid && lessonForm.get('title')?.touched" class="error-message">
+          * Title is required and must be between 2 and 200 characters.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" formControlName="description" placeholder="Enter a brief description of your lesson"></textarea>
+        <div *ngIf="lessonForm.get('description')?.invalid && lessonForm.get('description')?.touched" class="error-message">
+          * Description is required and must be at least 2 characters long.
+        </div>
+      </div>
+
+
+
+
+      <div class="button-container">
+        <button type="submit" class="btn-create-lesson" >Add Lesson</button>
+        <!--[disabled]="lessonForm.invalid" -->
+      </div>
+
+
+    </form>
+
+
+
+    <!-- Error Message -->
+    <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+      {{ errorMessage }}
+    </div>
+  </div>
+
+
+  <!-- List of Lessons -->
+  <h1>List of Lessons</h1>
+  <div *ngIf="lessonsPage && lessonsPage.content && lessonsPage.content.length > 0; else noLessons">
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Creation Date</th>
+        <th>Edition Date</th>
+        <th>Course Title</th>
+        <th>Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let lesson of lessonsPage.content">
+        <td>
+          <input type="text" [(ngModel)]="lesson.title" class="form-control">
+        </td>
+        <td>
+          <textarea [(ngModel)]="lesson.description" class="form-control"></textarea>
+        </td>
+        <td>{{ lesson.createdAt | date: 'medium' }}</td>
+        <td>{{ lesson.updatedAt | date: 'medium' }}</td>
+        <td>{{ lesson.courseTitle }}</td>
+
+
+        <td>
+          <div class="btn-group">
+            <button class="btn-create-lesson" data-bs-toggle="modal" data-bs-target="#addResourceModal" (click)="selectedLessonId = lesson.id">Add Resource</button>
+            <button class="btn-create-lesson" data-bs-toggle="modal" data-bs-target="#seeResourceModal" (click)="selectLesson(lesson.id)">See Resource</button>
+
+            <!-- Icons for editing and deleting lessons -->
+            <button class="btn btn-sm btn-info" (click)="updateLesson(lesson)">
+              <i class="fas fa-pencil-alt"></i>
+            </button>
+            <button class="btn btn-sm btn-danger" (click)="deleteLesson(lesson.id)">
+              <i class="fas fa-trash-alt"></i>
+            </button>
+          </div>
+        </td>
+
+      </tr>
+      </tbody>
+    </table>
+    <!-- Pagination -->
+    <div class="row justify-content-center">
+      <nav aria-label="Page navigation">
+        <ul class="pagination">
+          <!-- Previous page -->
+          <li class="page-item" [class.disabled]="currentPage === 0">
+            <a class="page-link" href="#" (click)="prevPage($event)" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          <!-- Page numbers -->
+          <li class="page-item" *ngFor="let page of pages" [class.active]="currentPage === page - 1">
+            <a class="page-link" href="#" (click)="changePage(page - 1, $event)">{{ page }}</a>
+          </li>
+          <!-- Next page -->
+          <li class="page-item" [class.disabled]="currentPage === totalPages - 1">
+            <a class="page-link" href="#" (click)="nextPage($event)" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>  </div>
+  <!-- Placeholder for when no lessons are available -->
+  <ng-template #noLessons>
+    <div class="no-lessons-container">
+      <div class="no-lessons-message">
+        <div class="border-animation"></div>
+        <p>No lessons available.</p>
+      </div>
+    </div>
+  </ng-template>
+  <!-- Modal -->
+  <div class="modal fade" id="addResourceModal" tabindex="-1" aria-labelledby="addResourceModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title" id="addResourceModalLabel">Add New Resource</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Form for adding a new resource -->
+          <form (ngSubmit)="addResourceForLesson(selectedLessonId!)" #resourceForm="ngForm">
+            <div class="form-group text-center">
+              <label for="videoFile" class="file-upload">
+                <i class="fas fa-video"></i> Add Video
+              </label>
+              <input type="file" id="videoFile" (change)="onFileSelected($event, 'video')" accept="video/*">
+
+              <span *ngIf="selectedVedio" class="file-selected-text">Video uploaded: {{ selectedVedio.name }}</span>
+
+            </div>
+
+            <div class="form-group text-center">
+              <label for="pdfFile" class="file-upload">
+                <i class="fas fa-file-pdf"></i> Add PDF
+              </label>
+              <input type="file" id="pdfFile" (change)="onFileSelected($event, 'pdf')" accept=".pdf">
+
+              <span *ngIf="selectedPdf" class="file-selected-text">PDF uploaded: {{ selectedPdf.name }}</span>
+
+            </div>
+
+            <div class="form-group text-center">
+              <label for="imageFile" class="file-upload">
+                <i class="fas fa-image"></i> Add Image
+              </label>
+              <input type="file" id="imageFile" (change)="onFileSelected($event, 'image')" accept="image/*">
+
+              <span *ngIf="selectedImg" class="file-selected-text">Image uploaded: {{ selectedImg.name }}</span>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="resetResourceForm()">Close</button>
+              <button type="submit" class="btn btn-primary">Add</button>
+            </div>
+
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="seeResourceModal" tabindex="-1" aria-labelledby="seeResourceModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1>Resources for Lesson {{selectedLessonId}}</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="resetResourceForm()"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Table to display lesson resources -->
+          <table class="table">
+            <thead>
+            <tr>
+              <th>ID</th>
+              <th>Image</th>
+              <th>Video</th>
+              <th>PDF</th>
+              <th>Lesson Title</th>
+              <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- Iterate over lessonResources and display each resource -->
+            <tr *ngFor="let resource of resources">
+              <td>{{ resource.id }}</td>
+              <td>
+                <div *ngIf="resource.imageFile; else noImage">
+                  <!-- Image upload section -->
+                  <div class="lesson-image-container">
+                    <img [src]="resource.imageFile" alt="Image Lesson" class="lesson-image">
+                  </div>
+                </div>
+                <ng-template #noImage>
+                  <p>No image added</p>
+                </ng-template>
+                <!-- Upload icon for image -->
+                <div class="upload-icon-container">
+                  <label for="fileInput{{ resource.id }}" class="file-upload">
+                    <i class="fas fa-upload"></i> <!-- Font Awesome icon for upload -->
+                  </label>
+                  <!-- Actual file input element for image -->
+                  <input id="fileInput{{ resource.id }}" type="file" (change)="onEditImgSelected($event)">
+                </div>
+              </td>
+              <td>
+                <div *ngIf="resource.videoFile; else noVideo">
+                  <!-- Video display section with Videogular -->
+                  <div class="video-container">
+                    <vg-player (onPlayerReady)="onPlayerReady($event)">
+                      <vg-overlay-play></vg-overlay-play>
+                      <vg-buffering vgFor="singleVideo"></vg-buffering>
+                      <vg-scrub-bar>
+                        <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                        <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
+                      </vg-scrub-bar>
+                      <vg-controls>
+                        <vg-play-pause></vg-play-pause>
+                        <vg-playback-button></vg-playback-button>
+                        <vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
+                        <vg-scrub-bar style="pointer-events: none;"></vg-scrub-bar>
+                        <vg-time-display vgProperty="left" vgFormat="mm:ss"></vg-time-display>
+                        <vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>
+                        <vg-track-selector></vg-track-selector>
+                        <vg-mute></vg-mute>
+                        <vg-volume></vg-volume>
+                        <vg-fullscreen></vg-fullscreen>
+                      </vg-controls>
+                      <video [vgMedia]="$any(media)"
+                             #media id="singleVideo"
+                             preload="none"
+                             [src]="resource.videoFile"
+                             crossorigin>
+                      </video>
+                    </vg-player>
+                  </div>
+                </div>
+                <ng-template #noVideo>
+                  <p>No video added</p>
+                </ng-template>
+                <!-- Upload icon -->
+                <div class="upload-icon-container">
+                  <label for="videoInput{{ resource.id }}" class="file-upload">
+                    <i class="fas fa-upload"></i> <!-- Font Awesome icon for upload -->
+                  </label>
+                  <!-- Actual file input element for video -->
+                  <input id="videoInput{{ resource.id }}" type="file" (change)="onEditVedioSelected($event)">
+                </div>
+              </td>
+              <td>
+                <div *ngIf="resource.pdfFile; else noPdf">
+                  <!-- PDF display section -->
+                  <div class="pdf-container">
+                    <a (click)="openPdf(resource)" class="pdf-link">
+                      <i class="fas fa-file-pdf pdf-icon"></i> <span style="vertical-align: middle;"> View PDF</span>
+                    </a>
+                  </div>
+                </div>
+                <ng-template #noPdf>
+                  <p>No PDF added</p>
+                </ng-template>
+                <!-- Upload icon for PDF -->
+                <div class="upload-icon-container">
+                  <label for="pdfInput{{ resource.id }}" class="file-upload">
+                    <i class="fas fa-upload"></i> <!-- Font Awesome icon for upload -->
+                  </label>
+                  <!-- Actual file input element for PDF -->
+                  <input id="pdfInput{{ resource.id }}" type="file" (change)="onEditPdfSelected($event)">
+                </div>
+                <!-- PDF viewer section -->
+                <div *ngIf="selectedResource === resource" class="pdf-viewer-container">
+                  <pdf-viewer [src]="pdfSrc" [render-text]="true" [original-size]="false" style="width: 100%; height: 500px"></pdf-viewer>
+                  <!-- Close PDF button -->
+                  <button (click)="closePdf()" class="close-pdf-btn">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+              </td>
+              <td>{{ resource.lessonTitle }}</td>
+              <td>
+                <button class="btn btn-sm btn-info" (click)="updateResource(resource)">
+                  <i class="fas fa-edit"></i> <!-- Font Awesome icon for update -->
+                </button>
+                <button class="btn btn-sm btn-danger" (click)="selectResource(resource); deleteResource(resource.id)">
+                  <i class="fas fa-trash-alt"></i> <!-- Font Awesome icon for delete -->
+                </button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Close</button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+</div>

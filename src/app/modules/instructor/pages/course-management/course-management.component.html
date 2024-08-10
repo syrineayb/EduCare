@@ -1,0 +1,274 @@
+<div class="container">
+  <h1>Course Management</h1>
+  <hr>
+  <!-- Breadcrumb -->
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a routerLink="/instructor" style="color: #7734E7;">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page" style="color: #824bc7;">Courses</li>
+    </ol>
+  </nav>
+  <!-- /Breadcrumb -->
+  <div class="search-bar">
+    <input type="text" class="form-control search-input" placeholder="Search by title" [(ngModel)]="searchTerm">
+    <button class="btn btn-primary" (click)="applyFilters()">
+      <i class="fas fa-search"></i> <!-- Font Awesome search icon -->
+    </button>
+    <button class="btn btn-secondary" (click)="resetFilters()">
+      <i class="fas fa-sync"></i> <!-- Font Awesome sync/refresh icon -->
+    </button>
+  </div>
+
+  <!-- Course list -->
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table">
+        <!-- Table headers -->
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>Course Title</th>
+          <th>Image</th>
+          <th>Description</th>
+          <th>Start Date</th>
+          <th>Time Commitment</th>
+          <th>End Date</th>
+          <!--       <th>Price</th>  -->
+          <th>Topic</th>
+          <th>Actions</th>
+          <th>Create Lesson</th>
+          <!--  <th>Add Video Conference</th> -->
+        </tr>
+        </thead>
+        <!-- Table body -->
+        <tbody>
+        <tr *ngFor="let course of filteredCourses">
+          <td>{{ course.id }}</td>
+          <td>
+            <input type="text" class="form-control course-title" [(ngModel)]="course.title">
+          </td>
+          <td>
+            <div class="position-relative">
+              <img [src]="course.imageFile" alt="{{ course.title }} imageFile" class="img-fluid course-image">
+              <!-- Inside the file input label -->
+              <label for="fileInput" class="file-input-label">
+                <input id="fileInput" type="file" #fileInput (change)="onEditFileSelected($event)">
+                <i class="fas fa-edit"></i>
+              </label>
+            </div>
+          </td>
+          <td>
+            <textarea class="form-control course-description" [(ngModel)]="course.description"></textarea>
+          </td>
+          <td>
+            <input type="date" class="form-control" [(ngModel)]="course.startDate">
+          </td>
+          <td>
+            <input type="text" class="form-control time-commitment" [(ngModel)]="course.timeCommitment">
+          </td>
+          <td>
+            <input type="date" class="form-control" [(ngModel)]="course.endDate">
+          </td>
+          <!--   <td>
+               <ng-container *ngIf="course.free; else showPrice">
+                 <span class="free-status">Free</span>
+               </ng-container>
+               <ng-template #showPrice>
+                 {{ course.price }} DT
+               </ng-template>
+
+               <input type="number" class="form-control course-price" [(ngModel)]="course.price"  step="0.001">
+
+             </td> -->
+          <!--
+              <td>
+                <ng-container *ngIf="(course.price === 0 || course.free) && !isHovered; else showPrice">
+                  <span class="free-status" (mouseenter)="toggleHover(true)" (mouseleave)="toggleHover(false)">Free</span>
+                </ng-container>
+                <ng-template #showPrice>
+                  <div class="price-container" (mouseenter)="toggleHover(true)" (mouseleave)="toggleHover(false)">
+                    <span class="course-price">{{ course.price }} DT</span>
+                    <ng-container *ngIf="isHovered || course.free">
+                      <input type="number" class="form-control course-price" [(ngModel)]="course.price" step="0.001">
+                    </ng-container>
+                  </div>
+                </ng-template>
+              </td>
+
+    -->
+          <td>{{ course.topicTitle }}</td>
+          <td>
+            <div class="btn-group">
+              <button class="btn btn-sm btn-info" (click)="updateCourse(course)">
+                <i class="fas fa-pencil-alt"></i>
+              </button>
+              <button class="btn btn-sm btn-danger" (click)="deleteCourse(course.id)">
+                <i class="fas fa-trash-alt"></i>
+              </button>
+            </div>
+          </td>
+          <td>
+            <button class="btn btn-sm btn-primary add-lesson-button" (click)="navigateToAddLesson(course.id)">
+              <i class="fas fa-plus"></i> Create Lesson
+            </button>
+
+          </td>
+          <!--
+          <td>
+            < class="btn btn-sm btn-success" (click)="(course.id)">addVideoConference
+              <i class="fas fa-video"></i> Add Video Conference
+            </button>
+          </td>
+          -->
+
+        </tr>
+        </tbody>
+
+      </table>
+      <!--    <div class="text-center m-2">
+            <button class="btn-create-course" (click)="navigateToCreateCourse()">Add Course</button>
+          </div>
+          -->
+    </div>
+  </div>
+
+  <!-- Pagination -->
+  <div class="row justify-content-center">
+    <nav aria-label="Page navigation">
+      <ul class="pagination">
+        <!-- Previous page -->
+        <li class="page-item" [class.disabled]="currentPage === 0">
+          <a class="page-link" href="#" (click)="prevPage($event)" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        <!-- Page numbers -->
+        <li class="page-item" *ngFor="let page of pages" [class.active]="currentPage === page - 1">
+          <a class="page-link" href="#" (click)="changePage(page - 1, $event)">{{ page }}</a>
+        </li>
+        <!-- Next page -->
+        <li class="page-item" [class.disabled]="currentPage === totalPages - 1">
+          <a class="page-link" href="#" (click)="nextPage($event)" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="row justify-content-center mt-3">
+    <div class="col-lg-6 text-center">
+      <button type="button" class="btn btn-primary add-course-btn" data-bs-toggle="modal" data-bs-target="#addCourseModal">
+        Add Course
+      </button>
+    </div>
+  </div>
+
+
+</div>
+
+
+
+
+<!-- Modal for adding a new user -->
+<div class="modal fade" id="addCourseModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add New Course</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="resetForm()"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="createCourseForm" (ngSubmit)="createCourse()" autocomplete="off" class="create-course-form">
+          <div class="form-group">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" id="title" formControlName="title" placeholder="Enter the title of your course">
+            <div *ngIf="f['title'].invalid && (f['title'].dirty || f['title'].touched)" class="error-message">
+              <div *ngIf="f['title'].errors?.['required']">* Title is required.</div>
+              <div *ngIf="f['title'].errors?.['maxlength']">Title cannot exceed 200  characters</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="description" class="form-label">Description</label>
+            <input type="text" id="description" formControlName="description" placeholder="Enter the estimated time commitment">
+            <div *ngIf="f['description'].invalid && (f['description'].dirty || f['description'].touched)" class="error-message">
+              <div *ngIf="f['description'].errors?.['required']">* Description is required.</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="topicId">Topic</label>
+            <select id="topicId" formControlName="topicId">
+              <option value="" disabled selected>Select a topic</option>
+              <option *ngFor="let topic of topics" [value]="topic.id">{{ topic.title }}</option>
+            </select>
+            <div *ngIf="createCourseForm.get('topicId')?.invalid && createCourseForm.get('topicId')?.touched" class="error-message">
+              * Topic is required.
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="timeCommitment" class="form-label">Time Commitment</label>
+            <input type="text" id="timeCommitment" formControlName="timeCommitment" placeholder="Enter the estimated time commitment">
+            <div *ngIf="f['timeCommitment'].invalid && (f['timeCommitment'].dirty || f['timeCommitment'].touched)" class="error-message">
+              <div *ngIf="f['timeCommitment'].errors?.['required']">* TimeCommitment is required.</div>
+              </div>
+          </div>
+
+          <div class="form-group">
+            <label for="startDate">Start Date</label>
+            <input type="date" id="startDate" formControlName="startDate">
+            <div *ngIf="createCourseForm.get('startDate')?.touched && createCourseForm.get('startDate')?.errors?.['required']" class="error-message">
+              * Start date is required
+            </div>
+            <div *ngIf="createCourseForm.get('startDate')?.touched && createCourseForm.get('startDate')?.errors?.['pastDate']" class="error-message">
+              Date must be in the future
+            </div>
+
+          </div>
+
+          <!-- End Date -->
+          <div class="form-group">
+            <label for="endDate">End Date</label>
+            <input type="date" id="endDate" formControlName="endDate">
+            <div *ngIf="createCourseForm.get('endDate')?.touched">
+              <div *ngIf="createCourseForm.get('endDate')?.errors?.['required']" class="error-message">
+                * End date is required
+              </div>
+              <div *ngIf="createCourseForm.get('endDate')?.value && createCourseForm.get('endDate')?.value < createCourseForm.get('startDate')?.value" class="error-message">
+                End date must be higher than start date
+              </div>
+              <p></p>
+              <div *ngIf="createCourseForm.get('endDate')?.errors?.['pastDate']" class="error-message">
+
+                Date must be in the future
+              </div>
+
+
+            </div>
+          </div>
+
+
+
+
+          <div class="file-upload-container">
+            <label for="imageFile" class="file-upload">
+              <i class="fas fa-image"></i> Add Image
+            </label>
+            <input type="file" id="imageFile" (change)="onFileSelected($event)" accept="image/*">
+   <!--         <div *ngIf="f['imageFile'].invalid && (f['imageFile'].dirty || f['imageFile'].touched)" class="error-message">
+              <div *ngIf="f['imageFile'].errors?.['required']">* Image is required.</div>
+            </div>
+            -->
+            <span class="selected-image" *ngIf="selectedFile">{{ selectedFile.name }}</span>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="resetForm()">Close</button>
+            <button type="submit" class="btn btn-primary">Add Course</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

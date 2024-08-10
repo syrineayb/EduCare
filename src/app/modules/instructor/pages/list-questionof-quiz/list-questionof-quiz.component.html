@@ -1,0 +1,142 @@
+<div class="container">
+  <h1>Question Management</h1>
+  <hr>
+
+  <!-- Breadcrumb -->
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a routerLink="/instructor" style="color: #7734E7;">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page" style="color: #7734E7;">Question</li>
+    </ol>
+  </nav>
+  <!-- /Breadcrumb -->
+
+  <!-- Button to add a new question -->
+  <div class="row justify-content-center mt-3">
+    <div class="col-lg-12 text-center">
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addQuestionModal">Add Question</button>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="addQuestionModal" tabindex="-1" aria-labelledby="addQuestionModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addQuestionModalLabel">Add New Question</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Form for adding a new question -->
+          <form (ngSubmit)="addQuestion()" #questionForm="ngForm">
+            <div class="mb-3">
+              <label for="title" class="form-label">Question Title</label>
+              <input type="text" class="form-control" id="title" name="title" [(ngModel)]="newQuestionText.title" required>
+            </div>
+            <div class="mb-3">
+              <label for="questionType" class="form-label">Question Type</label>
+              <select class="form-control" id="questionType" name="questionType" [(ngModel)]="newQuestionText.type" (change)="onQuestionTypeChange()" required>
+                <option value="" disabled>Select Question Type</option>
+                <option value="YES_NO">Yes/No</option>
+                <option value="MULTIPLE_CHOICE">Multiple Choice</option>
+                <option value="SINGLE_CHOICE">Single Choice</option>
+              </select>
+            </div>
+            <div *ngIf="newQuestionText.type">
+              <div class="mb-3" *ngFor="let option of newQuestionOptions; let i = index">
+                <label for="optionText{{i}}" class="form-label">Option {{ i + 1 }}</label>
+                <input type="text" class="form-control" id="optionText{{i}}" name="optionText{{i}}" [(ngModel)]="option.text" required>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" [(ngModel)]="option.correct" name="optionCorrect{{i}}" id="optionCorrect{{i}}">
+                  <label class="form-check-label" for="optionCorrect{{i}}">Correct</label>
+                </div>
+                <button *ngIf="newQuestionText.type !== 'YES_NO'" type="button" class="btn btn-danger btn-sm" (click)="removeOptions(newQuestionOptions, i)">Remove</button>
+              </div>
+              <button type="button" class="btn btn-secondary" (click)="addOption()" [disabled]="newQuestionText.type === 'YES_NO' && newQuestionOptions.length >= 2">Add Option</button>
+            </div>
+            <div class="modal-footer d-flex justify-content-center">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+              <button type="submit" class="btn btn-primary">Add</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Display list of questions in a table format -->
+  <div class="mt-4">
+    <table class="table">
+      <thead>
+      <tr>
+        <th scope="col">Quiz Title</th>
+        <th scope="col">Title</th>
+        <th scope="col">Type</th>
+        <th scope="col">Options</th>
+        <th scope="col">Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let question of questions; let i = index">
+        <td>{{ question.quizTitle }}</td>
+        <td><input type="text" class="form-control" [(ngModel)]="question.text"></td>
+        <td>
+          <select class="form-control" [(ngModel)]="question.type" (change)="onQuestionTypeChange(question)">
+            <option value="YES_NO">Yes/No</option>
+            <option value="MULTIPLE_CHOICE">Multiple Choice</option>
+            <option value="SINGLE_CHOICE">Single Choice</option>
+          </select>
+        </td>
+        <td>
+          <ul>
+            <li *ngFor="let option of question.options; let j = index">
+              <input type="text" class="form-control" [(ngModel)]="option.text">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" [(ngModel)]="option.correct" name="optionCorrect{{i}}-{{j}}" id="optionCorrect{{i}}-{{j}}">
+                <label class="form-check-label" for="optionCorrect{{i}}-{{j}}">Correct</label>
+              </div>
+              <button *ngIf="question.type !== 'YES_NO'" type="button" class="btn btn-danger btn-sm" (click)="removeOption(question, j)">Remove</button>
+            </li>
+          </ul>
+          <button *ngIf="question.type !== 'YES_NO'" type="button" class="btn btn-secondary btn-sm" (click)="addOptionToQuestion(question)">Add Option</button>
+        </td>
+        <td>
+          <button class="btn btn-success" (click)="updateQuestion(question)">Save</button>
+          <button class="btn btn-danger" (click)="deleteQuestion(question.id)">Delete</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Pagination -->
+  <div class="row justify-content-center">
+    <nav aria-label="Page navigation">
+      <ul class="pagination">
+        <!-- Previous page -->
+        <li class="page-item" [class.disabled]="currentPage === 0">
+          <a class="page-link" href="#" (click)="prevPage($event)" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        <!-- Page numbers -->
+        <li class="page-item" *ngFor="let page of pages" [class.active]="currentPage === page - 1">
+          <a class="page-link" href="#" (click)="changePage(page - 1, $event)">{{ page }}</a>
+        </li>
+        <!-- Next page -->
+        <li class="page-item" [class.disabled]="currentPage === totalPages - 1">
+          <a class="page-link" href="#" (click)="nextPage($event)" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+
+  <div class="container">
+    <button class="btn-redirect" (click)="goToQuizList()">
+      <i class="fas fa-chevron-left"></i> Back to Quiz List
+    </button>
+  </div>
+</div>

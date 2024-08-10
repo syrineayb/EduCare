@@ -1,0 +1,327 @@
+
+
+/* Container */
+.container {
+  margin-top: 20px;
+}
+
+/* Breadcrumb */
+.main-breadcrumb .breadcrumb-item a {
+  color: var(--custom-color);
+}
+
+/* Never logged in */
+.never-logged-in {
+  color: red;
+}
+
+/* Buttons */
+.btn, .add-member-btn {
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary, .add-member-btn {
+  background-color: var(--custom-color);
+  border-color: #6a0dad;
+  color: #fff;
+}
+
+.btn-primary:hover, .add-member-btn:hover {
+  background-color: #6a0dad;
+  border-color: var(--custom-color);
+}
+
+/* Background colors for different roles */
+.bg-primary-candidate {
+  background-color: #ffd700; /* Yellow background for candidate role */
+}
+
+.bg-success-instructor {
+  background-color: #7fffd4; /* Aquamarine background for instructor role */
+}
+
+.bg-danger {
+  background-color: #ff6347; /* Orange background for admin role */
+}
+
+/* Table styles */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px; /* Add some margin at the bottom */
+}
+
+.table th, .table td {
+  padding: 10px; /* Increase padding for cells */
+  text-align: center; /* Align text to the center */
+}
+
+.table th {
+  background-color: #f8f9fa; /* Light background color for header */
+  font-weight: bold; /* Bold font for header cells */
+}
+
+/* Table Header */
+.table thead th {
+  background-color: var(--custom-color);
+  color: #fff;
+}
+
+/* Table Rows */
+.table tbody tr:nth-of-type(odd) {
+  background-color: #f8f9fa;
+}
+
+.table tbody tr:hover {
+  background-color: #f0f0f0; /* Light background color on hover */
+}
+
+/* Form control */
+.form-control {
+  font-size: 16px;
+  padding: 0.5rem;
+  height: auto;
+  border: 1px solid #ccc;
+  border-radius: 5px; /* Rounded corners */
+  transition: border-color 0.3s ease; /* Add transition effect for smooth hover and focus */
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--custom-color);
+  box-shadow: 0 0 0 0.1rem rgba(94, 46, 196, 0.25); /* Add box shadow on focus */
+}
+
+/* Status icon */
+.status-icon.active {
+  color: rgba(128, 0, 128, 1); /* Clear purple color (RGB: 128, 0, 128) */
+  font-size: 20px; /* Increase font size */
+  transition: all 0.3s ease; /* Add transition effect */
+  cursor: pointer; /* Change cursor to pointer */
+}
+
+.status-icon.active:hover {
+  transform: scale(1.1); /* Scale up on hover */
+}
+
+.status-icon.inactive {
+  color: red; /* Change color to red when inactive */
+  font-size: 20px; /* Maintain font size */
+  transition: all 0.3s ease; /* Add transition effect */
+  cursor: pointer; /* Change cursor to pointer */
+}
+
+.status-icon.inactive:hover {
+  transform: scale(1.1); /* Scale up on hover */
+}
+
+/* Toggle button */
+.toggle-button {
+  background-color: transparent; /* Transparent background */
+  color: var(--custom-color); /* Text color */
+  border: 1px solid var(--custom-color); /* Border color */
+  padding: 5px 10px; /* Padding */
+  border-radius: 4px; /* Border radius */
+  cursor: pointer; /* Cursor style */
+}
+
+td:hover .toggle-button {
+  display: block; /* Display the button when the status column is hovered over */
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.page-link {
+  color: var(--custom-color); /* Clear purple color */
+  background-color: transparent;
+  border: none;
+  padding: 0.5rem 0.75rem;
+  margin: 0 5px;
+  font-size: 1rem;
+  line-height: 1.25;
+  text-decoration: none;
+}
+
+.page-link:hover {
+  background-color: #f0f0f0;
+  border-color: #c88ce6; /* Lighter shade of purple */
+}
+
+.page-item.active .page-link {
+  z-index: 1;
+  color: #fff;
+  background-color: var(--custom-color); /* Clear purple color */
+  border-color: var(--custom-color); /* Clear purple color */
+}
+
+.page-item.disabled .page-link {
+  color: #6c757d;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+/* Modal content */
+.modal-content {
+  background-color: #fff; /* White background color */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a shadow */
+}
+
+.modal-header {
+  background-color: var(--custom-color); /* Purple background color */
+  color: #fff; /* White text color */
+  border-radius: 10px 10px 0 0; /* Rounded corners on top */
+}
+
+.modal-body {
+  padding: 20px; /* Add padding */
+}
+
+.modal-body .form-group {
+  margin-bottom: 20px; /* Add space between form groups */
+  border: none; /* Remove border */
+  border-radius: 5px; /* Add border radius */
+  padding: 10px; /* Add padding */
+  width: 100%; /* Set width to 100% */
+  transition: border-color 0.3s, box-shadow 0.3s; /* Smooth transition effect */
+}
+
+.modal-body .form-group label {
+  font-weight: bold; /* Make labels bold */
+  color: #000000; /* Set label color */
+}
+
+.modal-footer {
+  border-top: none; /* Remove border on top */
+  background-color: #f8f9fa; /* Light background color */
+  border-radius: 0 0 10px 10px; /* Rounded corners on bottom */
+}
+
+.modal-footer .btn-primary {
+  background-color: #6a0dad; /* Set button background color */
+  border-color: #6a0dad; /* Set button border color */
+}
+
+.modal-footer .btn-primary:hover {
+  background-color: #4e0897; /* Darker shade of purple on hover */
+  border-color: #4e0897; /* Darker shade of purple on hover */
+}
+
+/* Form group */
+.form-group {
+  margin-bottom: 20px; /* Add margin at the bottom */
+}
+
+/* Style the search input and select dropdown */
+.search-input, .form-select {
+  border-radius: 25px; /* Rounded corners */
+  padding-right: 2.5rem; /* Add space for the icon */
+  width: 100%; /* Set width to 100% */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition effect */
+}
+.form-control-sm{
+  border-radius: 25px; /* Rounded corners */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition effect */
+}
+.search-input:focus,.form-control-sm:focus {
+  outline: none; /* Remove default focus outline */
+  border-color: var(--custom-color); /* Change border color on focus */
+  box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.2); /* Add box shadow on focus */
+}
+/* Style the select dropdown */
+select.form-select {
+  -webkit-appearance: none; /* Remove default appearance for webkit browsers */
+  -moz-appearance: none; /* Remove default appearance for Firefox */
+  appearance: none; /* Remove default appearance */
+  background: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="%236c63ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>') no-repeat right 10px center; /* Add custom dropdown arrow */
+  background-color: #fff; /* Set background color */
+}
+
+select.form-select option {
+  padding: 10px; /* Add padding */
+}
+
+/* Style the select dropdown when scrolling options */
+select.form-select::-webkit-scrollbar {
+  width: 10px; /* Set scrollbar width */
+}
+
+select.form-select::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Set track background color */
+}
+
+select.form-select::-webkit-scrollbar-thumb {
+  background: #888; /* Set thumb background color */
+  border-radius: 5px; /* Add border radius */
+}
+
+select.form-select::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Change thumb color on hover */
+}
+
+/* Position the icons */
+.search-icon, .reset-icon {
+  position: absolute; /* Position the icon absolutely */
+  top: 50%; /* Align vertically */
+  transform: translateY(-50%); /* Center vertically */
+  pointer-events: auto;
+}
+
+.search-icon {
+  right: 35px; /* Adjust right spacing for reset icon to bring it more inside the input */
+  color: var(--custom-color); /* Icon color */
+}
+
+.search-icon:hover {
+  color: #4e0897; /* Darker shade on hover */
+}
+
+.reset-icon {
+  right: 35px; /* Adjust right spacing for reset icon */
+  color: var(--custom-color); /* Icon color */
+  background-color: transparent; /* Transparent background */
+  border: none; /* Remove border */
+  cursor: pointer; /* Add pointer cursor */
+}
+
+.reset-icon:hover {
+  color: #4e0897; /* Darker shade on hover */
+}
+
+.user-box {
+  position: relative;
+}
+
+.user-box .password-toggle-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.user-box .password-toggle-icon i {
+  font-size: 1.2rem;
+  border-radius: 50%;
+  padding: 0.4rem;
+}
+.user-box .password-toggle-icon i.fa-eye {
+  color: #777;
+}
+
+.user-box .password-toggle-icon i.fa-eye-slash {
+  color: #333;
+}
+  .form-error {
+    color: #cc0033;
+    display: inline-block;
+    font-size: 12px;
+    margin-top: 5px;
+    line-height: 15px;
+  }

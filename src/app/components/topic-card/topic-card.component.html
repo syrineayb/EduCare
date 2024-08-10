@@ -1,0 +1,33 @@
+<div class="container-xxl py-5 category">
+  <div class="container">
+    <div class="text-center wow" data-wow-delay="0.1s">
+      <h1 class="section-title">Explore Top Categories</h1>
+    </div>
+    <div class="row justify-content-center">
+      <ng-container *ngFor="let category of topics.content; let i = index">
+        <div class="col-lg-4 col-md-4 mb-4" style="animation: fadeInUp 0.5s ease;">
+          <div class="card topic-container" (click)="onCardClick(category.id)">
+            <img class="card-img-top img-fluid" [src]="category.imageFile" alt="Topic Image">
+            <div class="card-body">
+              <h5 class="card-title">{{ category.title }}</h5>
+            </div>
+          </div>
+        </div>
+        <!-- Add a new row after every third topic -->
+        <div *ngIf="(i + 1) % 3 === 0" class="w-100"></div>
+      </ng-container>
+    </div>
+    <div class="text-center mt-3 no-topics-message" *ngIf="!topics.content || topics.content.length === 0">
+      <p>No topics available.</p>
+    </div>
+    <!-- Button container for scrolling to other topics -->
+    <div class="button-container">
+      <button class="scroll-btn scroll-left" (click)="scrollToLeft()">
+        <i class="material-icons">chevron_left</i>
+      </button>
+      <button class="scroll-btn scroll-right" (click)="scrollToRight()">
+        <i class="material-icons">chevron_right</i>
+      </button>
+    </div>
+  </div>
+</div>

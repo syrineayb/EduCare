@@ -1,0 +1,148 @@
+/* Add custom CSS to make the input fields more sizable */
+/* Form control styles */
+.form-control {
+  font-size: 16px;
+  padding: 0.5rem;
+  height: auto;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s ease; /* Add transition effect for smooth hover and focus */
+}
+
+/* Hover State */
+.form-control:hover {
+  border-color: var(--custom-color); /* Change border color on hover */
+}
+
+/* Focus State */
+.form-control:focus {
+  border-color: var(--custom-color); /* Change border color on focus */
+  box-shadow: 0 0 0 0.1rem rgba(94, 46, 196, 0.25); /* Add box shadow on focus */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+
+.search-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  width: 200px; /* Adjust width as needed */
+  margin-right: 10px; /* Add spacing between inputs */
+  font-size: 16px; /* Adjust font size */
+  padding: 8px; /* Adjust padding */
+  border: 1px solid #ccc; /* Add border */
+  border-radius: 25px; /* Add border radius */
+}
+
+.search-bar .form-control {
+  width: 250px; /* Adjust width as needed */
+  margin-right: 10px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Table Styles */
+.table th {
+  background-color: var(--custom-color); /* Purple color for table headers */
+  color: #fff;
+  font-weight: bold;
+}
+
+.table td {
+  text-align: left;
+}
+
+.btn {
+  display: inline-block; /* Make buttons appear inline */
+  margin-right: 10px; /* Add spacing between buttons */
+}
+.btn-create-meeting {
+  display: block;
+  width: 25%; /* Set width to 100% */
+  padding: 10px 10px; /* Adjusted padding for smaller size */
+  margin: 20px auto; /* Set left and right margins to auto */
+  background: linear-gradient(135deg, #824bc7, #800080);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 12px; /* Adjusted font size */
+  cursor: pointer;
+}
+
+.btn-create-meeting:hover {
+  background: linear-gradient(135deg, #6a006a,#6a2e99);
+}
+.btn-primary {
+  background-color: var(--custom-color);
+  color: #fff;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #4e0897;
+  border-color: #4e0897;
+}
+
+.btn-secondary {
+  border: none;
+}
+
+.pagination {
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  list-style: none; /* Remove default list style */
+  display: flex; /* Use flexbox to align items horizontally */
+  justify-content: center; /* Center align pagination */
+}
+
+.page-item {
+  margin-right: 5px; /* Add some spacing between pagination items */
+}
+
+.page-link {
+  color:  var(--custom-color); ; /* Text color */
+  text-decoration: none; /* Remove default underline */
+  padding: 5px 10px; /* Adjust padding */
+  border: 1px solid  var(--custom-color);  /* Border color */
+  border-radius: 3px; /* Rounded corners */
+}
+
+.page-item.active .page-link {
+  background-color:  var(--custom-color); /* Background color for active page */
+  color: #fff; /* Text color for active page */
+}
+
+.page-item.disabled .page-link {
+  color: #ddd; /* Text color for disabled page */
+  cursor: not-allowed; /* Show not-allowed cursor for disabled page */
+}
+
+.btn-info:hover i,
+.btn-danger:hover i {
+  color: #4e0897; /* Darker color on hover */
+}
+
+.btn-info,
+.btn-danger {
+  color: #5e2ec4; /* Icon color for the Update button */
+  background-color: transparent; /* Make the background color transparent */
+  border-color: transparent; /* Remove button border */
+}
+
+.btn-info:hover,
+.btn-danger:hover {
+  background-color: transparent; /* Make the background color transparent on hover */
+  border-color: transparent; /* Remove button border on hover */
+}

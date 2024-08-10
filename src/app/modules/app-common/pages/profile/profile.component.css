@@ -1,0 +1,163 @@
+.container-xl {
+  animation-name: fadeIn; /* Animation name */
+  animation-duration: 1s; /* Animation duration */
+  animation-delay: 0.5s; /* Animation delay */
+  animation-fill-mode: both; /* Animation fill mode */
+}
+/* User Info Section */
+.user-info-section {
+  margin-bottom: 30px; /* Add bottom margin for better separation */
+}
+
+/* Style for profile borders */
+.profile-border {
+  border: 1px solid #ccc; /* Add a 1px solid border with light gray color */
+  border-radius: 5px; /* Add border radius for rounded corners */
+  padding: 20px; /* Add padding inside the border */
+  margin-bottom: 20px; /* Add bottom margin for separation */
+}
+
+/* Navigation Links */
+.nav-borders .nav-link.active {
+  color: #7734E7;
+  border-bottom-color: #7734E7;
+}
+.nav-borders .nav-link {
+  color: #69707a;
+  border-bottom-width: 0.125rem;
+  border-bottom-style: solid;
+  border-bottom-color: transparent;
+  padding: 0.5rem 0;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.custom-style h1 {
+
+}
+
+.custom-style h1 span {
+  margin-top: 5px;
+  font-size: 15px;
+  word-spacing: 1px;
+  font-weight: normal;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #8b7146;
+  display: grid;
+  grid-template-columns: 1fr max-content 1fr;
+  grid-template-rows: 27px 0;
+  grid-gap: 20px;
+  align-items: center;
+}
+
+.custom-style h1 span:after,
+.custom-style h1 span:before {
+  content: "";
+  display: block;
+  border-bottom: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  height: 5px;
+  background-color: #f8f8f8;
+}
+
+/* Profile image container */
+.profile-image-container {
+  position: relative;
+  width: 150px; /* Adjust width and height as needed */
+  height: 150px;
+  margin: 0 auto 20px; /* Add bottom margin for spacing */
+  overflow: hidden; /* Hide overflow to prevent image distortion */
+}
+
+/* Profile image */
+.profile-image-container img {
+  border-radius: 50%; /* Make the image circular */
+  border: 2px solid #ffffff; /* Add a border around the image */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Increase shadow effect */
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Maintain aspect ratio */
+  transition: transform 0.3s ease; /* Add transition for smoother resizing */
+}
+
+/* Hover effect for profile image */
+.profile-image-container img:hover {
+  transform: scale(1.1); /* Scale image on hover */
+}
+
+/* Update Image button */
+.update-image-button {
+  display: block; /* Ensure it's a block element */
+  margin: 0 auto; /* Center horizontally */
+}
+
+/* File input label */
+.file-input-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 1; /* Ensure the file input is clickable */
+}
+
+/* Label styles */
+label {
+  color: purple; /* Set label text color to purple */
+}
+
+/* Input hover styles */
+input[type="text"]:hover,
+input[type="email"]:hover,
+input[type="tel"]:hover,
+input[type="number"]:hover,
+select:hover,
+textarea:hover {
+  border-color: #4a0787; /* Darken input border color on hover */
+}
+
+/* Input focus styles */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="number"]:focus,
+select:focus,
+textarea:focus {
+  border-color: #4a0787; /* Change input border color on focus */
+  box-shadow: 0 0 0 0.2rem rgba(106, 13, 173, 0.5); /* Add focus outline with #6a0dad color */
+}
+
+/* Button styles */
+.btn {
+  background-color: transparent; /* Transparent background */
+  color: #6a0dad; /* Text color */
+  border: 1px solid #6a0dad; /* Border color */
+  padding: 5px 10px; /* Padding */
+  border-radius: 4px; /* Border radius */
+  cursor: pointer; /* Cursor style */
+  display: block; /* Display the button when the status column is hovered over */
+}
+
+/* Button hover styles */
+.btn:hover {
+  background-color: #4e0897; /* Darker shade of purple on hover */
+  border-color: #4e0897; /* Darker shade of purple on hover */
+  color: #fff;
+}
+
+/* Button focus styles */
+.btn:focus {
+  box-shadow: 0 0 0 0.2rem rgba(106, 13, 173, 0.5); /* Add focus outline with #6a0dad color */
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+

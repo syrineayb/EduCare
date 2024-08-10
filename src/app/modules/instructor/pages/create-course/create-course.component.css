@@ -1,0 +1,206 @@
+/* create-course.component.css */
+.create-course-container {
+  max-width: 50%;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid var(--custom-color); /* Purple border */
+  border-radius: 5px;
+  background-color: #f8f9fa; /* Light gray background */
+}
+
+h1 {
+  font-weight: bold;
+  color: #5e2ec4; /* Text color */
+  font-size: 36px; /* Font size */
+  margin-bottom: 20px; /* Bottom margin */
+  text-align: center; /* Center align text */
+  letter-spacing: 1px;
+  text-transform: uppercase; /* Uppercase text */
+  position: relative; /* Position relative for absolute positioning */
+ /* letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  */
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: bold;
+  color: #333;
+}
+
+
+input[type="text"],
+input[type="number"],
+textarea,
+select,
+input[type="date"] {
+  width: 100%;
+  margin-bottom: 15px; /* Add some space between inputs */
+  padding: 8px;
+  border: 1px solid var(--custom-color); /* Purple border for inputs */
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+input[type="text"]:hover,
+input[type="number"]:hover,
+textarea:hover,
+select:hover,
+input[type="date"]:hover {
+  border-color: var(--custom-color);
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+textarea:focus,
+select:focus,
+input[type="date"]:focus {
+  outline: none;
+  border-color: var(--custom-color);
+  box-shadow: 0 0 5px rgba(106, 13, 173, 0.5);
+}
+/* create-course.component.css */
+.checkbox-container {
+  display: inline-block;
+  position: relative;
+  padding-left: 25px; /* Adjust as needed */
+  margin-right: 15px; /* Add space between label and checkbox */
+}
+
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px; /* Adjust size of the checkbox */
+  width: 20px; /* Adjust size of the checkbox */
+  background-color: #eee; /* Color of unchecked checkbox */
+  border: 1px solid #ccc; /* Border color of unchecked checkbox */
+  border-radius: 3px; /* Adjust border radius */
+}
+
+.checkbox-container:hover input ~ .checkmark {
+  background-color: #f2f2f2; /* Hover background color */
+}
+
+.checkbox-container input:checked ~ .checkmark {
+  background-color: var(--custom-color); /* Color of checked checkbox */
+  border: 1px solid var(--custom-color); /* Border color of checked checkbox */
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.checkbox-container .checkmark:after {
+  left: 7px; /* Adjust position of checkmark */
+  top: 3px; /* Adjust position of checkmark */
+  width: 5px; /* Width of checkmark */
+  height: 10px; /* Height of checkmark */
+  border: solid #fff; /* Color of checkmark */
+  border-width: 0 2px 2px 0; /* Style of checkmark */
+  transform: rotate(45deg); /* Rotate checkmark */
+}
+.file-upload {
+  color: #333;
+  padding: 10px 20px; /* Padding */
+  border-radius: 4px; /* Border radius */
+  cursor: pointer; /* Cursor */
+  display: inline-block; /* Display as inline-block */
+}
+
+.file-upload:hover {
+  background-color: var(--custom-color); /* Background color on hover */
+  color: #fff; /* Text color on hover */
+}
+
+.file-upload i {
+  margin-right: 5px; /* Space between icon and text */
+}
+
+/* Hide default file input text */
+input[type="file"] {
+  display: none;
+}
+.selected-image {
+  margin-top: 10px; /* Add margin to separate from the input */
+  font-size: 12px; /* Adjust font size */
+  color: #333; /* Set text color */
+  font-weight: bold; /* Make text bold */
+}
+
+/* create-course.component.css */
+.btn-create-course {
+  display: block;
+  width: 50%; /* Set width to 100% */
+  padding: 10px 10px; /* Adjusted padding for smaller size */
+  margin: 20px auto; /* Set left and right margins to auto */
+  background: linear-gradient(135deg, #824bc7, #800080);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 12px; /* Adjusted font size */
+  cursor: pointer;
+}
+
+.btn-create-course:hover {
+  background: linear-gradient(135deg, #6a006a,#6a2e99);
+}
+
+
+
+/* Error message styles */
+.error-message {
+  color: #cc0033;
+  display: inline-block;
+  font-size: 12px;
+  line-height: 15px;
+  margin-top: 5px;
+}
+/* Animation for the button */
+@keyframes slideIn {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Style for the button */
+.btn-redirect {
+  background-color: var(--custom-color); /* Purple background color */
+  color: #fff; /* White text color */
+  border: none; /* Remove button border */
+  padding: 8px 16px; /* Padding around button text */
+  border-radius: 4px; /* Add border radius */
+  font-size: 16px; /* Button text size */
+  animation: slideIn 0.5s ease-in-out; /* Apply the slide-in animation */
+}
+
+.btn-redirect:hover {
+  background-color: #6a1b9a; /* Darker purple on hover */
+}
+
+/* Style for the icon */
+.btn-redirect i {
+  margin-right: 8px; /* Add space between icon and text */
+}

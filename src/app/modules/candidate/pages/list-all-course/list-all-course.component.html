@@ -1,0 +1,75 @@
+<div class="container">
+  <!-- Breadcrumb -->
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#" style="color: #7734E7;">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page" style="color: #7734E7;">courses</li>
+    </ol>
+  </nav>
+  <hr>
+  <!-- /Breadcrumb -->
+
+  <!-- Search Input -->
+  <div class="row justify-content-center mt-3">
+    <div class="col-lg-4 mb-2">
+      <input type="text" class="form-control search-input" placeholder="Search by course title" [(ngModel)]="searchTerm" (input)="applyFilters()">
+    </div>
+  </div>
+
+  <!-- Course Cards -->
+  <div class="row" style="margin: 60px;">
+    <div class="col-lg-4 col-md-6 mb-4" *ngFor="let course of filteredCourses">
+      <div class="card h-80">
+          <img class="card-img-top" [src]="course.imageFile" alt="Course Image">
+        <div class="card-body d-flex flex-column "> <!-- Remove bottom margin -->
+        <div>
+          <h5 class="card-title">{{ course.title }}</h5>
+          <p class="card-text">{{ course.description }}</p>
+        </div>
+        <div>
+          <button class="btn btn-primary" (click)="enrollUser(course.id)">Enroll</button>
+        </div>
+       </div>
+
+        <div class="card-footer">
+          <div class="d-flex">
+            <small class="flex-fill text-center border-end py-2"><i class="fa fa-user-tie text-purple"></i>
+              {{ course.publisherName }}</small>
+            <small class="flex-fill text-center border-end py-2"><i class="fa fa-clock text-purple"></i>
+              {{ course.startDate }}</small>
+            <small class="flex-fill text-center border-end py-2"><i class="fa fa-clock text-purple me-2"></i>{{ course.endDate }}</small>
+            <small class="flex-fill text-center py-2"><i class="fa fa-user text-purple"></i>
+              {{ enrolledUserCounts[course.id] }} Inscrits</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- /Course Cards -->
+
+  <!-- Pagination -->
+  <div class="row justify-content-center mt-3">
+    <div class="col-lg-12 text-center"> <!-- Center pagination -->
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item" [class.disabled]="currentPage === 0">
+            <a class="page-link" href="#" aria-label="Previous" (click)="prevPage($event)">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          <li class="page-item" *ngFor="let page of pages" [class.active]="currentPage === page -1">
+            <a class="page-link" href="#" (click)="changePage(page - 1, $event)">{{ page }}</a> <!-- Subtract 1 here -->
+          </li>
+          <li class="page-item" [class.disabled]="currentPage === totalPages - 1">
+            <a class="page-link" href="#" aria-label="Next" (click)="nextPage($event)">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <!-- /Pagination -->
+</div>

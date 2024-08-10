@@ -1,0 +1,55 @@
+<div class="container">
+  <h2 class="section-title text-center mb-4">Explore New Topics</h2>
+
+  <!-- Search container -->
+  <div class="search-container mb-4">
+    <div class="search-wrapper">
+      <input class="form-control search-input" type="text" [(ngModel)]="searchKeyword" placeholder="Search topics..." (input)="searchTopics()">
+      <!-- Display reset icon inside the input -->
+      <span class="reset-icon" *ngIf="searchKeyword" (click)="resetSearch()">
+      <i class="fas fa-times-circle"></i>
+    </span>
+    </div>
+  </div>
+
+
+  <!-- Display searched topics -->
+  <div *ngIf="searchedTopics && searchedTopics.length > 0" class="d-flex justify-content-center flex-wrap topic-container">
+    <div class="topic-card mb-4" *ngFor="let topic of searchedTopics">
+      <div class="topic-image" [style.background-image]="'url(' + topic.imageFile + ')'"></div>
+      <div class="topic-details">
+        <h2 class="topic-title">{{ topic.title }}</h2>
+      </div>
+    </div>
+  </div>
+
+  <!-- Display all topics if no search is performed -->
+  <ng-container *ngIf="!searchedTopics || searchedTopics.length === 0">
+    <div class="d-flex justify-content-center flex-wrap topic-container">
+      <div class="topic-card mb-4" *ngFor="let topic of topTopics.content">
+        <div class="topic-image" [style.background-image]="'url(' + topic.imageFile + ')'"></div>
+        <div class="topic-details">
+          <h2 class="topic-title">{{ topic.title }}</h2>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="!topTopics || (topTopics.content && topTopics.content.length === 0)" class="no-topics text-center">
+      <p>No topics available.</p>
+    </div>
+
+    <div *ngIf="!topTopics" class="loading text-center">
+      <p>Loading...</p>
+    </div>
+  </ng-container>
+
+  <!-- Scroll buttons -->
+  <div class="scroll-btn-container" *ngIf="scrolledLeft || (!scrolledLeft && (topTopics && topTopics.content && topTopics.content.length > 0))">
+    <button class="scroll-btn scroll-left" *ngIf="scrolledLeft" (click)="scrollLeft()">
+      <i class="material-icons">chevron_left</i>
+    </button>
+    <button class="scroll-btn scroll-right" (click)="scrollRight()">
+      <i class="material-icons">chevron_right</i>
+    </button>
+  </div>
+</div>

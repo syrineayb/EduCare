@@ -1,0 +1,227 @@
+/* Container styles */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Quiz section styles */
+.quiz-section,
+.quiz-result-section {
+  font-family: "Arial", sans-serif; /* Custom font family */
+  background-color: #fff;
+  border-radius: 25px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  margin-bottom: 40px;
+}
+
+.quiz-section h3,
+.quiz-result-section h3 {
+
+  margin-bottom: 20px;
+
+
+  font-style: normal;
+  font-weight: 600;
+  font-size: 36px; /* Réduire la taille de la police */
+  /* or 60% */
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #7734E7;
+
+
+}
+
+.quiz-result-title {
+  color: #6400b6; /* couleur violette */
+  font-family: "Poppins", sans-serif; /* police de caractère Lilita One */
+  font-weight: 400; /* poids normal */
+  font-size: 32px; /* Réduire la taille de la police */
+}
+
+.quiz-section p,
+.quiz-result-section p {
+  font-size: 18px; /* Réduire la taille de la police */
+  margin-bottom: 15px;
+  color: #333;
+}
+p.p{
+  font-size: 5px;
+}
+.quiz-section hr,
+.quiz-result-section hr {
+  border-top: 1px solid #ccc;
+  margin: 30px 0;
+}
+p.lead {
+  font-size: 1rem; /* Réduire la taille de la police */
+  font-weight: 400; /* Poids de la police */
+  color: #333; /* Couleur du texte */
+  margin-bottom: 1.5rem; /* Marge en bas */
+}
+
+/* Button styles */
+.btn {
+  display: inline-block;
+  padding: 15px 30px;
+  font-size: 16px; /* Réduire la taille de la police */
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  margin-left: 10px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+
+
+
+
+.btn-primary {
+  background: linear-gradient(to right, #9a26a2, #6400b6);
+  color: #fff;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(to right, #6400b6, #9a26a2);
+  transform: translateY(-3px);
+}
+
+/* Alert styles */
+.alert {
+  padding: 20px;
+  margin-bottom: 30px;
+  border-radius: 15px;
+  background-color: #ffc107;
+  color: #333;
+}
+
+/* Question styles */
+.question-header {
+  margin-bottom: 20px;
+}
+
+.question-header h5 {
+  font-size: 28px;
+  color: #7734E7;
+}
+
+.question-header p {
+  font-size: 10px;
+  color: #666;
+}
+
+/* Checkbox styles */
+.form-check {
+  margin-bottom: 15px;
+}
+
+.form-check-label {
+  font-size: 16px; /* Réduire la taille de la police */
+}
+
+.form-check-input {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #666;
+  border-radius: 5px;
+  margin-right: 10px;
+  cursor: pointer;
+  vertical-align: middle;
+  position: relative;
+}
+
+.form-check-input:checked {
+  background-color: #7734E7;
+  border-color: #7734E7;
+}
+
+.form-check-input:checked:after {
+  content: '\2714';
+  font-size: 16px;
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Navbar styles */
+.navbar {
+  background-color: #7734E7;
+  padding: 15px 0;
+  text-align: center;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-brand {
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* Footer styles */
+.footer {
+  background-color: #7734E7;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+  border-radius: 25px;
+  box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.footer p {
+  margin-bottom: 10px;
+}
+/* Add custom CSS styles */
+.quiz-result-section {
+  max-width: 700px;
+  margin: 0 auto;
+  background-color: #f8f9fa;
+}
+
+/* Quiz section header styles */
+.question-header h5 {
+
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 550;
+  font-size: 20px;
+  line-height: 24px;
+
+
+
+  color: #7734E7;
+
+
+}
+
+
+.quiz-options {
+  padding: 0 15px;
+}
+
+.quiz-options .form-check {
+  margin-bottom: 10px;
+}
+
+.quiz-options .form-check-label {
+  font-size: 14px; /* Réduire la taille de la police */
+}
+
+.quiz-options .form-check-input[disabled] {
+  cursor: default;
+}
+
+.quiz-options .form-check-label .text-success {
+  color: #28a745;
+}
+
+.quiz-options .form-check-label .text-danger {
+  color: #dc3545;
+}

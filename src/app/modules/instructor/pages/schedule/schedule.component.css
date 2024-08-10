@@ -1,0 +1,176 @@
+/* Style the main calendar container */
+
+
+
+
+.fc {
+    font-family: Arial, sans-serif; /* Set the font family */
+    background-color: white; /* Set the background color */
+    max-width: 1000px; /* Set maximum width */
+    margin: 0 auto; /* Center the container horizontally */
+}
+
+.meeting-schedule-container {
+    max-width: 50%;
+    margin: 0 auto;
+    padding: 50px;
+    /*border: 1px solid var(--custom-color);
+    border-radius: 5px;
+    background-color: #f8f9fa;
+    */
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+/* Style labels */
+label {
+    display: block; /* Make labels display in block format */
+    margin-bottom: 5px; /* Add some space between labels and inputs */
+    font-weight: bold;
+}
+
+/* Style inputs */
+input[type="text"],
+input[type="datetime-local"],
+input[type="number"],
+textarea {
+    width: 100%;
+    padding: 8px;
+    /*margin-bottom: 15px; /* Add some space between inputs */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Ensure padding and border are included in width */
+}
+/* Style select options */
+select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    appearance: none; /* Remove default arrow */
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%238a2be2" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M3.707 6.293a1 1 0 0 1 1.414 0l3.586 3.586L12.293 6.293a1 1 0 1 1 1.414 1.414l-4 4a1 1 0 0 1-1.414 0l-4-4a1 1 0 0 1 0-1.414z"/></svg>'); /* Custom arrow */
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 20px;
+    cursor: pointer;
+}
+
+/* Style select options */
+option {
+    padding: 8px;
+    background-color: #fff; /* Background color */
+    color: rgba(21, 20, 20, 0.91); /* Text color */
+}
+
+/* Hover and focus styles for inputs */
+input[type="text"]:hover,
+input[type="number"]:hover,
+textarea:hover,
+select:hover,
+input[type="date"]:hover,
+input[type="datetime-local"]:hover,
+input[type="text"]:focus,
+input[type="number"]:focus,
+textarea:focus,
+select:focus,
+input[type="date"]:focus
+input[type="datetime-local"]:focus {
+    outline: none;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 5px var(--custom-color);}
+
+/* Hover and focus styles for select options */
+select option:hover,
+select option:focus {
+    background-color: #f0f0f0; /* Change background color on hover and focus */
+    border: 1px solid var(--custom-color); /* Purple border */
+
+}
+
+/* Hover and focus styles for buttons */
+button:hover,
+button:focus {
+    border: 1px solid #824bc7; /* Add border */
+}
+
+/* Style buttons */
+.btn-create-meeting,.btn-launch-meeting {
+    display: block;
+      padding: 10px 10px; /* Adjusted padding for smaller size */
+    background: linear-gradient(135deg, #824bc7, #800080);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.btn-secondary
+{
+  display: block;
+  padding: 10px 10px; /* Adjusted padding for smaller size */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.btn-create-meeting:hover,.btn-launch-meeting:hover {
+    background: linear-gradient(135deg, #6a006a,#6a2e99);
+}
+
+
+.error-message {
+    color: #cc0033;
+    display: inline-block;
+    font-size: 12px;
+    line-height: 15px;
+    margin-top: 5px;
+}
+/* Style for the button */
+.btn-redirect {
+    background-color: var(--custom-color); /* Purple background color */
+    color: #fff; /* White text color */
+    border: none; /* Remove button border */
+    padding: 8px 16px; /* Padding around button text */
+    border-radius: 4px; /* Add border radius */
+    animation: slideIn 0.5s ease-in-out; /* Apply the slide-in animation */
+}
+
+.btn-redirect:hover {
+    background-color: #6a1b9a; /* Darker purple on hover */
+}
+
+/* Style for the icon */
+.btn-redirect i {
+    margin-right: 8px; /* Add space between icon and text */
+}
+/* Animation for the button */
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+.input-group {
+    display: flex;
+    justify-content: center; /* Centers the entire input group */
+    align-items: center; /* Vertically centers the button and input */
+}
+
+#meetingUrl {
+    flex: 1;
+    padding: 10px;
+    margin-right: 10px; /* Adds some space between the input and button */
+}
+.fc-timegrid-slot-label div {
+    width: 14.2857% !important; /* Assuming 7 columns, each should take 1/7 of the width */
+    height: 100px !important;
+    line-height: 100px !important;
+    font-size: 14px !important;
+    text-align: center;
+}
+

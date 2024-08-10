@@ -1,0 +1,225 @@
+<div class="container">
+  <h1>Quiz Management</h1>
+  <hr>
+
+  <!-- Breadcrumb -->
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a routerLink="/instructor" style="color: #7734E7;">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page" style="color: #7734E7;">Quiz</li>
+    </ol>
+  </nav>
+  <!-- /Breadcrumb -->
+
+  <div class="search-bar">
+    <input type="text" class="form-control search-input" placeholder="Search by title" [(ngModel)]="searchTerm">
+    <button class="btn btn-primary" (click)="applyFilters()">
+      <i class="fas fa-search"></i> <!-- Font Awesome search icon -->
+    </button>
+    <button class="btn btn-secondary" (click)="resetFilters()">
+      <i class="fas fa-sync"></i> <!-- Font Awesome sync/refresh icon -->
+    </button>
+  </div>
+
+
+  <!-- Table to display courses -->
+  <div class="row justify-content-center mt-3">
+    <div class="col-lg-8">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>ID Course</th>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let course of filteredCourses">
+          <td>{{ course.id }}</td>
+          <td>{{ course.title }}</td>
+          <td>{{ course.description }}</td>
+          <td>
+            <div class="btn-group" role="group" aria-label="Quiz actions">
+              <button type="button" class="btn btn-primary add-quiz-btn" data-bs-toggle="modal"
+                      data-bs-target="#addQuizModal" (click)="selectCourse(course.id)">
+                Add Quiz
+              </button>
+              <button type="button" class="btn btn-primary see-quiz-btn" data-bs-toggle="modal"
+                      data-bs-target="#SeeQuizModal" (click)="selectCourse(course.id)">
+                See Quizzes
+              </button>
+              <button type="button" class="btn btn-primary add-quiz-btn" data-bs-toggle="modal"
+                      data-bs-target="#seeQuestionsModal" (click)="selectCourse(course.id)">
+                Add Quiz with selected Questions
+              </button>
+
+            </div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="seeQuestionsModal" tabindex="-1" aria-labelledby="selectQuestionsModalLabel"
+       aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabell">Add Quiz for Course ID: {{ selectedCourseId }}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Form fields for adding quiz -->
+          <form (ngSubmit)="createQuizWithQuestion()">
+            <div class="mb-3">
+              <label for="quizTitle" class="form-label">Title</label>
+              <input type="text" class="form-control" id="quizTitlee" [(ngModel)]="newQuiz.title" name="quizTitle">
+            </div>
+            <div class="mb-3">
+              <label for="quizDuration" class="form-label">Duration (Minutes)</label>
+              <input type="number" class="form-control" id="quizDurationn" [(ngModel)]="newQuiz.duration"
+                     name="quizDuration">
+            </div>
+            <div class="mb-3">
+              <label for="quizMark" class="form-label">Mark</label>
+              <input type="number" class="form-control" id="quizMarkk" [(ngModel)]="newQuiz.mark" name="quizMark">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Select Questions</label>
+              <div *ngFor="let question of questions">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="question{{question.id}}" [value]="question.id"
+                         (change)="toggleQuestionSelection(question.id)" [checked]="isSelectedQuestion(question.id)">
+                  <label class="form-check-label" for="question{{question.id}}">
+                    {{ question.text }}
+                  </label>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary" (click)="createQuizWithQuestion()">Add</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Add Quiz Modal -->
+  <div class="modal fade" id="addQuizModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add Quiz for Course ID: {{ selectedCourseId }}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+        </div>
+        <div class="modal-body">
+          <!-- Form fields for adding quiz -->
+          <form (ngSubmit)="createQuiz()">
+            <div class="mb-3">
+              <label for="quizTitle" class="form-label">Title</label>
+              <input type="text" class="form-control" id="quizTitle" [(ngModel)]="newQuiz.title" name="quizTitle">
+            </div>
+            <div class="mb-3">
+              <label for="quizDuration" class="form-label">Duration (Minutes)</label>
+              <input type="number" class="form-control" id="quizDuration" [(ngModel)]="newQuiz.duration"
+                     name="quizDuration">
+            </div>
+            <div class="mb-3">
+              <label for="quizMark" class="form-label">Mark</label>
+              <input type="number" class="form-control" id="quizMark" [(ngModel)]="newQuiz.mark" name="quizMark">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-primary" (click)="createQuiz()">Add</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- See Quiz Modal -->
+  <div class="modal fade" id="SeeQuizModal" tabindex="-1" aria-labelledby="SeeQuizModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered"> <!-- Add modal-dialog-centered class -->
+      <div class="modal-content text-center"> <!-- Add text-center class -->
+        <div class="modal-header">
+          <h5 class="modal-title" id="SeeQuizModalLabel">See Quiz for Course ID: {{ selectedCourseId }}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+        </div>
+        <div class="modal-body">
+          <!-- Table to display quizzes -->
+          <table class="table table-striped">
+            <thead>
+            <tr>
+
+              <th>Id Quiz</th>
+              <th>Title</th>
+              <th>Duration</th>
+              <th>Mark</th>
+              <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let quiz of quizzes">
+              <td>{{ quiz.id }}</td>
+              <td>
+                <input type="text" class="form-control" [(ngModel)]="quiz.title">
+              </td>
+              <td>
+                <input type="number" class="form-control" [(ngModel)]="quiz.duration">
+              </td>
+              <td>
+                <input type="number" class="form-control" [(ngModel)]="quiz.mark">
+              </td>
+              <td>
+                <button class="btn btn-info" (click)="updateQuiz(quiz)">
+                  <i class="fas fa-edit"></i> <!-- Font Awesome icon for edit -->
+                </button>
+                <!-- Delete button with icon -->
+                <button class="btn btn-danger" (click)="selectQuiz(quiz); deleteQuiz()">
+                  <i class="fas fa-trash-alt"></i> <!-- Font Awesome icon for delete -->
+                </button>
+                <button class="btn btn-primary see-question-btn" (click)="gopagequestion(quiz.id)">
+                  See Questions
+                </button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pagination -->
+  <div class="row justify-content-center">
+    <nav aria-label="Page navigation">
+      <ul class="pagination">
+        <!-- Previous page -->
+        <li class="page-item" [class.disabled]="currentPage === 0">
+          <a class="page-link" href="#" (click)="prevPage($event)" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        <!-- Page numbers -->
+        <li class="page-item" *ngFor="let page of pages" [class.active]="currentPage === page - 1">
+          <a class="page-link" href="#" (click)="changePage(page - 1, $event)">{{ page }}</a>
+        </li>
+        <!-- Next page -->
+        <li class="page-item" [class.disabled]="currentPage === totalPages - 1">
+          <a class="page-link" href="#" (click)="nextPage($event)" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>

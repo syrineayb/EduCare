@@ -1,0 +1,214 @@
+/* Typography */
+
+
+h2, h3, h4, h5, h6 {
+  color: var(--custom-color);
+}
+
+/* Container Styles */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.form-control {
+  font-size: 16px;
+  padding: 0.5rem;
+  height: auto;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s ease; /* Add transition effect for smooth hover and focus */
+}
+
+/* Hover State */
+.form-control:hover {
+  border-color: var(--custom-color); /* Change border color on hover */
+}
+
+/* Focus State */
+.form-control:focus {
+  border-color: var(--custom-color); /* Change border color on focus */
+  box-shadow: 0 0 0 0.1rem rgba(94, 46, 196, 0.25); /* Add box shadow on focus */
+}
+
+.search-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.search-input{  width: 200px; /* Adjust width as needed */
+  margin-right: 10px; /* Add spacing between inputs */
+  font-size: 16px; /* Adjust font size */
+  padding: 8px; /* Adjust padding */
+  border: 1px solid #ccc; /* Add border */
+  border-radius: 25px; /* Add border radius */}
+
+.search-bar .form-control {
+  width: 250px; /* Adjust width as needed */
+  margin-right: 10px;
+}
+
+
+/* Table Styles */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Table Header Styles */
+.table th {
+  background-color: var(--custom-color);
+  color: #fff;
+  font-weight: bold;
+  text-align: center; /* Center align the content */
+}
+
+
+.table td {
+  text-align: center;
+  border-color: #dee2e6;
+}
+
+/* Button Styles */
+.btn {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(121, 58, 255, 0.25);
+}
+
+.btn:hover {
+  /*background-color: #4e0897;
+  border-color: #4e0897;
+
+   */
+}
+
+.btn-primary {
+  background-color: var(--custom-color);
+  color: #fff;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #4e0897;
+  border-color: #4e0897;
+}
+
+.btn-secondary {
+  /* background-color: #8a62d3;
+   color: #fff;
+
+   */
+  border: none;
+}
+
+/* Hover effect for the icons */
+.btn-info:hover i,
+.btn-danger:hover i {
+  color: #4e0897; /* Darker color on hover */
+}
+
+/* Remove default button colors */
+.btn-info,
+.btn-danger {
+  color: #5e2ec4; /* Icon color for the Update button */
+
+  background-color: transparent; /* Make the background color transparent */
+  border-color: transparent; /* Remove button border */
+}
+
+/* Remove default button hover colors */
+.btn-info:hover,
+.btn-danger:hover {
+  background-color: transparent; /* Make the background color transparent on hover */
+  border-color: transparent; /* Remove button border on hover */
+}
+
+
+/* Modal Styles */
+.modal-header {
+  background-color: var(--custom-color);
+  color: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+.modal-title {
+  color: #fff;
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+.modal-footer .btn {
+  margin: 5px;
+}
+
+.modal-content {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+.modal-content .btn {
+  margin-top: 10px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+.modal-content .btn.btn-primary {
+  /*background-color: var(--custom-color);
+  color: #fff;
+  border: none;
+
+   */
+}
+
+.modal-content .btn.btn-secondary {
+  /* background-color: var(--custom-color);
+   color: #fff;
+   border: none;
+
+   */
+}
+
+.modal-content .btn:hover {
+  opacity: 0.8;
+}
+
+/* Pagination Styles */
+.pagination {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+.page-item {
+  margin-right: 5px;
+}
+
+.page-link {
+  color: var(--custom-color);
+  text-decoration: none;
+  padding: 5px 10px;
+  border: 1px solid var(--custom-color);
+  border-radius: 3px;
+}
+
+.page-item.active .page-link {
+  background-color: var(--custom-color);
+  color: #fff;
+}
+
+.page-item.disabled .page-link {
+  color: #ddd;
+  cursor: not-allowed;
+}

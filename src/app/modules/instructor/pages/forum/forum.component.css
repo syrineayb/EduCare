@@ -1,0 +1,481 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.page-link {
+    color: #6a0dad;
+    background-color: transparent;
+    border: none;
+    padding: 8px 12px;
+    margin: 0 5px;
+    font-size: 14px;
+    line-height: 1.5;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.page-link:hover {
+    background-color: #f0f0f0;
+}
+
+.page-item.active .page-link {
+    background-color: #6a0dad;
+    color: #fff;
+}
+
+.page-item.disabled .page-link {
+    color: #6c757d;
+    pointer-events: none;
+    cursor: not-allowed;
+}
+/* Discussion container */
+.discussion-container {
+    margin-top: 1rem;
+}
+
+/* Discussion cards */
+.discussion {
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+    margin-bottom: 1.5rem; /* Increase spacing between discussions */
+}
+
+/* Card body */
+.discussion .card-body {
+    padding: 1rem;
+}
+
+/* Card title */
+.discussion .card-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Discussion message */
+.discussion-message p {
+    margin-bottom: 1rem;
+}
+/* audio-player.component.css */
+
+.discussion-content {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.content-icon {
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+
+.audio-content-container {
+    margin-top: 1rem;
+    border-top: 1px solid #ddd;
+    padding-top: 1rem;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.audio-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+audio {
+    width: 100%;
+    max-width: 400px;
+}
+.download-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: rgba(181, 144, 246, 0.63); /* Blue color */
+    color: #fff; /* White text */
+    text-decoration: none; /* Remove underline */
+    border-radius: 5px; /* Rounded corners */
+    display: inline-block;
+    margin-top: 5px;
+    margin-left: 0.5rem;
+    transition: border-color 0.3s ease-in-out; /* Add transition effect for hover */
+}
+
+.download-link:hover {
+    border-color: rgba(181, 144, 246, 0.63); /* Change border color on hover */
+}
+
+.mb-3 {
+    margin-bottom: 1rem !important;
+}
+
+
+.content-icon {
+    margin-right: 10px;
+    font-size: 26px;
+}
+
+.text-content {
+    font-size: 16px; /* Adjust font size as needed */
+    line-height: 1.5; /* Adjust line height as needed */
+    color: #333; /* Set text color */
+}
+
+.image-content img {
+    max-width: 200px; /* Set the maximum width */
+    max-height: 200px; /* Set the maximum height */
+    display: block; /* Ensure the image is displayed as a block element */
+    margin: auto; /* Center the image horizontally */
+}
+
+.pdf-icon {
+    color: #ff0000; /* PDF icon color */
+}
+
+.audio-icon {
+    color: #8bc0e7; /* Audio icon color */
+}
+
+.video-icon {
+    color: #ffa500; /* Video color */
+}
+.image-icon{
+    color: #009688; /* Audio icon color */
+}
+.pdf-content,
+.video-content {
+    flex-grow: 1;
+}
+
+
+/* PDF icon */
+.pdf i {
+    color: #ff0000; /* PDF color */
+}
+
+/* Image icon */
+.image i {
+    color: #008000;
+}
+
+/* Video icon */
+.video i {
+    color: #ffa500; /* Video color */
+}
+
+/* Record icon */
+.record i {
+    color: #800080; /* Record color */
+}
+.pdf-content a{
+    width: 100%; /* Ensure content takes up remaining space */
+    max-width: 300px; /* Limit maximum width */
+}
+
+.pdf-link {
+    text-decoration: none;
+    color: #f80e0e; /* PDF link color */
+}
+
+.small-media {
+    max-width: 100%; /* Ensure media does not exceed container width */
+    height: auto;
+}
+
+.pdf-content,
+.video-content {
+    display: flex;
+    align-items: center;
+}
+/*
+.audio-content-container {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.audio-player {
+  width: 100%;
+  margin-top: 5px;
+}
+
+
+ */
+
+
+
+
+
+.add-answer-form button {
+    margin-right: 10px;
+}
+
+
+/* CSS for Answer Section */
+.answers-container {
+    margin-top: 20px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+.answer-item {
+    margin-bottom: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #ffffff;
+}
+
+.answer-content {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+.update-answer-form {
+    margin-top: 15px;
+}
+
+.add-answer-form {
+    margin-top: 20px;
+}
+
+.icon {
+    cursor: pointer;
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+/* Delete icon specific styles *//* General icon styling */
+.icon {
+    cursor: pointer;
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+/* Delete icon specific styles */
+.delete-icon {
+    color: #dc3545;
+}
+
+.delete-icon:hover {
+    color: #c82333;
+}
+
+/* Edit icon specific styles */
+.edit-icon {
+    color: #ffc107;
+}
+
+.edit-icon:hover {
+    color: #e0a800;
+}
+
+/* Answer and discussion icon containers */
+.answer-icons, .discussion-icons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.update-answer-form {
+    margin-top: 15px;
+}
+
+.add-answer-form {
+    margin-top: 20px;
+}
+
+.comment-count {
+    background-color: rgba(225, 217, 243, 0.63);
+    color: #fff;
+    padding: 2px 5px;
+    border-radius: 50%;
+    font-size: 12px;
+}
+.form-control,.add-answer-form textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-control:focus,
+.add-answer-form textarea:focus{
+    outline: none;
+    border-color: var(--custom-color);
+    box-shadow: 0 0 5px rgba(106, 13, 173, 0.5);
+}
+.form-control:hover,
+.add-answer-form textarea:hover{
+    border-color: var(--custom-color);
+}
+
+
+
+/* mic image style*/
+.mic-icon {
+    width: 50px; /* Adjust the width as needed */
+    height: 50px; /* Adjust the height as needed */
+}
+
+.audio-file {
+    width: 200px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+}
+
+
+
+
+/* Metadata */
+.discussion .text-muted {
+    font-size: 0.85rem;
+}
+
+/* Comment button icon */
+.discussion button i {
+    margin-right: 0.25rem;
+}
+
+/* No discussions message */
+.discussion .no-discussions {
+    margin-top: 1rem;
+    font-style: italic;
+    color: #777; /* Set color for no discussions message */
+}
+
+/* Add discussion form */
+.add-discussion-form {
+    margin-top: 1rem;
+}
+
+/* Comment icon */
+.comment-icon {
+    font-size: 1.25rem; /* Adjust the size of the comment icon */
+    color: #ac87ea; /* Set the color of the comment icon */
+    margin-right: 0.5rem; /* Adjust the spacing between the icon and the text */
+}
+
+/* Small media */
+.small-media {
+    max-width: 100%; /* Ensure the media does not exceed its container width */
+    max-height: 120px; /* Set maximum height to maintain aspect ratio */
+}
+
+/* PDF link */
+.pdf-link {
+    font-size: 14px; /* Adjust font size for PDF link */
+}
+
+/* Message type icons */
+.message-type-icons {
+    display: flex;
+    justify-content: space-around; /* Adjust spacing between icons */
+}
+
+/* File type icon */
+.file-type-icon i {
+    font-size: 24px;
+}
+
+/* Text icon */
+
+
+/* Hover effect on file type icon */
+.file-type-icon:hover i {
+    opacity: 0.7; /* Reduce opacity on hover */
+}
+
+/*
+btn styles
+ */
+.btn,.cancel-btn{
+    color: #fff;
+    border: none;
+    margin: 0 5px;
+    background-color: #8690a3;
+}
+.btn:hover,.cancel-btn:hover{
+    background-color: #a8b1bd;
+    border: none;
+}
+.btn-primary,.btn-outline-primary{
+    color: #fff;
+    background: linear-gradient(to right, #7734E7, #a94cf8);
+    border: none;
+    margin: 0 5px;
+}
+
+.btn-primary:hover,btn-outline-primary:hover{
+    background: linear-gradient(to right, #5f26c2, #7e62ff);
+    border: none;
+}
+/* pagination style */
+
+
+/* Pagination Styles */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.page-link {
+    color: #6a0dad; /* Clear purple color */
+    background-color: transparent;
+    border: none;
+    padding: 0.5rem 0.75rem;
+    margin: 0 5px;
+    font-size: 1rem;
+    line-height: 1.25;
+    text-decoration: none;
+}
+
+.page-link:hover {
+    background-color: #f0f0f0;
+    border-color: #c88ce6; /* Lighter shade of purple */
+}
+
+.page-item.active .page-link {
+    z-index: 1;
+    color: #fff;
+    background-color: #6a0dad; /* Clear purple color */
+    border-color: #6a0dad; /* Clear purple color */
+}
+.pdf-link, .pdf-link:hover {
+    color: inherit; /* Inherit the text color from parent */
+    text-decoration: none; /* Remove underline */
+}
+.page-item.disabled .page-link {
+    color: #6c757d;
+    pointer-events: none;
+    cursor: not-allowed;
+}
+.search-input{
+    border-radius: 25px; /* Rounded corners */
+    padding-right: 2.5rem; /* Add space for the icon */
+    width: 100%; /* Set width to 100% */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition effect */
+}
+
+
+.search-input:focus,.form-control-sm:focus {
+    outline: none; /* Remove default focus outline */
+    border-color: var(--custom-color); /* Change border color on focus */
+    box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.2); /* Add box shadow on focus */
+}

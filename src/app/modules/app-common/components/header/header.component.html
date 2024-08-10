@@ -1,0 +1,37 @@
+<div class="header">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-3 col-md-6 col-8">
+        <div class="logo">
+          <img [src]="sidebarActive ? 'assets/img/cross-icon.svg' : 'assets/img/menu-icon.svg'" (click)="toggleSidebar.emit()" />
+          <a class="navbar-brand educare" routerLink="/">EDUCARE</a>
+        </div>
+      </div>
+
+      <div class="col-lg-9 col-md-6 d-md-block d-none">
+        <div class="menu text-end">
+          <ng-container *ngIf="isCandidate()">
+            <button class="role-button candidate">Candidate</button>
+          </ng-container>
+          <ng-container *ngIf="isAdmin()">
+            <button class="role-button admin">Admin</button>
+          </ng-container>
+          <ng-container *ngIf="isInstructor()">
+            <button class="role-button instructor">Instructor</button>
+          </ng-container>
+
+       <!--   &lt;!&ndash; Add space between role buttons and notification icon/logout button &ndash;&gt;
+          <span class="space"></span>
+
+          <a href="#" class="notification-icon">
+            <i class="fas fa-bell"></i>
+          </a>
+-->
+          <span class="space"></span>
+
+          <a class="logout-button" (click)="logout()">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

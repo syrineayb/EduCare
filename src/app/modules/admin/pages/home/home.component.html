@@ -1,0 +1,70 @@
+<div class="container mt-5"> <!-- Adjusted margin top -->
+  <!-- Welcome message with the admin's username -->
+    <div class="row justify-content-center mt-5">
+        <div class="col-lg-12 text-center">
+            <h1>Welcome, <span id="username">{{ username }}</span></h1>
+        </div>
+    </div>
+
+    <!-- User statistics cards -->
+    <div class="row g-4 mb-4">
+        <div class="col-md-6 col-lg-3">
+            <div class="card text-white user-color hover-effect">
+                <div class="card-body pb-0 d-flex flex-column align-items-center justify-content-center"> <!-- Added justify-content-center -->
+                    <h2 class="fs-2 fw-semibold" id="totalUsers">{{ userStats.countnbrUsers }}</h2>
+                    <div class="fs-5">Total Members</div>
+                    <img src="assets/img/users.png" alt="Users" class="img-fluid mt-auto img-small"> <!-- Added img-small class -->
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+            <div class="card text-white active-color hover-effect">
+            <div class="card-body pb-0 d-flex flex-column align-items-center justify-content-center"> <!-- Added justify-content-center -->
+                <h2 class="fs-2 fw-semibold">{{ userStats.countnbrActiveUsers }}</h2>
+                    <div class="fs-5">Active Members</div>
+
+                <img src="assets/img/activeuser.png" alt="Active Members" class="img-fluid mt-auto img-small">
+            </div>
+        </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+            <div class="card text-white candidate-color">
+                <div class="card-body pb-0">
+                    <h2 class="fs-2 fw-semibold">{{ userStats.countnbrStudents }}</h2>
+                    <div class="fs-5">Candidates</div>
+                <img src="assets/img/students.png" alt="Candidates" class="img-fluid mt-auto img-small">
+            </div>
+        </div>
+        </div>
+    <div class="col-md-6 col-lg-3">
+            <div class="card text-white instructor-color">
+                <div class="card-body pb-0">
+                    <h2 class="fs-2 fw-semibold">{{ userStats.countnbrInstructors }}</h2>
+                    <div class="fs-5">Instructors</div>
+                <img src="assets/img/instructor.png" alt="Instructors" class="img-fluid mt-auto img-small">
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Charts -->
+    <div class="row justify-content-center mt-5">
+        <div class="col-lg-6">
+            <div class="card chart-container">
+                <div class="card-body">
+                    <h2 class="mb-4 text-center chart-title">Activity Chart</h2>
+                    <div [chart]="lineChart" id="activity-chart"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="mb-4 text-center chart-title">Member Distribution Chart</h2> <!-- Change title here -->
+                    <div [chart]="chart" style="min-height: 400px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

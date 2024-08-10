@@ -1,0 +1,18 @@
+<div id="sidenav" class="border-end">
+  <div class="user-info p-3 text-center">
+    <!-- Display user image here -->
+    <img [src]="userProfile?.profileImage || 'assets/img/profile/default-profile-image.jpg'" alt="Profile Image" routerLink="profile" class="user-image rounded-circle mb-3">
+    <!-- Display user name -->
+    <p class="username-title">{{ username }}</p>
+  </div>
+  <div class="logo-container px-3 py-2">
+    <ul class="list-unstyled">
+      <li class="sidebar-nav-item mb-2" *ngFor="let item of navItems">
+        <a class="sidebar-nav-link " [routerLink]="[item.routeLink]">
+          <i class="sidebar-link-icon me-2" [class]="item.icon"></i>
+          <span class="sidebar-link-text">{{ item.label }}</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

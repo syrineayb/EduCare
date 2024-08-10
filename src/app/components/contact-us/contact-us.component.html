@@ -1,0 +1,51 @@
+<div class="container-xxl py-5">
+  <div class="container">
+    <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+      <h1 class="section-title">Contact Us</h1>
+      <p class="mb-4">Have questions or need assistance? Feel free to reach out to us!</p>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-6">
+        <form class="contact-form" [formGroup]="contactForm" (ngSubmit)="submitForm()" autocomplete="off">
+          <div class="form-group">
+            <label for="name" class="form-label">Your Name</label>
+            <input type="text" class="form-control" id="name" formControlName="name">
+            <div *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched" class="text-danger">
+              * Name is required
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email" class="form-label">Your Email</label>
+            <input type="email" class="form-control" id="email" formControlName="email">
+            <div *ngIf="contactForm.get('email')?.hasError('required') && contactForm.get('email')?.touched" class="text-danger">
+              * Email is required
+            </div>
+            <div *ngIf="contactForm.get('email')?.hasError('email') && contactForm.get('email')?.touched" class="text-danger">
+              * Invalid email format
+            </div>
+          </div>
+            <div class="form-group">
+            <label for="subject" class="form-label">Subject</label>
+              <input type="text" class="form-control" id="subject" formControlName="subject">
+              <div *ngIf="contactForm.get('subject')?.invalid && contactForm.get('subject')?.touched" class="text-danger">
+                * Subject is required
+              </div>
+          </div>
+          <div class="form-group">
+            <label for="message" class="form-label">Message</label>
+            <textarea class="form-control" id="message" name="message" rows="4" formControlName="message"></textarea>
+            <div *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched" class="text-danger">
+              * Message is required
+            </div>
+          </div>
+          <div class="text-center">
+            <button type="submit" class="btn btn-purple">Submit</button>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-6">
+        <img src="assets/img/contactus.png" alt="Contact Us Image" class="img-fluid">
+      </div>
+    </div>
+  </div>
+</div>

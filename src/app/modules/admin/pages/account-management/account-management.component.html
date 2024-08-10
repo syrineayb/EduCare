@@ -1,0 +1,208 @@
+<div class="container">
+  <h1>Member Account Management</h1>
+  <hr>
+  <!-- Breadcrumb -->
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a routerLink="/admin" style="color: #7734E7;">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page" style="color: #7734E7;">Members</li>
+    </ol>
+  </nav>
+  <!-- /Breadcrumb -->
+
+  <div class="row justify-content-center mt-3">
+    <!-- Search Input -->
+    <div class="col-lg-4 mb-2 position-relative">
+      <input type="text" class="form-control search-input" placeholder="Search by username, email" [(ngModel)]="searchTerm" (input)="applyFilters()">
+      <button *ngIf="searchTerm" type="button" class="reset-icon" (click)="clearSearch()"><i class="fa fa-times-circle"></i></button> <!-- Reset Icon -->
+    </div>
+
+    <!-- Role Select Dropdown -->
+    <div class="col-lg-4 mb-2">
+      <select class="form-select role-select" id="roleSelect" [(ngModel)]="selectedRole" name="role" (change)="applyFilters()">
+        <option value="">All Roles</option>
+        <option value="ROLE_ADMIN">Admin</option>
+        <option value="ROLE_INSTRUCTOR">Instructor</option>
+        <option value="ROLE_CANDIDATE">Candidate</option>
+      </select>
+    </div>
+  </div>
+
+
+  <div class="row justify-content-center mt-3">
+    <div class="col-lg-12">
+      <!-- Table to display users -->
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col" style="width: 200px;">Username</th>
+          <th scope="col" style="width: 300px;">Email</th>
+          <th scope="col">Role</th>
+          <th scope="col">Status</th>
+          <th scope="col" style="width: 200px;">User Since</th>
+          <th scope="col" style="width: 200px;">Last Login Date</th>
+          <th scope="col">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Loop through filteredUsers array and display user data -->
+        <tr *ngFor="let user of filteredUsers">
+          <td>{{ user.id }}</td>
+          <!-- Display username and email fields -->
+          <!--          <td><input type="text" [(ngModel)]="user.fullname" class="form-control" [disabled]="user.roles.includes('ROLE_ADMIN')"></td>-->
+          <!--          <td><input type="email" [(ngModel)]="user.email" class="form-control" [disabled]="user.roles.includes('ROLE_ADMIN')"></td>-->
+          <td>{{user.fullname}}</td>
+          <td>{{user.email}}</td>
+          <!-- Display role column -->
+          <td>
+            <!-- Display role badge -->
+            <span *ngIf="user.roles.includes('ROLE_CANDIDATE')" class="badge bg-primary-candidate">Candidate</span>
+            <span *ngIf="user.roles.includes('ROLE_INSTRUCTOR')" class="badge bg-success-instructor">Instructor</span>
+            <span *ngIf="user.roles.includes('ROLE_ADMIN')" class="badge bg-danger">Admin</span>
+          </td>
+          <td>
+            <!-- Display status icon and text -->
+            <span class="status-icon" [class.active]="user.active">
+              <!--      (click)="!user.roles.includes('ROLE_ADMIN') ? toggleActiveStatus(user) : null" -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="16" height="16">
+            <path *ngIf="user.active" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z" fill="green"/>
+            <path *ngIf="!user.active" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z" fill="red"/>
+        </svg>
+    </span>
+          </td>
+
+          <!-- Display date created column -->
+          <td>{{ user.createdAt | date:'MMMM d, yyyy' }}</td>
+          <td><span [ngClass]="{'never-logged-in': !user.lastLogin}">
+          {{ user.lastLogin ? (user.lastLogin | date:'MMMM d, yyyy, h:mm a') : 'Never logged in' }}</span>
+          </td>
+
+          <!-- Display actions column -->
+          <!-- Display action buttons -->
+          <!-- Display actions column -->
+          <td>
+            <!-- Display action buttons -->
+            <div class="action-buttons">
+              <div class="delete-button-wrapper">
+                <button class="btn btn-danger" (click)="deleteUser(user.id)"
+                        [disabled]="user.roles.includes('ROLE_ADMIN') || !canDeleteUser(user.createdAt, user.lastLogin)">
+                  <i class="fa fa-trash" style="font-size: 16px;"></i> Delete
+                </button>
+
+              </div>
+            </div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+  <!-- Pagination -->
+  <div class="row justify-content-center">
+    <nav aria-label="Page navigation">
+      <ul class="pagination">
+        <!-- Previous page -->
+        <li class="page-item" [class.disabled]="currentPage === 0">
+          <a class="page-link" href="#" (click)="prevPage($event)" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        <!-- Page numbers -->
+        <li class="page-item" *ngFor="let page of pages" [class.active]="currentPage === page - 1">
+          <a class="page-link" href="#" (click)="changePage(page - 1, $event)">{{ page }}</a>
+        </li>
+        <!-- Next page -->
+        <li class="page-item" [class.disabled]="currentPage === totalPages - 1">
+          <a class="page-link" href="#" (click)="nextPage($event)" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- /Pagination -->
+
+  <div class="row justify-content-center mt-3">
+    <div class="col-lg-6 text-center">
+      <button type="button" class="btn btn-primary add-member-btn" data-bs-toggle="modal" data-bs-target="#addUserModal">
+        Add Member
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal for adding a new user -->
+<div class="modal fade" id="addUserModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add New Member</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="resetForm()"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="newUserForm" (ngSubmit)="createUser()" autocomplete="off">
+          <div class="form-group">
+            <label for="firstname" class="form-label">First Name</label>
+            <input type="text" class="form-control" formControlName="firstname" id="firstname">
+            <div *ngIf="f['firstname'].invalid && (f['firstname'].dirty || f['firstname'].touched)" class="form-error">
+              <div *ngIf="f['firstname'].errors?.['required']">* First Name is required.</div>
+              <div *ngIf="f['firstname'].errors?.['minlength']">First Name must be at least 2 characters</div>
+              <div *ngIf="f['firstname'].errors?.['maxlength']">First Name cannot exceed 50 characters</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="lastname" class="form-label">Last Name</label>
+            <input type="text" class="form-control" formControlName="lastname" id="lastname" >
+            <div *ngIf="f['lastname'].invalid && (f['lastname'].dirty || f['lastname'].touched)" class="form-error">
+              <div *ngIf="f['lastname'].errors?.['required']">* Last Name is required.</div>
+              <div *ngIf="f['lastname'].errors?.['minlength']">Last Name must be at least 2 characters</div>
+              <div *ngIf="f['lastname'].errors?.['maxlength']">Last Name cannot exceed 50 characters</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" formControlName="email" id="email">
+            <div *ngIf="f['email'].invalid && (f['email'].dirty || f['email'].touched)" class="form-error">
+              <div *ngIf="f['email'].errors?.['required']">* Email is required.</div>
+              <div *ngIf="f['email'].errors?.['email']">Invalid email format!</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="password" class="form-label">Password</label>
+            <div class="user-box">
+
+              <input class="form-control" formControlName="password" id="password" type="{{ passwordVisible ? 'text' : 'password' }}">
+              <span class="password-toggle-icon" (click)="togglePasswordVisibility()">
+      <i class="fas" [ngClass]="passwordVisible ? 'fa-eye' : 'fa-eye-slash'"></i>
+    </span>
+            </div>
+            <div *ngIf="f['password'].invalid && (f['password'].dirty || f['password'].touched)" class="form-error">
+              <div *ngIf="f['password'].errors?.['required']">* Password is required.</div>
+              <div *ngIf="f['password'].errors?.['minlength']">Password must be at least 6 characters</div>
+              <div *ngIf="f['password'].errors?.['maxlength']">Password cannot exceed 16 characters</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="role" class="form-label">Role</label>
+            <select class="form-control" formControlName="role" id="role">
+              <option value="ROLE_ADMIN">Admin</option>
+              <option value="ROLE_INSTRUCTOR">Instructor</option>
+              <option value="ROLE_CANDIDATE">Candidate</option>
+            </select>
+            <div *ngIf="f['role'].invalid && (f['role'].dirty || f['role'].touched)" class="form-error">
+              <div *ngIf="f['role'].errors?.['required']">* Role is required.</div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="resetForm()">Close</button>
+            <button type="submit" class="btn btn-primary">Add Member</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

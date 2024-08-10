@@ -1,0 +1,115 @@
+<div class="container">
+  <h1>Meeting Schedule Management</h1>
+  <hr>
+  <!-- Breadcrumb -->
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a routerLink="/instructor" style="color: #7734E7;">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page" style="color: #824bc7;">Meeting Schedule</li>
+    </ol>
+  </nav>
+  <!-- /Breadcrumb -->
+
+  <div class="search-bar">
+    <input type="text" class="form-control search-input" placeholder="Search by title" [(ngModel)]="searchTerm">
+    <input type="datetime-local" class="form-control search-input" placeholder="Search by date" [(ngModel)]="searchDate">
+    <button class="btn btn-primary" (click)="applyFilters()">
+      <i class="fas fa-search"></i> <!-- Font Awesome search icon -->
+    </button>
+    <button class="btn btn-secondary" (click)="resetFilters()">
+      <i class="fas fa-sync"></i> <!-- Font Awesome sync/refresh icon -->
+    </button>
+  </div>
+
+  <!-- Meeting Schedule list -->
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table">
+        <!-- Table headers -->
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>Meeting Title</th>
+          <th>Date</th>
+          <th>Duration (Minutes)</th>
+          <th>Meeting URL</th>
+          <th>Description</th>
+          <th>Course</th>
+          <th>Lesson</th>
+          <th>Actions</th>
+        </tr>
+        </thead>
+        <!-- Table body -->
+        <tbody>
+        <tr *ngFor="let meetingSchedule of filteredMeetingSchedules">
+          <td>{{ meetingSchedule.id }}</td>
+          <td>
+            <input type="text" [(ngModel)]="meetingSchedule.meetingTitle" class="form-control" [disabled]="isMeetingInPast(meetingSchedule.dateTime)">
+          </td>
+          <td>
+            <input type="datetime-local" [(ngModel)]="meetingSchedule.dateTime" class="form-control" [disabled]="isMeetingInPast(meetingSchedule.dateTime)">
+          </td>
+          <td>
+            <input type="number" [(ngModel)]="meetingSchedule.durationMinutes" class="form-control" [disabled]="isMeetingInPast(meetingSchedule.dateTime)">
+          </td>
+          <td>
+            <input type="text" [(ngModel)]="meetingSchedule.meetingUrl" class="form-control" [disabled]="isMeetingInPast(meetingSchedule.dateTime)">
+          </td>
+          <td>
+            <textarea class="form-control" [(ngModel)]="meetingSchedule.meetingDescription" [disabled]="isMeetingInPast(meetingSchedule.dateTime)"></textarea>
+          </td>
+          <td>
+            <span *ngIf="meetingSchedule.courseTitle; else notAvailable">{{ meetingSchedule.courseTitle }}</span>
+            <ng-template #notAvailable>
+              <span class="text-danger">Lesson Not Provided</span>
+            </ng-template>
+          </td>
+          <td>
+            <span *ngIf="meetingSchedule.lessonTitle; else notAvailable">{{ meetingSchedule.lessonTitle }}</span>
+            <ng-template #notAvailable>
+              <span class="text-danger">Lesson Not Provided</span>
+            </ng-template>
+          </td>
+          <td>
+            <div class="btn-group">
+              <button class="btn btn-sm btn-info" (click)="updateMeetingSchedule(meetingSchedule)" [disabled]="isMeetingInPast(meetingSchedule.dateTime)">
+                <i class="fas fa-pencil-alt"></i>
+              </button>
+              <button class="btn btn-sm btn-danger" (click)="deleteMeetingSchedule(meetingSchedule.id)" [disabled]="isMeetingInPast(meetingSchedule.dateTime)">
+                <i class="fas fa-trash-alt"></i>
+              </button>
+            </div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      <!-- Pagination -->
+      <div class="row justify-content-center">
+        <nav aria-label="Page navigation">
+          <ul class="pagination">
+            <!-- Previous page -->
+            <li class="page-item" [class.disabled]="currentPage === 0">
+              <a class="page-link" href="#" (click)="prevPage($event)" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+            <!-- Page numbers -->
+            <li class="page-item" *ngFor="let page of pages" [class.active]="currentPage === page - 1">
+              <a class="page-link" href="#" (click)="changePage(page - 1, $event)">{{ page }}</a>
+            </li>
+            <!-- Next page -->
+            <li class="page-item" [class.disabled]="currentPage === totalPages - 1">
+              <a class="page-link" href="#" (click)="nextPage($event)" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <div class="text-center m-2">
+    <button class="btn-create-meeting" (click)="navigateToCreateMeetingSchedule()">Add Meeting Schedule</button>
+  </div>
+
+</div>

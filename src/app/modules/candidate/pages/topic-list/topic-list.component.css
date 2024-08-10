@@ -1,0 +1,141 @@
+
+.section-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--custom-color);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.search-container {
+    display: flex;
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+}
+
+.topic-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.topic-card {
+    width: 300px; /* Adjust the width as needed */
+    margin: 0 10px 20px; /* Adjust margins as needed */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    justify-content: space-between;
+    animation: scrollAnimation 0.5s ease;
+}
+.topic-card:hover {
+    transform: translateY(-5px);
+}
+
+.topic-image {
+    height: 200px; /* Adjust the height as needed */
+    background-size: cover;
+    background-position: center;
+}
+
+.topic-details {
+    padding: 20px;
+}
+
+.topic-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Search container */
+.search-container {
+  display: flex;
+  justify-content: center;
+}
+
+/* Search wrapper */
+.search-wrapper {
+  position: relative;
+}
+
+/* Search input */
+.search-input {
+  width: 450px;
+  padding: 10px 14px; /* Adjust the padding */
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #4e0897; /* Darker shade of purple on focus */
+  box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.2);
+}
+.search-input:hover {
+ border-color: var(--custom-color);
+}
+
+/* Reset icon */
+.reset-icon {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.reset-icon i {
+  font-size: 18px;
+  color: #999;
+  transition: color 0.3s;
+}
+
+.reset-icon i:hover {
+  color: var(--custom-color);
+}
+
+
+.no-topics, .loading {
+  text-align: center;
+  margin-top: 20px;
+}
+.scroll-btn-container {
+    display: flex;
+    justify-content: space-between; /* Align buttons to the start and end */
+    margin-top: 20px;
+}
+
+.scroll-btn.scroll-right {
+    margin-left: auto; /* Push the right button to the end */
+}
+
+.scroll-btn {
+    border:none;
+    padding: 10px;
+    cursor: pointer;
+    color: #ffd700;
+    background-color: #ffffff;
+}
+
+.scroll-btn:hover {
+    transform: scale(1.1); /* Scale the button slightly on hover */
+}
+
+
+@keyframes scrollAnimation {
+    0% {
+        opacity: 0;
+        transform: scale(0.9); /* Start slightly smaller */
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1); /* Return to normal size */
+    }
+}
+

@@ -1,0 +1,89 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+.title-container {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center horizontally */
+  margin-bottom: 20px;
+}
+
+
+.title-icon {
+  margin-bottom: 20px;
+  margin-right: 10px;
+  font-size:15px;
+  color: #666;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center horizontally */
+  margin-top: 20px;
+}
+.form-control {
+  font-size: 16px;
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  transition: border-color 0.3s ease;
+  width: 100%;
+  max-width: 400px; /* Adjust max-width as needed */
+}
+
+/* Hover State */
+.form-control:hover {
+  border-color: var(--custom-color); /* Change border color on hover */
+}
+
+/* Focus State */
+.form-control:focus {
+  border-color: var(--custom-color); /* Change border color on focus */
+  box-shadow: 0 0 0 0.1rem rgba(94, 46, 196, 0.25); /* Add box shadow on focus */
+}
+
+.btn {
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #824bc7, #800080);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background: linear-gradient(135deg, #6a006a,#6a2e99);
+}
+.additional-text {
+  color: #666;
+  font-size: 16px;
+  margin-top: 10px;
+}
+#video-conference-container {
+  margin-top: 40px;
+}
+
+#jitsi-iframe-container {
+  border: 2px solid #ccc;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+#icons-container {
+  margin-top: 20px;
+}
+
+.grey-color {
+  color: #999;
+}
+
+.red-color {
+  color: #f00;
+}

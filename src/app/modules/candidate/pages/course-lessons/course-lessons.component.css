@@ -1,0 +1,121 @@
+/* lessons.component.css */
+
+.container {
+  margin-top: 20px; /* Add space at the top */
+}
+
+/* Section title styles */
+.section-title {
+  color: #333;
+  margin-bottom: 20px; /* Add margin bottom */
+  text-align: center; /* Center align text */
+}
+
+.lesson-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Distribute cards evenly */
+  gap: 20px;
+}
+.btn{
+  color: #fff;
+  border: none;
+  border-radius: 4px; /* Add rounded corners */
+  transition: background-color 0.3s ease; /* Add transition effect */
+}
+
+.button-container {
+  display: flex;
+  gap: 10px; /* Adjust space between buttons as needed */
+}
+.btn-primary-custom{
+  color: #fff;
+  background: linear-gradient(to right, #7734E7, #a94cf8);
+  border: none;
+  margin: 0 5px;
+}
+.btn-primary-custom:hover{
+  background: linear-gradient(to right, #5f26c2, #7e62ff);
+  border: none;
+}
+.btn-secondary-custom{
+  color: #fff;
+  background: linear-gradient(to right, #5f26c2, #7e62ff);
+  border: none;
+  margin: 0 5px;
+}
+.btn-secondary-custom:hover{
+  background: linear-gradient(to right, #7734E7, #a94cf8);
+  border: none;
+}
+.lesson-card {
+  width: calc(33.33% - 20px);
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.lesson-header {
+  margin-bottom: 10px;
+}
+
+.lesson-header h3 {
+  font-size: 1.2rem;
+  margin: 0;
+  color: #333; /* Adjusted color */
+}
+
+.lesson-header p {
+  font-size: 0.9rem;
+  color: #777;
+  margin: 5px 0;
+}
+
+.lesson-body p {
+  font-size: 1rem;
+  color: #555; /* Adjusted color */
+}
+
+.lesson-footer {
+  margin-top: 15px;
+}
+
+.lesson-footer button {
+  background-color: #007bff; /* Adjusted color */
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.lesson-footer button:hover {
+  background-color: #0056b3; /* Adjusted color */
+}
+
+@media screen and (max-width: 768px) {
+  .lesson-card {
+    width: calc(50% - 20px);
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .lesson-card {
+    width: calc(100% - 20px);
+  }
+}
+.pdf-icon {
+  color: #ff0000; /* PDF icon color */
+}
+
+.audio-icon {
+  color: #8bc0e7; /* Audio icon color */
+}
+
+.video-icon {
+  color: #ffa500; /* Video color */
+}
+.image-icon{
+  color: #009688; /* Audio icon color */
+}

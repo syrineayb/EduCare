@@ -1,0 +1,126 @@
+.welcome-message {
+  text-align: center;
+}
+.welcome-message p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #666; /* Dark grey color */
+  margin-bottom: 20px;
+}
+
+/* Styling for the search input */
+.search-input {
+  width: 100%;
+  padding: 8px 10px; /* Adjust the padding */
+  border: 1px solid #ccc;
+  border-radius: 20px; /* Rounded corners */
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+}
+
+/* Hover effect */
+.search-input:hover {
+  border-color: #007bff; /* Change border color on hover */
+}
+
+/* Focus effect */
+.search-input:focus {
+  outline: none;
+  border-color: #007bff; /* Change border color on focus */
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Add box shadow on focus */
+}
+
+/* Flexbox container for search buttons */
+.search-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Space between buttons */
+}
+
+/* Custom button styles */
+.btn-custom {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-primary-custom {
+  background: linear-gradient(to right, #7734E7, #a94cf8);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 12px 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: block;
+  margin: 0 auto;
+  font-size: 0.9rem;
+}
+
+.btn-primary-custom:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-secondary-custom {
+  background-color: #6c757d;
+  color: #fff;
+  border: none;
+
+}
+
+.btn-secondary-custom:hover {
+  background-color: #5a6268;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Styling for smaller message images */
+.message-image {
+  width: 100px; /* Adjust the width as needed */
+  height: auto;
+  border-radius: 10px; /* Optional: Rounded corners */
+}
+
+/* Custom styles for file inputs */
+/* Styling for file input container */
+.file-input-container {
+  margin-bottom: 20px;
+}
+
+/* Styling for file input label */
+.file-input-label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* Styling for file input */
+.file-input {
+  display: none; /* Hide the original file input */
+}
+
+
+.selected-file-name {
+  display: block;
+  margin-top: 5px;
+  color: #6c757d;
+}
+
+.file-type-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+.file-type-text {
+  vertical-align: middle;
+}

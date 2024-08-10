@@ -1,0 +1,12 @@
+.home-title {
+  font-size: 24px; /* Adjust the font size as needed */
+  color: #333; /* Set the color of the title */
+  margin-bottom: 20px; /* Add some space below the title */
+}
+
+.section-divider {
+  border: none; /* Remove the default border */
+  border-top: 2px solid #ccc; /* Add a custom border */
+  margin-top: 10px; /* Adjust the margin as needed */
+  margin-bottom: 20px; /* Adjust the margin as needed */
+}

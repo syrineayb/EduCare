@@ -1,0 +1,479 @@
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+.pdf-viewer-container {
+  margin: 0 auto;
+}
+.video-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.pagination {
+  margin-top: 20px;
+}
+
+.main-breadcrumb .breadcrumb-item a {
+  color: #6a0dad;
+}
+.text-center {
+  text-align: center;
+}
+.never-logged-in {
+  color: red;
+}
+.action-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.action-buttons .btn {
+  margin-right: 5px;
+}
+.status-icon.active {
+  color: rgba(128, 0, 128, 1);
+  font-size: 20px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.status-icon.active:hover {
+  transform: scale(1.1);
+}
+.status-icon.inactive {
+  color: red;
+  font-size: 20px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.status-icon.inactive:hover {
+  transform: scale(1.1);
+}
+.toggle-button {
+  background-color: transparent;
+  color: #6a0dad;
+  border: 1px solid #6a0dad;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+td:hover .toggle-button {
+  display: block;
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.page-link {
+  color: #6a0dad;
+  background-color: transparent;
+  border: none;
+  padding: 0.5rem 0.75rem;
+  margin: 0 5px;
+  font-size: 1rem;
+  line-height: 1.25;
+  text-decoration: none;
+}
+.page-link:hover {
+  background-color: #f0f0f0;
+  border-color: #c88ce6;
+}
+.page-item.active .page-link {
+  z-index: 1;
+  color: #fff;
+  background-color: #6a0dad;
+  border-color: #6a0dad;
+}
+.pdf-link, .pdf-link:hover {
+  color: inherit;
+  text-decoration: none;
+}
+.page-item.disabled .page-link {
+  color: #6c757d;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+.modal-content {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.forum-title {
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  color: #333;
+}
+.discussion-container {
+  margin-top: 1rem;
+}
+.discussion {
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  margin-bottom: 1.5rem;
+}
+.discussion .card-body {
+  padding: 1rem;
+}
+.discussion .card-title {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+.discussion-message p {
+  margin-bottom: 1rem;
+}
+.discussion-content {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+.content-icon {
+  cursor: pointer;
+  display: inline-block;
+  margin-right: 10px;
+}
+.audio-content-container {
+  margin-top: 1rem;
+  border-top: 1px solid #ddd;
+  padding-top: 1rem;
+}
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+.audio-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+audio {
+  width: 100%;
+  max-width: 400px;
+}
+/* Container styles */
+.discussion-content {
+  position: relative;
+}
+
+.pdf-content {
+  position: relative;
+  padding-bottom: 50px; /* Make space for the button */
+}
+
+/* PDF Viewer styles */
+.pdf-viewer {
+  width: 500px;
+  height: 700px;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Button styles */
+.download-btn {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 40px); /* Adjust as needed */
+  max-width: 500px; /* Align with the PDF viewer width */
+  height: 50px; /* Adjust height as needed */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 16px;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+/* Hover effects */
+.download-btn:hover {
+  background-color: #0056b3;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.download-btn i {
+  margin-right: 10px; /* Adjust this value to set the space between the icon and the text */
+  font-size: 18px;
+}
+
+
+/* Focus styles for accessibility */
+.download-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
+}
+
+/* Margin utility class */
+.mt-3 {
+  margin-top: 1rem !important;
+}
+
+.download-link {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: rgba(181, 144, 246, 0.63);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 5px;
+  margin-left: 0.5rem;
+  transition: border-color 0.3s ease-in-out;
+}
+.download-link:hover {
+  border-color: rgba(181, 144, 246, 0.63);
+}
+.mb-3 {
+  margin-bottom: 1rem !important;
+}
+.content-icon {
+  margin-right: 10px;
+  font-size: 26px;
+}
+.text-content {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+}
+.image-content img {
+  max-width: 200px;
+  max-height: 200px;
+  display: block;
+  margin: auto;
+}
+.pdf-icon {
+  color: #ff0000;
+}
+.audio-icon {
+  color: #8bc0e7;
+}
+.video-icon {
+  color: #ffa500;
+}
+.image-icon {
+  color: #009688;
+}
+.pdf-content,
+.video-content {
+  flex-grow: 1;
+}
+.pdf i {
+  color: #ff0000;
+}
+.image i {
+  color: #008000;
+}
+.video i {
+  color: #ffa500;
+}
+.record i {
+  color: #800080;
+}
+.pdf-content a {
+  width: 100%;
+  max-width: 300px;
+}
+.pdf-link {
+  text-decoration: none;
+  color: #f80e0e;
+}
+.small-media {
+  max-width: 100%;
+  height: auto;
+}
+.pdf-content,
+.video-content {
+  display: flex;
+  align-items: center;
+}
+.add-answer-form button {
+}
+.answers-container {
+  margin-top: 20px;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  padding: 15px;
+}
+.answer-item {
+  margin-bottom: 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #ffffff;
+}
+.answer-content {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+.update-answer-form {
+  margin-top: 15px;
+}
+.add-answer-form {
+  margin-top: 20px;
+}
+.icon {
+  cursor: pointer;
+  font-size: 1.2rem;
+  margin-right: 0.5rem;
+  transition: color 0.3s ease;
+}
+.delete-icon {
+  color: #dc3545;
+}
+.delete-icon:hover {
+  color: #c82333;
+}
+.edit-icon {
+  color: #ffc107;
+}
+.edit-icon:hover {
+  color: #e0a800;
+}
+.answer-icons, .discussion-icons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.update-answer-form {
+  margin-top: 15px;
+}
+.add-answer-form {
+  margin-top: 20px;
+}
+.comment-count {
+  background-color: rgba(225, 217, 243, 0.63);
+  color: #fff;
+  padding: 2px 5px;
+  border-radius: 50%;
+  font-size: 12px;
+}
+.form-control,
+.add-answer-form textarea {
+  width: calc(100% - 50px); /* Adjust width to accommodate the button */
+  padding: 10px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+.form-control:focus,
+.add-answer-form textarea:focus {
+  outline: none;
+  border-color: var(--custom-color);
+  box-shadow: 0 0 5px rgba(106, 13, 173, 0.5);
+}
+.form-control:hover,
+.add-answer-form textarea:hover {
+  border-color: var(--custom-color);
+}
+.mic-icon {
+  width: 50px;
+  height: 50px;
+}
+.audio-file {
+  width: 200px;
+  height: auto;
+}
+.discussion .text-muted {
+  font-size: 0.85rem;
+}
+.discussion button i {
+  margin-right: 0.25rem;
+}
+.discussion .no-discussions {
+  margin-top: 1rem;
+  font-style: italic;
+  color: #777;
+}
+.add-discussion-form {
+  margin-top: 1rem;
+}
+.comment-icon {
+  font-size: 1.25rem;
+  color: #ac87ea;
+  margin-right: 0.5rem;
+}
+.small-media {
+  max-width: 100%;
+  max-height: 120px;
+}
+.pdf-link {
+  font-size: 14px;
+}
+.message-type-icons {
+  display: flex;
+  justify-content: space-around;
+}
+.file-type-icon i {
+  font-size: 24px;
+}
+.file-type-icon:hover i {
+  opacity: 0.7;
+}
+.cancel-btn {
+  color: #fff;
+  border: none;
+  margin: 0 5px;
+  background-color: #8690a3;
+}
+.btn:hover,
+.cancel-btn:hover {
+  background-color: #a8b1bd;
+  border: none;
+}
+.btn-primary,
+.btn-outline-primary {
+  color: #fff;
+  background: linear-gradient(to right, #7734E7, #a94cf8);
+  border: none;
+  margin: 0 5px;
+}
+.btn-primary:hover,
+.btn-outline-primary:hover {
+  background: linear-gradient(to right, #5f26c2, #7e62ff);
+  border: none;
+}
+.download-button-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+/* answer button style */
+.btn-custom {
+  background-color: #ffffff;
+  color: var(--custom-color);
+}
+/*search input style */
+.search-input{
+  border-radius: 25px; /* Rounded corners */
+  padding-right: 2.5rem; /* Add space for the icon */
+  width: 100%; /* Set width to 100% */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition effect */
+}
+
+.search-input:focus,.form-control-sm:focus {
+  outline: none; /* Remove default focus outline */
+  border-color: var(--custom-color); /* Change border color on focus */
+  box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.2); /* Add box shadow on focus */
+}
+
+.author-and-date {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #888; /* Adjust color as needed */
+}
+
+.author-name {
+  font-weight: bold;
+}
+
+.message-date {
+  margin-top: 5px;
+}
+

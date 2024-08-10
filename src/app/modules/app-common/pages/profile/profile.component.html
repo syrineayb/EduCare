@@ -1,0 +1,206 @@
+<div class="container-xl px-4 mt-4 text-center">
+  <div class="row">
+    <div class="col-md-12">
+
+      <!-- Main Content -->
+      <div class="col-md-12" *ngIf="userProfile">
+        <div class="main-body">
+          <!-- Navigation Links -->
+          <nav class="nav nav-borders">
+            <!-- Profile Link -->
+            <ng-container *ngIf="role === 'admin' || role === 'instructor' || role === 'candidate'">
+              <a class="nav-link ms-0" [routerLink]="profileRouterLink" [class.active]="isProfileActive()">Profile</a>
+            </ng-container>
+
+            <!-- Security Link -->
+            <ng-container *ngIf="role === 'admin' || role === 'instructor' || role === 'candidate'">
+              <a class="nav-link" [routerLink]="securityRouterLink" [class.active]="isSecurityActive()">Security</a>
+            </ng-container>
+
+            <!-- Notifications Link
+            <a class="nav-link" href="#">Notifications</a> -->
+          </nav>
+
+          <hr class="mt-0 mb-4">
+          <!-- /Navigation Links -->
+
+          <!-- User Info Section -->
+          <div class="user-info-section">
+            <div class="custom-style profile-border">
+              <h1>User Information<span>Add information about yourself</span></h1>
+            </div>
+
+            <div class="row gutters-sm">
+              <div class="col-md-4 mb-4">
+                <!-- Profile Image and Basic Info -->
+                <div class="card profile-border">
+                  <div class="card-body profile-info">
+                    <div class="profile-image-container">
+                      <!-- Profile Image -->
+                      <img *ngIf="userProfile.profileImage" [src]="userProfile.profileImage" alt="Profile Image" class="rounded-circle profile-image">
+                      <!-- Placeholder Image -->
+                      <img *ngIf="!userProfile.profileImage" src="assets/img/profile/default-profile-image.jpg" alt="Default Profile Image" class="rounded-circle profile-image">
+                      <!-- File input element -->
+                      <label for="fileInput" class="file-input-label">
+                        <input id="fileInput" type="file" #fileInput (change)="onFileSelected($event)">
+                        <i class="fas fa-camera"></i> <!-- Add camera icon here -->
+                      </label>
+                    </div>
+
+                    <!-- Basic Info -->
+                    <div class="mt-3">
+                      <h4 class="mb-1">{{userProfile.firstName +' '+ userProfile.lastName}}</h4>
+                      <p class="text-muted">{{userProfile.currentJob}}</p>
+                      <p class="text-muted font-size-sm">Member since: {{ userProfile.createdAt | date: 'MMMM d, yyyy, h:mm' }}</p>
+                      <p class="text-muted font-size-sm">{{userProfile.country}}</p>
+                    </div>
+                    <!-- Update Image button -->
+                    <button type="button" class="btn btn-primary btn-sm mt-3 update-image-button" (click)="uploadProfileImage()">
+                      Update Image
+                      <i class="fas fa-upload"></i> <!-- Add upload icon here -->
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-8">
+                <!-- Personal Details and Contact Info -->
+                <div class="card profile-border personal-card">
+                  <div class="card-header personal-header">Personal Details</div>
+                  <div class="card-body">
+                    <!-- Personal Details Form -->
+                    <form>
+                      <div class="row">
+                        <!-- Personal Details Fields -->
+                        <div class="col-md-6">
+                          <!-- First Name -->
+                          <div class="mb-3">
+                            <input type="text" class="form-control" id="firstName" placeholder="John" name="firstName" [(ngModel)]="userProfile.firstName" required>
+                          </div>
+                          <!-- Last Name -->
+                          <div class="mb-3">
+                            <input type="text" class="form-control" id="lastName" placeholder="Doe" name="lastName" [(ngModel)]="userProfile.lastName" required>
+                          </div>
+                          <!-- Current Job -->
+                          <div class="mb-3">
+                            <input type="text" class="form-control" id="currentJob" placeholder="Software Engineer" name="currentJob" [(ngModel)]="userProfile.currentJob">
+                          </div>
+                          <!-- Experience Years -->
+                          <div class="mb-3 text-center" *ngIf="role === 'instructor'">
+                            <input type="number" class="form-control form-control-sm" id="experienceYears" placeholder="10" name="experienceYears" [(ngModel)]="userProfile.experience" style="height: 30px;">
+                          </div>
+
+                        </div>
+                        <div class="col-md-6">
+                          <!-- Gender -->
+                          <div class="mb-3">
+                            <select class="form-select" name="gender" [(ngModel)]="userProfile.gender" (change)="toggleGenderSpan()">
+                              <option value="" disabled>Select Gender</option>
+                              <option value="male">Male</option>
+                              <option value="female">Female</option>
+                            </select>
+                            <span *ngIf="showGenderSpan" class="text-muted" style="display: block;">Select Gender</span>
+                          </div>
+                          <!-- Location -->
+                          <div class="mb-3">
+                            <select class="form-select me-3" name="location" [(ngModel)]="userProfile.country" (change)="toggleCountrySpan()">
+                              <option value="" disabled selected>Select Location</option>
+                              <option *ngFor="let country of countries" [value]="country.name">{{ country.name }}</option>
+                            </select>
+                            <span *ngIf="showCountrySpan" class="text-muted" style="display: block;">Select Country</span>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+
+                <!-- Contact Info Section -->
+                <div class="contact-info-section mt-4">
+                  <div class="card profile-border contact-card">
+                    <div class="card-header contact-header">Contact Info</div>
+                    <div class="card-body">
+                      <div class="row">
+                        <!-- Email and Phone Number -->
+                        <div class="col-md-6">
+                          <div class="form-group mb-3">
+                            <input type="email" class="form-control form-control-sm" id="email" placeholder="john@gmail.com" name="email" [(ngModel)]="userProfile.email" required>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group mb-3">
+                            <input type="tel" class="form-control form-control-sm" id="phoneNumber" placeholder="+1234567890" name="phoneNumber" [(ngModel)]="userProfile.phoneNumber">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <!-- GitHub -->
+                        <div class="col-md-6">
+                          <div class="form-group mb-3">
+                            <div class="input-group">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text">https://github.com/</span>
+                              </div>
+                              <input type="text" class="form-control form-control-sm" id="githubUrl" placeholder="john-doe" name="githubUsername" [(ngModel)]="userProfile.githubUrl" [ngModelOptions]="{standalone: true}">
+                            </div>
+                          </div>
+                        </div>
+                        <!-- LinkedIn -->
+                        <div class="col-md-6">
+                          <div class="form-group mb-3">
+                            <div class="input-group">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text">https://linkedin.com/in/</span>
+                              </div>
+                              <input type="text" class="form-control form-control-sm" id="linkedinUrl" placeholder="john-doe" name="linkedinUrl" [(ngModel)]="userProfile.linkedInUrl" [ngModelOptions]="{standalone: true}">
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Twitter -->
+                        <div class="col-md-6">
+                          <div class="form-group mb-3">
+                            <div class="input-group">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text">https://twitter.com/</span>
+                              </div>
+                              <input type="text" class="form-control form-control-sm" id="twitterUrl" placeholder="john_doe" name="twitterUrl" [(ngModel)]="userProfile.twitterUrl" [ngModelOptions]="{standalone: true}">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Add more contact info fields as needed -->
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Biography Section -->
+                <div class="biography-section mt-4">
+                  <div class="card profile-border biography-card">
+                    <div class="card-header">Biography</div>
+                    <div class="card-body">
+                      <textarea class="form-control form-control-sm biography-textarea" rows="3" placeholder="Hello! I'm John Doe, and I'm thrilled to share a bit about myself with you. I'm a technology enthusiast with a deep-seated passion for innovation and problem-solving. Growing up, I was always fascinated by computers and their potential to transform the world around us.
+                      I embarked on my journey in the world of technology by pursuing a degree in computer science at [University], where I had the opportunity to delve into various programming languages and explore the endless possibilities of software development.
+                      Throughout my career, I've had the privilege of working with talented teams at companies like [Company], where I've honed my skills in [specific area or industry]. Every project I undertake is an opportunity for me to learn, grow, and push the boundaries of what's possible.
+                      Beyond the realm of technology, I'm a firm believer in the importance of maintaining a healthy work-life balance. When I'm not coding or brainstorming new ideas, you can find me exploring the great outdoors, spending quality time with loved ones, or diving into a good book.
+                      I'm excited about the future and the countless opportunities it holds. Whether it's tackling complex problems or embarking on new adventures, I'm always eager to embrace the challenges that come my way and make a meaningful impact wherever I go." [(ngModel)]="userProfile.description"></textarea>
+                    </div>
+                  </div>
+                </div>
+                <!-- End Biography Section -->
+
+                <!-- Update Button -->
+                <div class="row">
+                  <div class="col-md-12 d-flex justify-content-center mt-4">
+                    <button type="button" class="btn btn-primary btn-sm" (click)="updateProfile()">Update Profile</button>
+                  </div>
+                </div>
+                <!-- End Update Button -->
+              </div>
+            </div>
+          </div>
+          <!-- End User Info Section -->
+        </div>
+      </div>
+      <!-- End Main Content -->
+    </div>
+  </div>
+</div>

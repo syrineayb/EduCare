@@ -1,0 +1,18 @@
+.btn-primary {
+  background: linear-gradient(to right, #7734E7, #a94cf8); /* Gradient background with mixed color */
+  color: #fff; /* White text color */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  padding: 12px 20px; /* Padding for the button */
+  cursor: pointer; /* Cursor style */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow effect */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+  display: block; /* Make the button a block element */
+  margin: 0 auto; /* Center horizontally */
+  text-align: center; /* Center button text */
+  font-size: .75rem;
+}
+.btn-primary:hover {
+  transform: translateY(-3px); /* Move up slightly on hover */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Increased shadow on hover */
+}

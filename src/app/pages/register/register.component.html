@@ -1,0 +1,87 @@
+<div class="signup-container">
+  <div class="container my-5">
+    <div class="row">
+      <div class="col-md-6">
+        <img src="assets/register/register.png" alt="Registration Image" class="img-fluid">
+      </div>
+      <div class="form-group col-md-6 ">
+        <div class="group-7">
+          <h1 class="text-center" style="color: #4d008a;">Sign up and start your learning journey with <span style="color: #7734E7;">EDUCARE</span></h1>
+          <form class="container my-5 border border-primary rounded p-4" style="max-width: 50rem;" [formGroup]="registerForm" (ngSubmit)="onSubmit()" autocomplete="off">
+            <div class="form-row">
+              <div class="form-group col-md-6 c">
+                <label for="firstname">First Name</label>
+                <input type="text" class="form-control" id="firstname" formControlName="firstname" placeholder="Enter your first name">
+                <!-- Error messages -->
+              </div>
+              <div class="form-group col-md-6 c">
+                <label for="lastName">Last Name</label>
+                <input type="text" class="form-control" id="lastname" formControlName="lastname" placeholder="Enter your last name">
+                <!-- Error messages -->
+              </div>
+            </div>
+            <!-- Email -->
+            <div class="form-group c">
+              <label for="email">Email Address</label>
+              <input type="email" class="form-control" id="email" formControlName="email" placeholder="Enter your email address">
+              <div *ngIf="f['email'].errors && (f['email'].dirty || f['email'].touched)" class="form-error">
+                <div *ngIf="f['email'].errors?.['required']">Email is required.</div>
+                <div *ngIf="f['email'].errors?.['email']">Invalid email format!</div>
+              </div>
+            </div>
+
+            <!-- Password -->
+            <div class="form-group c">
+              <label for="password">Password</label>
+              <div class="user-box">
+                <input class="form-control" formControlName="password" type="{{ passwordVisible ? 'text' : 'password' }}" id="password" name="password" placeholder="Enter your password">
+                <span class="password-toggle-icon" (click)="togglePasswordVisibility()">
+      <i class="fas" [ngClass]="passwordVisible ? 'fa-eye' : 'fa-eye-slash'"></i>
+    </span>
+              </div>
+              <div *ngIf="f['password'].errors && (f['password'].dirty || f['password'].touched)" class="form-error">
+                <div *ngIf="f['password'].errors?.['required']">Password is required.</div>
+                <div *ngIf="f['password'].errors?.['minlength']">Password must be at least 6 characters long.</div>
+                <div *ngIf="f['password'].errors?.['maxlength']">Password cannot exceed 16 characters.</div>
+              </div>
+            </div>
+
+
+
+            <!-- Role -->
+            <div class="form-group c">
+              <label class="form-label">Role</label>
+              <div class="text-center"> <!-- Apply text-center class here -->
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" formControlName="role" id="ROLE_CANDIDATE" [value]="'ROLE_CANDIDATE'" checked>
+                  <label class="form-check-label" for="ROLE_CANDIDATE">Candidate</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" formControlName="role" id="ROLE_INSTRUCTOR" [value]="'ROLE_INSTRUCTOR'">
+                  <label class="form-check-label" for="ROLE_INSTRUCTOR">Instructor</label>
+                </div>
+              </div>
+              <!-- Error messages -->
+            </div>
+
+            <!-- Display error messages -->
+            <div *ngIf="errorMsg.length > 0" class="alert">
+              <ul class="list-unstyled">
+                <li *ngFor="let error of errorMsg">{{ error }}</li>
+              </ul>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary">Register</button>
+
+          </form>
+
+          <!-- Login Button or Link -->
+          <div class="text-center mt-3">
+            <p>Already have an account? <a class="login-link" routerLink="/login">Login</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

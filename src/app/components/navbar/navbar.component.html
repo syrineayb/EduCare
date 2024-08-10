@@ -1,0 +1,52 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background: linear-gradient(to right, #fffefe, rgb(255,255,255));">
+  <div class="container-fluid">
+    <div class="d-flex align-items-center">
+      <a class="navbar-brand educare" routerLink="/">
+        <img src="assets/img/logo/educare-logo.svg" width="30" height="30" alt="Educare Logo">
+        EDUCARE
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
+        <li class="nav-item dropdown" [ngClass]="{ 'show': isDropdownOpen }">
+          <a class="nav-link dropdown-toggle"  role="button" aria-haspopup="true" aria-expanded="false" (click)="toggleDropdown()"> LEARN </a>
+          <ul class="dropdown-menu dropdown-menu-topics">
+            <li *ngFor="let topic of topics">
+              <a class="dropdown-item"   (click)="onCardClick(topic.id)" >{{ topic.title }}</a>
+            </li>
+          </ul>
+
+        </li>
+      </ul>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarScroll">
+      <div class="input-group">
+        <input class="form-control form-control-sm" type="search" placeholder="What do you want to learn?" aria-label="Search" [(ngModel)]="searchKeyword" (input)="searchTopics()">
+        <!-- Display searched topics below the input field -->
+        <div class="searched-topics" *ngIf="searchedTopics && searchedTopics.length > 0">
+          <ul class="list-unstyled">
+            <li *ngFor="let topic of searchedTopics">
+              <a  (click)="onCardClick(topic.id)">{{ topic.title }}</a>
+            </li>
+          </ul>
+        </div>
+        <!-- Fetching topics message -->
+        <div class="fetching-topics" *ngIf="!searchedTopics && !topics">
+          <div class="spinner-border text-purple" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+          <p class="fetching-text">Fetching topics, please wait...</p>
+        </div>
+      </div>
+    </div>
+    <ul class="navbar-nav mb-2 mb-lg-0">
+      <li class="nav-item">
+        <a class="btn btn-link btn-animation text-purple" routerLink="/login">Sign In</a>
+      </li>
+      <li class="nav-item">
+        <button class="btn btn-purple btn-design btn-animation" routerLink="/register">Register for free</button>
+      </li>
+    </ul>
+  </div>
+</nav>

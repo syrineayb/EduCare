@@ -1,0 +1,263 @@
+/* Pagination Styles */
+.pagination {
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  list-style: none; /* Remove default list style */
+  display: flex; /* Use flexbox to align items horizontally */
+  justify-content: center; /* Center align pagination */
+}
+
+/* Pagination Item Styles */
+.page-item {
+  margin-right: 5px; /* Add some spacing between pagination items */
+}
+
+/* Pagination Link Styles */
+.page-link {
+  color: var(--custom-color);  /* Text color */
+  text-decoration: none; /* Remove default underline */
+  padding: 5px 10px; /* Adjust padding */
+  border: 1px solid  var(--custom-color);  /* Border color */
+  border-radius: 3px; /* Rounded corners */
+}
+
+/* Active Page Style */
+.page-item.active .page-link {
+  background-color: var(--custom-color); /* Background color for active page */
+  color: #fff; /* Text color for active page */
+}
+
+/* Disabled Page Style */
+.page-item.disabled .page-link {
+  color: #ddd; /* Text color for disabled page */
+  cursor: not-allowed; /* Show not-allowed cursor for disabled page */
+}
+
+/* Hover effect for the icons */
+.btn-info:hover i,
+.btn-danger:hover i {
+  color: #4e0897; /* Darker color on hover */
+}
+/* Heading Styles */
+h1 {
+  font-weight: 400;
+  color: var(--custom-color); /* Text color */
+  font-size: 36px; /* Font size */
+  margin-bottom: 20px; /* Bottom margin */
+  margin-top: 40px; /* Top margin */
+  text-align: center; /* Center align text */
+  letter-spacing: 1px;
+  text-transform: uppercase; /* Uppercase text */
+}
+
+/* Style for the button */
+.btn-redirect {
+  background-color: var(--custom-color); /* Purple background color */
+  color: #fff; /* White text color */
+  border: none; /* Remove button border */
+  padding: 8px 16px; /* Padding around button text */
+  border-radius: 4px; /* Add border radius */
+  font-size: 16px; /* Button text size */
+  animation: slideIn 0.5s ease-in-out; /* Apply the slide-in animation */
+}
+
+.btn-redirect:hover {
+  background-color: #6a1b9a; /* Darker purple on hover */
+}
+
+/* Style for the icon */
+.btn-redirect i {
+  margin-right: 8px; /* Add space between icon and text */
+}
+
+/* Breadcrumb Styles */
+.breadcrumb {
+  margin-bottom: 20px; /* Add spacing below breadcrumb */
+}
+
+/* Button Styles */
+.btn-primary {
+  background-color: var(--custom-color); /* Purple color for primary buttons */
+  color: #fff;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #4e0897; /* Darker color on hover */
+}
+
+/* Input Styles */
+.form-control {
+  font-size: 16px;
+  padding: 0.5rem;
+  height: auto;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s ease; /* Add transition effect for smooth hover and focus */
+}
+
+/* Focus State */
+.form-control:focus {
+  border-color: var(--custom-color); /* Change border color on focus */
+  box-shadow: 0 0 0 0.2rem rgba(94, 46, 196, 0.25); /* Add box shadow on focus */
+}
+
+/* Button Icon Styles */
+.icon-btn {
+  display: flex; /* Use flexbox */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  background-color: transparent; /* Transparent background */
+  border: none; /* Remove border */
+  font-size: 24px; /* Icon size */
+  color: var(--custom-color); /* Purple color for icon */
+}
+
+.icon-btn:hover {
+  color: #4e0897; /* Darker purple color on hover */
+}
+/* Table Header Styles */
+.table th {
+  background-color: var(--custom-color); /* Purple color for table headers */
+  color: #fff;
+  font-weight: bold;
+  padding: 12px; /* Add padding to table header cells */
+  text-align: center; /* Center align text */
+}
+
+/* Icon Styles */
+.btn i {
+  font-size: 18px; /* Adjust icon size */
+}
+
+/* Hover effect for the icons */
+.btn-info:hover i,
+.btn-danger:hover i {
+  color: #4e0897; /* Darker color on hover */
+}
+
+/* Remove default button colors */
+.btn-info,
+.btn-danger {
+  color: var(--custom-color); /* Icon color for the Update button */
+  background-color: transparent; /* Make the background color transparent */
+  border-color: transparent; /* Remove button border */
+}
+
+/* Remove default button hover colors */
+.btn-info:hover,
+.btn-danger:hover {
+  background-color: transparent; /* Make the background color transparent on hover */
+  border-color: transparent; /* Remove button border on hover */
+}
+/* Modal Content */
+.modal-content {
+  background-color: #ffffff; /* White background */
+  border-radius: 10px; /* Rounded corners */
+}
+
+/* Modal Header */
+.modal-header {
+  background-color: var(--custom-color); /* Custom color for header */
+  color: #ffffff; /* White text color */
+  border-top-left-radius: 10px; /* Rounded corners for top-left */
+  border-top-right-radius: 10px; /* Rounded corners for top-right */
+}
+
+/* Modal Title */
+.modal-title {
+  font-weight: bold; /* Bold font weight */
+}
+
+/* Modal Body */
+.modal-body {
+  padding: 20px; /* Add padding */
+}
+
+/* Form Label */
+.form-label {
+  font-weight: bold; /* Bold font weight */
+}
+
+/* Form Control */
+.form-control {
+  font-size: 16px; /* Font size */
+  padding: 10px; /* Padding */
+  border: 1px solid #cccccc; /* Border color */
+  border-radius: 5px; /* Rounded corners */
+  transition: border-color 0.3s ease; /* Transition effect */
+}
+
+/* Form Control Hover State */
+.form-control:hover {
+  border-color: var(--custom-color); /* Custom color on hover */
+}
+
+/* Form Control Focus State */
+.form-control:focus {
+  border-color: var(--custom-color); /* Custom color on focus */
+  box-shadow: 0 0 0 0.1rem rgba(94, 46, 196, 0.25); /* Box shadow on focus */
+}
+
+/* Submit Button */
+.btn-submit {
+  background-color: var(--custom-color); /* Custom color for button */
+  color: #ffffff; /* White text color */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px 20px; /* Padding */
+  cursor: pointer; /* Cursor style */
+  transition: background-color 0.3s ease; /* Transition effect */
+}
+
+/* Submit Button Hover State */
+.btn-submit:hover {
+  background-color: #4e0897; /* Darker color on hover */
+}
+
+/* Icon Button */
+.icon-btn {
+  display: flex; /* Use flexbox */
+  justify-content: right; /* Center horizontally */
+  background-color: var(--custom-color); /* Custom color for button */
+  color: #ffffff; /* White text color */
+  border: none; /* No border */
+  border-radius: 50%; /* Rounded shape */
+  width: 40px; /* Button width */
+  height: 40px; /* Button height */
+  font-size: 20px; /* Icon size */
+  transition: background-color 0.3s ease; /* Transition effect */
+}
+
+/* Animation for the button */
+@keyframes slideIn {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Style for the button */
+.btn-back-to-quiz-list {
+  background-color: #8a2be2; /* Purple background color */
+  color: #fff; /* White text color */
+  border: none; /* Remove button border */
+  padding: 8px 16px; /* Padding around button text */
+  border-radius: 4px; /* Add border radius */
+  font-size: 16px; /* Button text size */
+  animation: slideIn 0.5s ease-in-out; /* Apply the slide-in animation */
+}
+
+.btn-back-to-quiz-list:hover {
+  background-color: #6a1b9a; /* Darker purple on hover */
+}
+
+/* Style for the icon */
+.btn-back-to-quiz-list i {
+  margin-right: 8px; /* Add space between icon and text */
+}
+

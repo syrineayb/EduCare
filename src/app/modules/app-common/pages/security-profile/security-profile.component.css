@@ -1,0 +1,107 @@
+.container-xl {
+  animation-name: fadeIn; /* Animation name */
+  animation-duration: 1s; /* Animation duration */
+  animation-delay: 0.5s; /* Animation delay */
+  animation-fill-mode: both; /* Animation fill mode */
+}
+/* Style for profile borders */
+.profile-border {
+  border: 1px solid #ccc; /* Add a 1px solid border with light gray color */
+  border-radius: 5px; /* Add border radius for rounded corners */
+  padding: 20px; /* Add padding inside the border */
+  margin-bottom: 20px; /* Add bottom margin for separation */
+}
+.nav-borders .nav-link.active {
+  color: #7734E7;
+  border-bottom-color: #7734E7;
+}
+.nav-borders .nav-link {
+  color: #69707a;
+  border-bottom-width: 0.125rem;
+  border-bottom-style: solid;
+  border-bottom-color: transparent;
+  padding: 0.5rem 0;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+.custom-style h1 {
+ /* font-family: 'Roboto', sans-serif;
+  */
+
+}
+
+
+.custom-style h1 span {
+  font-size: 15px;
+  word-spacing: 1px;
+  font-weight: normal;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #8b7146;
+  display: grid;
+  grid-template-columns: 1fr max-content 1fr;
+  grid-template-rows: 27px 0;
+  grid-gap: 20px;
+  align-items: center;
+}
+
+.custom-style h1 span:after,
+.custom-style h1 span:before {
+  content: "";
+  display: block;
+  border-bottom: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  height: 5px;
+  background-color: #f8f8f8;
+}
+.change-password-card {
+  max-width: 600px; /* Set the maximum width */
+  margin: auto; /* Center the card horizontally */
+}
+/* Input hover styles */
+input[type="password"]:hover{
+  border-color: #4a0787; /* Darken input border color on hover */
+}
+
+/* Input focus styles */
+input[type="password"]:focus {
+  border-color: #4a0787; /* Change input border color on focus */
+  box-shadow: 0 0 0 0.2rem rgba(106, 13, 173, 0.5); /* Add focus outline with #6a0dad color */
+}
+.form-error {
+  color: #cc0033;
+  display: inline-block;
+  font-size: 12px;
+  line-height: 15px;
+  margin-top: 5px;
+}
+/* Button styles */
+.btn {
+  background-color: transparent; /* Transparent background */
+  color: #6a0dad; /* Text color */
+  border: 1px solid #6a0dad; /* Border color */
+  padding: 5px 10px; /* Padding */
+  border-radius: 4px; /* Border radius */
+  cursor: pointer; /* Cursor style */
+}
+
+/* Button hover styles */
+.btn:hover {
+  background-color: #4e0897; /* Darker shade of purple on hover */
+  border-color: #4e0897; /* Darker shade of purple on hover */
+  color: #fff;
+}
+
+/* Button focus styles */
+.btn:focus {
+  box-shadow: 0 0 0 0.2rem rgba(106, 13, 173, 0.5); /* Add focus outline with #6a0dad color */
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+

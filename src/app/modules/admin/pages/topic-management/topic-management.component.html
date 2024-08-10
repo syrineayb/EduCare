@@ -1,0 +1,129 @@
+  <div class="container">
+    <h1>Topic Management</h1>
+    <hr>
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/admin" style="color: #7734E7;">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page" style="color: #7734E7;">Topics</li>
+      </ol>
+    </nav>
+    <!-- /Breadcrumb -->
+
+    <!-- Search Input -->
+    <div class="row justify-content-center mt-3">
+      <div class="col-lg-4 mb-2 position-relative">
+        <input type="text" class="form-control search-input" placeholder="Search by topic title" [(ngModel)]="searchTerm" (input)="applyFilters()">
+        <button *ngIf="searchTerm" type="button" class="reset-icon" (click)="clearSearch()"><i class="fa fa-times-circle"></i></button> <!-- Reset Icon -->
+      </div>
+    </div>
+    <!-- /Search Input -->
+
+    <!-- Table to display topics -->
+    <div class="row justify-content-center mt-3">
+      <div class="col-lg-12">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col" style="width: 200px;">Title</th>
+            <th scope="col" style="width: 200px;">Image</th>
+            <th scope="col">Creation Date</th>
+            <th scope="col">Last Update Date</th>
+            <th scope="col" style="width: 250px;">Actions</th>
+          </tr>
+          </thead>
+          <tbody>
+          <!-- Loop through filteredTopics array and display topic data -->
+          <tr *ngFor="let topic of filteredTopics">
+            <td>{{ topic.id }}</td>
+            <td><input type="text" [(ngModel)]="topic.title" name="title" class="form-control" required></td>
+            <td>
+              <div class="position-relative">
+                <img [src]="topic.imageFile" alt="{{ topic.title }} imageFile" class="img-fluid" width="150">
+                <label for="fileInput" class="file-input-label">
+                  <i class="fas fa-edit"></i> <!-- Font Awesome icon for edit -->
+                  <!-- Actual file input element -->
+                  <input id="fileInput" type="file" #fileInput (change)="onEditFileSelected($event)">
+                </label>
+              </div>
+            </td>
+            <td>{{ topic.createdAt | date:'MMMM d, yyyy, h:mm a' }}</td>
+            <td>{{ topic.updatedAt | date:'MMMM d, yyyy, h:mm a' }}</td>
+            <td class="text-center"> <!-- Center align the actions -->
+              <div class="action-buttons">
+                <button class="btn btn-primary me-2" (click)="updateTopic(topic)">
+                  <i class="fa fa-edit" style="font-size: 16px;"></i> Edit
+                </button>
+                <button class="btn btn-danger" (click)="deleteTopic(topic.id)">
+                  <i class="fa fa-trash" style="font-size: 16px;"></i> Delete
+                </button>
+              </div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- /Table -->
+
+    <!-- Pagination -->
+    <div class="row justify-content-center">
+      <nav aria-label="Page navigation">
+        <ul class="pagination">
+          <!-- Previous page -->
+          <li class="page-item" [class.disabled]="currentPage === 0">
+            <a class="page-link" href="#" (click)="prevPage($event)" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          <!-- Page numbers -->
+          <li class="page-item" *ngFor="let page of pages" [class.active]="currentPage === page - 1">
+            <a class="page-link" href="#" (click)="changePage(page - 1, $event)">{{ page }}</a>
+          </li>
+          <!-- Next page -->
+          <li class="page-item" [class.disabled]="currentPage === totalPages - 1">
+            <a class="page-link" href="#" (click)="nextPage($event)" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Add Topic Button -->
+    <div class="row justify-content-center mt-3">
+      <div class="col-lg-6 text-center">
+        <button type="button" class="btn btn-primary add-topic-btn" data-bs-toggle="modal" data-bs-target="#addTopicModal">
+          Add Topic
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for adding a new topic -->
+  <div class="modal fade" id="addTopicModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add New Topic</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="resetForm()"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Form fields for adding topic -->
+          <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" id="title" [(ngModel)]="newTopic.title">
+          </div>
+          <div class="form-group">
+            <label for="imageFile">Image</label>
+            <input type="file" class="form-control" id="imageFile" (change)="onFileSelected($event)">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="resetForm()">Close</button>
+          <button type="button" class="btn btn-primary" (click)="createTopic()">Add</button>
+        </div>
+      </div>
+    </div>
+  </div>
