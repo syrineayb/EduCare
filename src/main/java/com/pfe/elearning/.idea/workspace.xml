@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="1bed34b3-d0b6-4139-97f9-e5d18790dca1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../../../../.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QuizResult/controller/QuizProgressController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QuizResult/dto/UserQuizProgressResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QuizResult/entity/UserQuizCompletion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QuizResult/repository/UserQuizCompletionRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forum/Message/MessageController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forum/Message/MessageMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forum/Message/MessageRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forum/Message/MessageRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forum/Message/MessageService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forum/answer/AnswerMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forum/answer/dto/ReplyResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../test/java/com/pfe/elearning/MeetingSchedule/service/serviceImpl/MeetingScheduleServiceImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../test/java/com/pfe/elearning/forum/controller/answer/AnswerControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../test/java/com/pfe/elearning/quiz/service/impl/QuizServiceImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../test/java/com/pfe/elearning/topic/controller/TopicControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/QuizResult/controller/QuizProgressController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/QuizResult/dto/UserQuizProgressResponse.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/QuizResult/entity/UserQuizCompletion.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/QuizResult/repository/UserQuizCompletionRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/forum/Message/Message.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/forum/Message/MessageController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/forum/Message/MessageMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/forum/Message/MessageRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/forum/Message/MessageRequest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/forum/Message/MessageResponse$MessageResponseBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/forum/Message/MessageResponse.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/forum/Message/MessageService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/forum/Message/MessageServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/forum/answer/Answer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/forum/answer/AnswerController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/forum/answer/AnswerMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/forum/answer/AnswerRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/forum/answer/AnswerRequest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/forum/answer/AnswerResponse$AnswerResponseBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/forum/answer/AnswerResponse.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/forum/answer/AnswerService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/forum/answer/dto/ReplyResponse$ReplyResponseBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/forum/answer/dto/ReplyResponse.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/forum/answer/serviceImpl/AnswerServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/question/dto/CandidateResponse.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/question/dto/SubmitAnswerRequest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/question/dto/SubmitAnswerResponse$QuestionResult.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/question/dto/SubmitAnswerResponse.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/question/repository/CandidateResponseRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../target/test-classes/com/pfe/elearning/MeetingSchedule/service/serviceImpl/MeetingScheduleServiceImplTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../target/test-classes/com/pfe/elearning/forum/controller/answer/AnswerControllerTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../target/test-classes/com/pfe/elearning/quiz/service/impl/QuizServiceImplTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../target/test-classes/com/pfe/elearning/topic/controller/TopicControllerTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/courseImg/(37) COMMENT FAIRE UNE CAPTURE (ÉCRAN OU VIDÉO) SANS LOGICIEL _  - YouTube - Google Chrome 2024-04-27 01-57-24.mp4" afterPathEscaped="$PROJECT_DIR$/../../../../../../uploads/courseImg/(37) COMMENT FAIRE UNE CAPTURE (ÉCRAN OU VIDÉO) SANS LOGICIEL _ 📸 - YouTube - Google Chrome 2024-04-27 01-57-24.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/courseImg/0e714983-0f2b-4e05-94c8-4eb6e38cd7d9.jfif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/courseImg/64ef47a94e9c500c81c2cf59_scrum_roles_wb5v.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/courseImg/7 Programmation PL-SQL Oracle.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/courseImg/Capture d'écran 2024-04-28 133621.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/courseImg/Capture d'écran 2024-06-19 135235.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/courseImg/Cell-Organelles-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/courseImg/Ch1 - Securite SI et Gestion des risques.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/courseImg/Ch2 - Management de la sécurite des SI et gestion des risques.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/courseImg/Ch3 - Controle d_acces.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/courseImg/Ch4 - Cryptographie Signature Certificat.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/courseImg/Create Quiz from Selected Questions Sequence Diagram.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/courseImg/Diagramme De cas D’Utilisation Du Premier Sprint.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/courseImg/Elearning - Google Chrome 2024-04-27 01-57-50.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/courseImg/Elearning - Google Chrome 2024-04-27 01-58-07.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/courseImg/Elearning - Opera 2024-06-18 15-36-27.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/courseImg/Elearning - Opera 2024-06-19 16-08-09.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/courseImg/Fattura-12_2024-GIGI-GELATI-SRL (2).pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/courseImg/IT _ Information Security Risk Management With Examples _ In Urdu &amp; English (Bilingual).mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/courseImg/IT _ Information Security Risk Management With Examples.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/courseImg/Lecture ITInformation Security Risk Management - Definitions  (Part 24)  In Urdu.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/courseImg/Lecture IT_Information Security Risk Management - Definitions (Part 2_4).mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/courseImg/Lecture IT_Information Security Risk Management with Examples Part (1_4).mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/courseImg/Lecture_ IT_Information Security Risk Management - Types of Risk Assessment _ (Part 3_4) _ Urdu.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/courseImg/Page_de_garde (1).pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/courseImg/Screenshot 27_04_2024 01_55_33.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/courseImg/ScrumFundamentalsCertified-IkramAyoub-1002770 (1).pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/courseImg/bouclier-securite-protection-vie-privee-concept-confidentialite_53876-128097.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/courseImg/c3550398-50c3-4fa7-85bb-6f0dee35c177.jfif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/courseImg/class (5).pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/courseImg/create-schedule-meeting-sequence-diagram (1).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/courseImg/create-schedule-meeting-sequence-diagram.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/courseImg/database-management-systems-raghu-ramakrishnan.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/courseImg/dbms.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/courseImg/download.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/courseImg/forgot-password-scenario.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/courseImg/hmykdwqjgczpcnnjbcnxgxyxpjqqkpqs.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/courseImg/img.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/courseImg/istockphoto-1355324434-612x612.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/courseImg/jitsiMeetingAPIExample_2024-05-15T23_14_50.366Z.webm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/courseImg/laptop-syrine.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/courseImg/maxresdefault.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/courseImg/plsql-inscription-against-laptop-and-code-background-learn-plsql-programming-language-computer-courses-training-2DAW2TE.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/courseImg/rapport-ide-projet-dingenieur.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/courseImg/rapportpfe-vs11.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/courseImg/rapportpfe_master__1_ (7).pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/courseImg/rapportpfe_master__1_.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/courseImg/recorded-audio (5).wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/courseImg/scrum.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/courseImg/sequence diagram - naycem.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/messageFiles/64ef47a94e9c500c81c2cf59_scrum_roles_wb5v.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/messageFiles/Page_de_garde (1).pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/messageFiles/download.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/messageFiles/hmykdwqjgczpcnnjbcnxgxyxpjqqkpqs.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/messageFiles/istockphoto-1355324434-612x612.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/messageFiles/key-principles-information-security.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/messageFiles/maxresdefault.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/messageFiles/rapport_pfe-educare.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/messageFiles/rapportpfe-vs11.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/messageFiles/rapportpfe_master__1_ (7).pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/messageFiles/recorded-audio (5).wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/messageFiles/recorded-audio (6).wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/messageFiles/risks-is.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/messageFiles/scrum-framework-concept-process-diagram-vector-41322233.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/messageFiles/web-development.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/profileImg/att.ndlAUOzDueiLktkS_qZLGDfhVi2is3w4ptYmK9G7MTY.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/profileImg/cv-img1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/profileImg/img.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/profileImg/laptop-syrine.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/topicImg/BigData-topic.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/topicImg/BlockChain-topic.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/topicImg/Capture d'écran 2024-06-19 165748.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/topicImg/CloudComputing-topic.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/topicImg/MachineLearning-topic.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/topicImg/WhatsApp Image 2024-06-21 à 03.34.57_a0f1f491.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/topicImg/WhatsApp Image 2024-06-21 à 03.35.03_49ce93b2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/topicImg/WhatsApp Image 2024-06-21 à 03.35.04_23e7cf1e.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/topicImg/bouclier-securite-protection-vie-privee-concept-confidentialite_53876-128097.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/topicImg/brother.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/topicImg/cybersecurity-topic.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/topicImg/dbms.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/topicImg/istockphoto-1355324434-612x612.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/topicImg/maxresdefault.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/topicImg/recording-mic-icon.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../../uploads/topicImg/web-development.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseEnrollment/dto/CourseEnrollmentMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseEnrollment/dto/CourseEnrollmentMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseEnrollment/dto/CourseEnrollmentResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseEnrollment/dto/CourseEnrollmentResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseEnrollment/service/CourseEnrollmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseEnrollment/service/CourseEnrollmentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseEnrollment/service/courseEnrollmentServiceImpl/courseEnrollmentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/CourseEnrollment/service/courseEnrollmentServiceImpl/courseEnrollmentServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MeetingSchedule/MeetingSchedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/MeetingSchedule/MeetingSchedule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MeetingSchedule/MeetingScheduleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/MeetingSchedule/MeetingScheduleRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MeetingSchedule/controller/MeetingScheduleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MeetingSchedule/controller/MeetingScheduleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MeetingSchedule/dto/MeetingScheduleMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/MeetingSchedule/dto/MeetingScheduleMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MeetingSchedule/dto/MeetingScheduleRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/MeetingSchedule/dto/MeetingScheduleRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MeetingSchedule/dto/MeetingScheduleResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/MeetingSchedule/dto/MeetingScheduleResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MeetingSchedule/service/MeetingScheduleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/MeetingSchedule/service/MeetingScheduleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MeetingSchedule/service/serviceImpl/MeetingScheduleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/MeetingSchedule/service/serviceImpl/MeetingScheduleServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuizResult/service/Impl/QuizResultServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/QuizResult/service/Impl/QuizResultServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuizResult/service/QuizResultService.java" beforeDir="false" afterPath="$PROJECT_DIR$/QuizResult/service/QuizResultService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authentification/service/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/authentification/service/AuthService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/course/controller/CourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/course/controller/CourseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/course/dto/CourseMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/course/dto/CourseMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/course/dto/CourseRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/course/dto/CourseRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/course/repository/CourseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/course/repository/CourseRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/course/service/CourseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/course/service/CourseService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/course/service/serviceImpl/CourseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/course/service/serviceImpl/CourseServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/email/EmailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/email/EmailService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forum/controller/answer/AnswerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/forum/answer/AnswerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forum/controller/discussion/discussionController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/forum/controller/message/MessagesController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/forum/dto/answer/AnswerMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/forum/dto/answer/AnswerRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/forum/answer/AnswerRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forum/dto/answer/AnswerResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/forum/answer/AnswerResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forum/dto/discussion/DiscussionMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/forum/dto/discussion/DiscussionRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/forum/dto/discussion/DiscussionResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/forum/Message/MessageResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forum/dto/message/MessageMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/forum/dto/message/MessageRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/forum/dto/message/MessageResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/forum/entity/Answer.java" beforeDir="false" afterPath="$PROJECT_DIR$/forum/answer/Answer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forum/entity/Discussion.java" beforeDir="false" afterPath="$PROJECT_DIR$/forum/Message/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forum/entity/Forum.java" beforeDir="false" afterPath="$PROJECT_DIR$/forum/entity/Forum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forum/entity/Message.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/forum/repository/AnswerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/forum/answer/AnswerRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forum/repository/DiscussionRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/forum/repository/MessageRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/forum/service/answer/AnswerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/forum/answer/AnswerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forum/service/answer/serviceImpl/AnswerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/forum/answer/serviceImpl/AnswerServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forum/service/discussion/DiscussionService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/forum/service/discussion/ServiceImpl/DiscussionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/forum/Message/MessageServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forum/service/message/MessageService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/forum/service/message/serviceImpl/MessageServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson/entity/Lesson.java" beforeDir="false" afterPath="$PROJECT_DIR$/lesson/entity/Lesson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profile/dto/ProfileMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/profile/dto/ProfileMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profile/dto/ProfileResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/profile/dto/ProfileResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profile/service/impl/ProfileServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/profile/service/impl/ProfileServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quiz/controller/QuizController.java" beforeDir="false" afterPath="$PROJECT_DIR$/quiz/controller/QuizController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quiz/repository/QuizRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/quiz/repository/QuizRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quiz/service/impl/QuizServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/quiz/service/impl/QuizServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/role/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/role/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topic/controller/TopicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/topic/controller/TopicController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topic/service/ServiceImpl/TopicServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/topic/service/ServiceImpl/TopicServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/controller/userController.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/controller/userController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/service/serviceImpl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/user/service/serviceImpl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../test/java/com/pfe/elearning/course/controller/CourseControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../test/java/com/pfe/elearning/course/controller/CourseControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../test/java/com/pfe/elearning/course/dto/CourseMapperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../test/java/com/pfe/elearning/course/dto/CourseMapperTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../test/java/com/pfe/elearning/course/service/serviceImpl/CourseServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../test/java/com/pfe/elearning/course/service/serviceImpl/CourseServiceImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../test/java/com/pfe/elearning/lesson/controller/LessonControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../test/java/com/pfe/elearning/lesson/controller/LessonControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/CourseEnrollment/dto/CourseEnrollmentMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/CourseEnrollment/dto/CourseEnrollmentMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/CourseEnrollment/dto/CourseEnrollmentResponse$CourseEnrollmentResponseBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/CourseEnrollment/dto/CourseEnrollmentResponse$CourseEnrollmentResponseBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/CourseEnrollment/dto/CourseEnrollmentResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/CourseEnrollment/dto/CourseEnrollmentResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/MeetingSchedule/MeetingSchedule.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/MeetingSchedule/MeetingSchedule.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/MeetingSchedule/MeetingScheduleRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/MeetingSchedule/MeetingScheduleRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/MeetingSchedule/controller/MeetingScheduleController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/MeetingSchedule/controller/MeetingScheduleController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/MeetingSchedule/dto/MeetingScheduleMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/MeetingSchedule/dto/MeetingScheduleMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/MeetingSchedule/dto/MeetingScheduleRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/MeetingSchedule/dto/MeetingScheduleRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/MeetingSchedule/dto/MeetingScheduleResponse$MeetingScheduleResponseBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/MeetingSchedule/dto/MeetingScheduleResponse$MeetingScheduleResponseBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/MeetingSchedule/dto/MeetingScheduleResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/MeetingSchedule/dto/MeetingScheduleResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/MeetingSchedule/service/MeetingScheduleService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/MeetingSchedule/service/MeetingScheduleService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/MeetingSchedule/service/serviceImpl/MeetingScheduleServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/MeetingSchedule/service/serviceImpl/MeetingScheduleServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/Option/dto/OptionMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/Option/dto/OptionMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/Option/dto/OptionRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/Option/dto/OptionRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/Option/dto/OptionResponse$OptionResponseBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/Option/dto/OptionResponse$OptionResponseBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/Option/dto/OptionResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/Option/dto/OptionResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/Option/entity/Option.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/Option/entity/Option.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/Option/repository/OptionRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/Option/repository/OptionRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/Option/servise/Impl/OptionServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/Option/servise/Impl/OptionServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/Option/servise/OptionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/Option/servise/OptionService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/QuizResult/repository/QuizResultRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/QuizResult/repository/QuizResultRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/QuizResult/service/Impl/QuizResultServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/QuizResult/service/Impl/QuizResultServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/QuizResult/service/QuizResultService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/QuizResult/service/QuizResultService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/authentification/service/AuthService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/authentification/service/AuthService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/common/PageResponse$PageResponseBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/common/PageResponse$PageResponseBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/common/PageResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/common/PageResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/config/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/config/SecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/course/controller/CourseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/course/controller/CourseController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/course/dto/CourseMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/course/dto/CourseMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/course/dto/CourseRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/course/dto/CourseRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/course/repository/CourseRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/course/repository/CourseRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/course/service/CourseService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/course/service/CourseService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/course/service/serviceImpl/CourseServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/course/service/serviceImpl/CourseServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/email/EmailService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/email/EmailService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/forum/controller/answer/AnswerController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/forum/controller/discussion/discussionController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/forum/controller/message/MessagesController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/forum/dto/answer/AnswerMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/forum/dto/answer/AnswerRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/forum/dto/answer/AnswerResponse$AnswerResponseBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/forum/dto/answer/AnswerResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/forum/dto/discussion/DiscussionMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/forum/dto/discussion/DiscussionRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/forum/dto/discussion/DiscussionResponse$DiscussionResponseBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/forum/dto/discussion/DiscussionResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/forum/dto/message/MessageMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/forum/dto/message/MessageRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/forum/dto/message/MessageResponse$MessageResponseBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/forum/dto/message/MessageResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/forum/entity/Answer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/forum/entity/Discussion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/forum/entity/Forum.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/forum/entity/Forum.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/forum/entity/Message.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/forum/repository/AnswerRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/forum/repository/DiscussionRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/forum/repository/MessageRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/forum/service/answer/AnswerService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/forum/service/answer/serviceImpl/AnswerServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/forum/service/discussion/DiscussionService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/forum/service/discussion/ServiceImpl/DiscussionServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/forum/service/message/MessageService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/forum/service/message/serviceImpl/MessageServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/lesson/entity/Lesson.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/lesson/entity/Lesson.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/profile/dto/ProfileMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/profile/dto/ProfileMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/profile/dto/ProfileResponse$ProfileResponseBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/profile/dto/ProfileResponse$ProfileResponseBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/profile/dto/ProfileResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/profile/dto/ProfileResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/profile/service/impl/ProfileServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/profile/service/impl/ProfileServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/question/controller/QuestionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/question/controller/QuestionController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/question/dto/QuestionCorrect$QuestionCorrectBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/question/dto/QuestionCorrect$QuestionCorrectBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/question/dto/QuestionCorrect.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/question/dto/QuestionCorrect.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/question/dto/QuestionMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/question/dto/QuestionMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/question/dto/QuestionRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/question/dto/QuestionRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/question/dto/QuestionResponse$QuestionResponseBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/question/dto/QuestionResponse$QuestionResponseBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/question/dto/QuestionResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/question/dto/QuestionResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/question/dto/QuestionWrapper$QuestionWrapperBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/question/dto/QuestionWrapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/question/dto/UserQuizScore.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/question/dto/UserResponseQuestion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/question/entity/Question.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/question/entity/Question.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/question/entity/QuestionType.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/question/entity/QuestionType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/question/repository/QuestionRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/question/repository/QuestionRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/question/service/QuestionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/question/service/QuestionService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/question/service/impl/QuestionServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/question/service/impl/QuestionServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/quiz/controller/QuizController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/quiz/controller/QuizController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/quiz/dto/QuizMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/quiz/dto/QuizMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/quiz/dto/QuizRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/quiz/dto/QuizRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/quiz/dto/QuizResponse$QuizResponseBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/quiz/dto/QuizResponse$QuizResponseBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/quiz/dto/QuizResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/quiz/dto/QuizResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/quiz/dto/userScore$userScoreBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/quiz/dto/userScore.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/quiz/entity/Quiz.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/quiz/entity/Quiz.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/quiz/repository/QuizRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/quiz/repository/QuizRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/quiz/service/QuizService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/quiz/service/QuizService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/quiz/service/impl/QuizServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/quiz/service/impl/QuizServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/role/Role.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/role/Role.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/topic/controller/TopicController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/topic/controller/TopicController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/topic/service/ServiceImpl/TopicServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/topic/service/ServiceImpl/TopicServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/user/controller/userController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/user/controller/userController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/user/entity/User$UserBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/user/entity/User$UserBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/user/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/user/entity/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/user/repository/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/user/repository/UserRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/user/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/user/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/user/service/serviceImpl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/classes/com/pfe/elearning/user/service/serviceImpl/UserServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/test-classes/com/pfe/elearning/course/controller/CourseControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/test-classes/com/pfe/elearning/course/controller/CourseControllerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/test-classes/com/pfe/elearning/course/dto/CourseMapperTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/test-classes/com/pfe/elearning/course/dto/CourseMapperTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/test-classes/com/pfe/elearning/course/service/serviceImpl/CourseServiceImplTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/test-classes/com/pfe/elearning/course/service/serviceImpl/CourseServiceImplTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../target/test-classes/com/pfe/elearning/lesson/controller/LessonControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../target/test-classes/com/pfe/elearning/lesson/controller/LessonControllerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../../uploads/messageFiles/recorded-audio.wav" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../../uploads/messageFiles/recorded-audio.wav" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../../../.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 5
+}]]></component>
+  <component name="ProjectId" id="2jLSn9NjrTrl8DtzlBFKSc5q94m" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "educare-pfe",
+    "last_opened_file_path": "C:/Users/syrin/OneDrive/Bureau/PFE/e-learning project vs1/backend",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1bed34b3-d0b6-4139-97f9-e5d18790dca1" name="Changes" comment="" />
+      <created>1721165034134</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1721165034134</updated>
+      <workItem from="1721165044154" duration="66000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

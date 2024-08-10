@@ -1,0 +1,157 @@
+// Import necessary modules and types
+import { Component, OnInit } from '@angular/core';
+import { TopicResponse } from '../../../../models/topic/topic-response';
+import { TopicService } from '../../../../services/topic/topic.service';
+import { ToastrService } from 'ngx-toastr';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+@Component({
+  selector: 'app-list-topic',
+  templateUrl: './list-topic.component.html',
+  styleUrls: ['./list-topic.component.css']
+})
+export class ListTopicComponent implements OnInit {
+  topics: TopicResponse[] = [];
+  filteredTopics: TopicResponse[] = [];
+  currentPage = 0;
+  totalPages = 0;
+  pageSize = 4;
+  pages: number[] = [];
+  newTopicForm!: FormGroup;
+  toastShown = false;
+  searchTerm = '';
+  newTopic: { title: string, imageFile: File | null } = { title: '', imageFile: null };
+  updatedTopic: {  id :number,title: string, imageFile: File | null } = { id:0, title: '', imageFile: null };
+
+  constructor(
+    private topicService: TopicService,
+    private toastr: ToastrService
+  ) {}
+
+  ngOnInit(): void {
+    this.loadTopics();
+  }
+
+
+  loadTopics(): void {
+    this.topicService.getAllTopics(this.currentPage, this.pageSize).subscribe(
+      (response: any) => {
+        this.topics = response;
+
+        this.totalPages = response.totalPages || 0;
+        this.pages = Array.from({ length: this.totalPages }, (_, i) => i + 1);
+        this.filteredTopics = this.topics;
+      },
+      (error: any) => {
+        console.error('Error loading topics:', error);
+        this.showErrorMessage('Failed to fetch topics. Please try again later.');
+      }
+    );
+  }
+
+  applyFilters(): void {
+    this.topicService.findTopicsByTitle(this.searchTerm, 0, 20).subscribe(
+      (response: any) => {
+        this.filteredTopics = response.content || [];
+      },
+      (error: any) => {
+        console.error('Error searching topics', error);
+        this.showErrorMessage('Failed to search topics. Please try again later.');
+      }
+    );
+  }
+
+  onEditFileSelected(event: any): void {
+    const file: File = event.target.files[0];
+    this.updatedTopic.imageFile = file;
+  }
+  onFileSelected(event: any): void {
+    this.updatedTopic.imageFile = event.target.files[0];
+  }
+  createTopic(): void {
+
+    const formData = new FormData();
+    formData.append('title', this.newTopic.title);
+    formData.append('image', this.newTopic.imageFile as File);
+
+    this.topicService.createTopic(formData).subscribe({
+      next: (topicResponse: any) => {
+        console.log('Topic created successfully:', topicResponse);
+        this.showSuccessMessage('Topic created successfully.');
+      },
+      error: (error: any) => {
+        console.error('Error creating topic:', error);
+        this.showErrorMessage('Failed to create topic. Please try again later.');
+      }
+    });
+  }
+
+  updateTopic(): void {
+    const formData = new FormData();
+    formData.append('id', this.updatedTopic.id.toString());
+    formData.append('title', this.updatedTopic.title);
+    if (this.updatedTopic.imageFile) {
+      formData.append('image', this.updatedTopic.imageFile as File);
+    }
+
+    this.topicService.updateTopic(this.updatedTopic.id,formData).subscribe({
+      next: () => {
+        this.showSuccessMessage('Topic updated successfully.');
+        this.updatedTopic = { id: 0, title: '', imageFile: null };
+      },
+      error: (error: any) => {
+        console.error('Error updating topic:', error);
+        this.showErrorMessage('Failed to update topic. Please try again later.');
+      }
+    });
+  }
+
+
+  deleteTopic(topicId: number): void {
+    this.topicService.deleteTopic(topicId).subscribe(
+      () => {
+        console.log('Topic deleted successfully');
+        this.showSuccessMessage('Topic deleted successfully.');
+        this.loadTopics();
+      },
+      (error: any) => {
+        console.error('Error deleting topic:', error);
+        this.showErrorMessage('Failed to delete topic. Please try again later.');
+      }
+    );
+  }
+
+  private showSuccessMessage(message: string): void {
+    this.toastr.success(message, 'Success', {
+      positionClass: 'toast-center-center',
+      toastClass: 'custom-toast-success',
+    });
+  }
+
+  private showErrorMessage(message: string): void {
+    this.toastr.error(message, 'Error', {
+      positionClass: 'toast-center-center',
+      toastClass: 'custom-toast-error',
+    });
+  }
+
+  prevPage(event: Event): void {
+    event.preventDefault();
+    if (this.currentPage > 0) {
+      this.currentPage--;
+      this.loadTopics();
+    }
+  }
+
+  changePage(page: number): void {
+    this.currentPage = page;
+    this.loadTopics();
+  }
+
+  nextPage(): void {
+    if (this.currentPage < this.totalPages - 1) {
+      this.currentPage++;
+      this.loadTopics();
+    }
+  }
+}
